@@ -1,0 +1,6 @@
+Alaska Geologic Map Index Project
+
+There will be two parts to this project
+
+1) RoR Rest interface to serve data from oracle database
+2) ExtJS web front end to show map and search for data records
