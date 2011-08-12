@@ -6,6 +6,10 @@ gem 'rails', '3.0.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'ruby-oci8'
+gem 'activerecord-oracle_enhanced-adapter'
+gem 'nofxx-georuby'
+gem 'awesome_print'
 
 # Use unicorn as the web server
 # gem 'unicorn'
