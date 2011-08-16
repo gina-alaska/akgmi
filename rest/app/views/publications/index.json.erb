@@ -1,0 +1,9 @@
+<% if params[:callback] %>
+<%= params[:callback] + '(' -%>
+<% end %>
+<% cache(:action => 'index', :action_suffix => 'all_publications') do %>
+<%= raw @publications.as_json -%>
+<% end %>
+<% if params[:callback] %>
+<%= ');' -%>
+<% end %>
