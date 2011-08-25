@@ -18,7 +18,7 @@ Ext.application({
   launch: function() {
     App.map = Ext.create('Ext.OpenLayers.Test', {
       renderTo: 'map',
-      height: 400,
+      height: 600,
       title: 'Alaska Geologic Map Index',
       border: false,
       projection: 'aa'
