@@ -271,7 +271,13 @@ body.two-col .default .x-form-field {
   font-weight: bold;
 }
 
-/* line 20, ../sass/partials/_extjs.scss */
+/* line 19, ../sass/partials/_extjs.scss */
+.x-tree-panel .x-grid-row .x-grid-cell-inner img.noicon {
+  display: none;
+  background-image: none;
+}
+
+/* line 25, ../sass/partials/_extjs.scss */
 body.bp th, body.bp td {
   padding: 0;
 }

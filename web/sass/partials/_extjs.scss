@@ -16,6 +16,11 @@
   }
 }
 
+.x-tree-panel .x-grid-row .x-grid-cell-inner img.noicon {
+  display:none;
+  background-image: none;
+}
+
 body.bp {
   th, td {
     padding: 0;
