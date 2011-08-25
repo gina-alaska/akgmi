@@ -1,0 +1,3 @@
+<% cache(:action => 'index', :action_suffix => 'all_quadrangles') do %>
+<%= raw Quadrangle.order('quad_name ASC').all.to_json -%>
+<% end %>

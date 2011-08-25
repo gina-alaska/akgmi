@@ -1,0 +1,2 @@
+module QuadranglesHelper
+end

@@ -1,4 +1,6 @@
 Rest::Application.routes.draw do
+  resources :quadrangles
+
   resources :publications
 
   # The priority is based upon order of creation:
