@@ -27,4 +27,7 @@ class Publication < ActiveRecord::Base
   set_primary_key 'citation_id'
 
   has_one :outline, :foreign_key => 'citation_id'
+
+
+  scope :active, includes(:outline).where("#{Outline.table_name}.CITATION_ID IS NOT NULL")
 end
