@@ -1,0 +1,7 @@
+<% if params[:callback] %>
+<%= params[:callback] + '(' -%>
+<% end %>
+<%= render 'all.json.erb' -%>
+<% if params[:callback] %>
+<%= ');' -%>
+<% end %>

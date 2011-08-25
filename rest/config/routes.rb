@@ -1,4 +1,6 @@
 Rest::Application.routes.draw do
+  resources :themes
+
   resources :quadrangles
 
   resources :publications
