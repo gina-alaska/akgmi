@@ -6,10 +6,18 @@ Ext.define('AKGMI.view.search.Themes', {
   rootVisible: false,
   multiSelect: true,
   checkOnly: false,
+  loadMask: true,
 
   initComponent: function() {
     this.store = Ext.create('Ext.data.TreeStore', {
-      root: { expanded: true, children: App.themes }
+      proxy: {
+        type: 'jsonp',
+        url: App.restUrl + '/themes.js',
+        extraParams: { checked: true },
+        callbackParam: 'callback'
+      },
+      autoLoad: true,
+      root: { expanded: true }
     });
     this.callParent(arguments);
 
