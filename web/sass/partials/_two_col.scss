@@ -22,6 +22,8 @@
 //    +--------+---------------+
 
 body.two-col {
+  h1 { font-size: 30px; }
+
   #container {
     @include container; 
   }
@@ -42,12 +44,16 @@ body.two-col {
     // Two thirds of the grid columns, rounding up.
     // With 24 cols, this is 16.
     $map-columns: ceil(2 * $blueprint-grid-columns / 3);
-    height: 400px;
+    height: 600px;
     @include column($map-columns);
   }
 
   .spacer {
     height: 10px;
     @include column($blueprint-grid-columns, true);
+  }
+
+  .default .x-form-field{
+    color:#555;
   }
 }

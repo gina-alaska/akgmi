@@ -7,7 +7,7 @@
 // when you're using a single/combined stylesheet.
 
 body.bp {
-  @include blueprint-typography(true);
+  /*@include blueprint-typography(true);*/
   @include blueprint-utilities;
   @include blueprint-debug;
   @include blueprint-interaction;

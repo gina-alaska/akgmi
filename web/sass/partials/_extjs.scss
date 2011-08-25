@@ -8,3 +8,16 @@
     font-size: 20px;
   }
 }
+
+.x-btn-default-large {
+  .x-btn-inner {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+body.bp {
+  th, td {
+    padding: 0;
+  }
+}
