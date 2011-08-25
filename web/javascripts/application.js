@@ -8,8 +8,133 @@ Ext.Loader.setConfig({
 });
 
 Ext.define('App', {
-  singleton: true
+  singleton: true,
+  restUrl: 'http://zap.gina.alaska.edu:3000',
+  themes: [{
+    text: 'Geology',
+    checked: false,
+    children: [{
+      text: 'Bedrock Geology',
+      leaf: true,
+      checked: false
+    }, {
+      text: 'Surficial Geology',
+      leaf: true,
+      checked: false
+    }, {
+      text: 'Engineering Geology',
+      leaf: true,
+      checked: false
+    }, {
+      text: 'Derivative Geology',
+      leaf: true,
+      checked: false
+    }]
+  }, {
+    text: 'Resources',
+    checked: false,
+    children: [{
+      text: "Metals, Lode",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Metals, Placer",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Non-Metals",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Geothermal",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Coal",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Petroleum",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Water",
+      leaf: true,
+      checked: false
+    }]
+  }, {
+    text: 'Hazards',
+    checked: false,
+    children: [{
+      text: "Earthquake-related",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Glacier",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Groundwater-related",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Permafrost and periglacial",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Radon",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Slope instability",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Volcano",
+      leaf: true,
+      checked: false
+    }]
+  }, {
+    text: "Geophysics",
+    checked: false,
+    children: [{
+      text: "Magnetics",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Gravity",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Resistivity",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Radiometrics",
+      leaf: true,
+      checked: false
+    }]
+  }, {
+    text: "Other",
+    checked: false,
+    children: [{
+      text: "Geochemistry",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Geochronology",
+      leaf: true,
+      checked: false
+    }, {
+      text: "Paleontology",
+      leaf: true,
+      checked: false
+    }]
+  }]
 });
+
+Ext.require('AKGMI.view.search.Themes');
+Ext.require('Ext.ux.DefaultText');
 
 Ext.application({
   name: 'AKGMI',
@@ -24,66 +149,10 @@ Ext.application({
       projection: 'aa'
     });
 
-    App.sidebar = Ext.create('Ext.form.Panel', {
+    App.sidebar = Ext.create('AKGMI.view.search.Form', {
       border: false,
-      renderTo: 'sidebar',
-      items: [{
-        title: 'Publication Information',
-        border: false,
-        xtype: 'panel',
-        layout: 'anchor',
-        bodyStyle: 'padding-top: 3px;',
-        defaultType: 'textfield',
-        items: [{
-          fieldLabel: 'Publication Keyword Search',
-          name: 'keyword',
-          anchor: '100%'
-        },{
-          fieldLabel: 'Publishing Agency',
-          name: 'agency',
-          anchor: '100%'
-        },{
-          fieldLabel: 'Publication Year',
-          name: 'year',
-          anchor: '100%'
-        },{
-          fieldLabel: 'Quadrangle',
-          name: 'quadrangle',
-          anchor: '100%'
-        },{
-          fieldLabel: 'Scale',
-          name: 'keyword',
-          anchor: '100%'
-        }]
-      },{
-        title: 'Geologic/Geophysical Themes',
-        border: false,
-        xtype: 'panel',
-        layout: 'anchor',
-        bodyStyle: 'padding-top: 3px;',
-        defaultType: 'textfield',
-        items: [{
-          fieldLabel: 'Geology',
-          name: 'keyword',
-          anchor: '100%'
-        },{
-          fieldLabel: 'Resources',
-          name: 'agency',
-          anchor: '100%'
-        },{
-          fieldLabel: 'Hazards',
-          name: 'year',
-          anchor: '100%'
-        },{
-          fieldLabel: 'Geophysics',
-          name: 'quadrangle',
-          anchor: '100%'
-        },{
-          fieldLabel: 'Other',
-          name: 'keyword',
-          anchor: '100%'
-        }]
-      }]
+      height: 600,
+      renderTo: 'sidebar'
     });
 
     App.results = Ext.create('Ext.panel.Panel', {
