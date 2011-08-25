@@ -1,7 +1,9 @@
 Ext.Loader.setConfig({
   enabled: true,
   paths: {
-    'Ext.OpenLayers': 'javascripts/ux/openlayers'
+    'AKGMI': '/javascripts/app',
+    'Ext.OpenLayers': '/javascripts/ux/openlayers',
+    'Ext.ux': '/javascripts/ux'
   }
 });
 
@@ -12,6 +14,7 @@ Ext.define('App', {
 Ext.application({
   name: 'AKGMI',
   autoCreateViewPort: false,
+  appFolder: 'javascripts/app',
   launch: function() {
     App.map = Ext.create('Ext.OpenLayers.Test', {
       renderTo: 'map',
