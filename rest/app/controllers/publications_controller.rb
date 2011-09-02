@@ -10,9 +10,9 @@ class PublicationsController < ApplicationController
       #@publications = @publications.where(:themes => )
     end
 
-    if params[:keyword]
-      ids = Keyword.citation_ids_for(:all, params[:keyword].split(/\s+/))
-      @publications = @publications.where("#{Publication.table_name}.citation_id IN (?)", ids)
+    unless params[:keyword].nil? or params[:keyword].empty?
+      sql = Keyword.subquery(:all, params[:keyword].split(/\s+/))
+      @publications = @publications.where("#{Publication.table_name}.citation_id IN (#{sql})")
     end
 
     respond_with(@publications)

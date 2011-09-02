@@ -1,7 +1,7 @@
 class Keyword < ActiveRecord::Base
   set_table_name 'DGGS_PUBLICATIONS.V_PUBS_KEYWORD_SEARCH'
 
-  def self.citation_ids_for(mode, items)
+  def self.subquery(mode, items)
     search_terms = items.collect(&:downcase)
     search = self.select('DISTINCT CITATION_ID')
 
@@ -9,21 +9,18 @@ class Keyword < ActiveRecord::Base
       when :any
         search = search.where('LOWER(KEYWORD) IN (?)', search_terms)
       when :all
-        first = items.shift
-        search = search.where('LOWER(KEYWORD) LIKE LOWER(?)', first)
+        first = search_terms.shift
+        search = search.where('LOWER(KEYWORD) LIKE (?)', "%#{first}%")
+        
         subquery = Keyword.select('CITATION_ID')
-        items.each do |item|
+        search_terms.each do |item|
           search = search.where(
             'CITATION_ID IN (' +
-              subquery.where('LOWER(KEYWORD) LIKE LOWER(?)', "%#{item}%").to_sql +
+              subquery.where('LOWER(KEYWORD) LIKE (?)', "%#{item}%").to_sql +
             ')'
           )
         end
     end
-    search.collect(&:citation_id)
-  end
-
-  def self.citations_for(items)
-    Publication.active.where('citation_id IN ?', citation_ids_for(items))
+    search.to_sql
   end
 end
