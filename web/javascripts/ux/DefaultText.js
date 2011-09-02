@@ -11,11 +11,10 @@ Ext.define('Ext.ux.DefaultText', {
   },
 
   init: function(field) {
-    var defaultText = this.text;
-
+    field.defaultText = this.text;
     field.setValueWithoutDefault = field.setValue;
     field.setValue = function(v) {
-      if(v == defaultText) {
+      if(v == field.defaultText) {
         this.addCls('default');
       } else {
         this.removeCls('default');
@@ -23,18 +22,19 @@ Ext.define('Ext.ux.DefaultText', {
       return this.setValueWithoutDefault(v);
     }.bind(field);
 
-    field.getValueWithoutCheck = field.getValue;
-    field.getValue = function() {
-      var v = this.getValueWithoutCheck();
-      return (v == defaultText ? '' : v);
-    }.bind(field);
+    field.getSubmitValueWithoutCheck = field.getSubmitValue;
+    field.getSubmitValue = Ext.bind(function() {
+      var me = this;
+      var v = me.getSubmitValueWithoutCheck();
+      return (v == me.defaultText ? '' : v);
+    }, field);
 
     field.addCls('default');
 
     field.on('render', this.setToDefault, this, { delay: 100 });
 
     field.on('focus', function(input) {
-      if(input.getValueWithoutCheck() == defaultText) { input.setValue(''); }
+      if(input.getSubmitValueWithoutCheck() == input.defaultText) { input.setValue(''); }
     }, this);
 
     field.on('blur', this.setToDefault, this);
