@@ -20,7 +20,7 @@ Ext.define('Ext.OpenLayers.Panel', {
   /**
    * Show lat/lon lines and labels on the map
    */
-  enableGraticule: true,
+  enableGraticule: false,
 
   hideMapToolHeaders: false,
 
@@ -309,7 +309,7 @@ Ext.define('Ext.OpenLayers.Panel', {
     }
 
     /* Give the map some time to finish loading */
-    Ext.defer(this.fireEvent, 300, this, ['ready', this]);
+    this.fireEvent('ready', this);
   },
 
   loadingCount: 0,
