@@ -19,10 +19,12 @@ Ext.application({
   name: 'AKGMI',
   autoCreateViewPort: false,
   appFolder: 'javascripts/app',
+  controllers: ['Search'],
+  store: ['Publications'],
   launch: function() {
     App.map = Ext.create('Ext.OpenLayers.Test', {
       renderTo: 'map',
-      height: 600,
+      height: 500,
       title: 'Alaska Geologic Map Index',
       border: false,
       projection: 'aa'
@@ -30,14 +32,16 @@ Ext.application({
 
     App.sidebar = Ext.create('AKGMI.view.search.Form', {
       border: false,
-      height: 600,
+      height: 500,
       renderTo: 'sidebar'
     });
 
-    App.results = Ext.create('Ext.panel.Panel', {
+    App.results = Ext.create('AKGMI.view.search.Results', {
       title: 'Search Results',
+      store: this.getStore('Publications'),
       border: false,
-      html: 'The search results will go here',
+      height: 450,
+      autoScroll: true,
       renderTo: 'results'
     });
   }
