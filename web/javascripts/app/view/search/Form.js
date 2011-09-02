@@ -1,12 +1,13 @@
 Ext.define('AKGMI.view.search.Form', {
   extend: 'Ext.form.Panel',
+  alias: 'widget.search_form',
   layout: {
     type: 'vbox',
     align: 'stretch'
   },
   items: [{
     title: 'Publication Information',
-    flex: 1,
+    flex: 2,
     border: false,
     xtype: 'panel',
     layout: 'anchor',
@@ -53,14 +54,14 @@ Ext.define('AKGMI.view.search.Form', {
       valueField: 'quad_number_dggs'
     },{
       fieldLabel: 'Scale',
-      name: 'keyword',
+      name: 'scale',
       anchor: '100%'
     }]
   },{
     xtype: 'search_themes',
     border: false,
     autoScroll: true,
-    flex: 2
+    flex: 3
   },{
     xtype: 'panel',
     layout: { type: 'hbox' },
@@ -72,7 +73,7 @@ Ext.define('AKGMI.view.search.Form', {
       text: 'Clear',
       scale: 'large'
     }, {
-      flex: 1,
+      flex: 2,
       xtype: 'button',
       text: 'Search',
       scale: 'large'

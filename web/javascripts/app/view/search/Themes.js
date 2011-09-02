@@ -6,7 +6,7 @@ Ext.define('AKGMI.view.search.Themes', {
   rootVisible: false,
   multiSelect: true,
   checkOnly: false,
-  loadMask: true,
+  rootVisible: true,
 
   initComponent: function() {
     this.store = Ext.create('Ext.data.TreeStore', {
@@ -17,7 +17,7 @@ Ext.define('AKGMI.view.search.Themes', {
         callbackParam: 'callback'
       },
       autoLoad: true,
-      root: { expanded: true }
+      root: { text: 'Themes', expanded: true }
     });
     this.callParent(arguments);
 
