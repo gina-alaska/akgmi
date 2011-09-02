@@ -15,6 +15,15 @@ class PublicationsController < ApplicationController
       @publications = @publications.where("#{Publication.table_name}.citation_id IN (#{sql})")
     end
 
+    unless params[:quadrangles].nil? or params[:quadrangles].empty?
+      sql = QuadrangleSearch.subquery(:all, params[:quadrangles])
+      @publications = @publications.where("#{Publication.table_name}.citation_id IN (#{sql})")
+    end
+
+    unless params[:agency].nil? or params[:agency].empty?
+      @publications = @publications.where("LOWER(#{Publication.table_name}.publisher) = LOWER(?)", params[:agency])
+    end
+
     respond_with(@publications)
   end
 
