@@ -31,7 +31,7 @@ body.two-col {
     @include column($blueprint-grid-columns, true);
   }
   #results {
-    @include column($blueprint-grid-columns, true); 
+    @include column($blueprint-grid-columns, true);
   }
   #sidebar {
     // One third of the grid columns, rounding down. With 24 cols, this is 8.
@@ -44,7 +44,7 @@ body.two-col {
     // Two thirds of the grid columns, rounding up.
     // With 24 cols, this is 16.
     $map-columns: ceil(2 * $blueprint-grid-columns / 3);
-    height: 600px;
+    height: 500px;
     @include column($map-columns);
   }
 
@@ -55,5 +55,32 @@ body.two-col {
 
   .default .x-form-field{
     color:#555;
+  }
+
+  .result-wrap {
+    margin-bottom: 10px;
+    font-size: 14px;
+
+    div {
+      margin-bottom: 3px;
+    }
+
+    .title {
+      font-size: 16px;
+      text-decoration: underline;
+    }
+
+    .keywords {
+      font-size: 10px;
+      font-style: italic;
+    }
+
+    .icons img {
+      width: 32px;
+      height: 32px;
+      margin-left: 15px;
+    }
+
+    .body { clear: both; }
   }
 }

@@ -226,7 +226,7 @@ body.two-col #sidebar {
 }
 /* line 43, ../sass/partials/_two_col.scss */
 body.two-col #map {
-  height: 600px;
+  height: 500px;
   display: inline;
   float: left;
   margin-right: 10px;
@@ -251,6 +251,35 @@ body.two-col .spacer {
 /* line 56, ../sass/partials/_two_col.scss */
 body.two-col .default .x-form-field {
   color: #555;
+}
+/* line 60, ../sass/partials/_two_col.scss */
+body.two-col .result-wrap {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+/* line 64, ../sass/partials/_two_col.scss */
+body.two-col .result-wrap div {
+  margin-bottom: 3px;
+}
+/* line 68, ../sass/partials/_two_col.scss */
+body.two-col .result-wrap .title {
+  font-size: 16px;
+  text-decoration: underline;
+}
+/* line 73, ../sass/partials/_two_col.scss */
+body.two-col .result-wrap .keywords {
+  font-size: 10px;
+  font-style: italic;
+}
+/* line 78, ../sass/partials/_two_col.scss */
+body.two-col .result-wrap .icons img {
+  width: 32px;
+  height: 32px;
+  margin-left: 15px;
+}
+/* line 84, ../sass/partials/_two_col.scss */
+body.two-col .result-wrap .body {
+  clear: both;
 }
 
 /* line 1, ../sass/partials/_extjs.scss */
