@@ -7,9 +7,19 @@ Ext.Loader.setConfig({
   }
 });
 
+var fetchRestUrl = function() {
+	var params = Ext.Object.fromQueryString(top.location.search);
+	
+	if(params.proxy) {
+		return 'http://' + params.proxy			
+	} else {
+		return 'http://akgmi-rest.zap.gina.alaska.edu'
+	}
+}
+
 Ext.define('App', {
   singleton: true,
-  restUrl: 'http://akgmi-rest.zap.gina.alaska.edu',
+  restUrl: fetchRestUrl(),
 });
 
 Ext.require('AKGMI.view.search.Themes');
