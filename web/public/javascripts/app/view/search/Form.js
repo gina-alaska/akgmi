@@ -108,6 +108,7 @@ Ext.define('AKGMI.view.search.Form', {
     }]
   },{
     xtype: 'search_themes',
+		store: Ext.create('AKGMI.store.Themes'),
     border: false,
     autoScroll: true,
     flex: 4

@@ -7,20 +7,19 @@ Ext.Loader.setConfig({
   }
 });
 
-var fetchRestUrl = function() {
-	var params = Ext.Object.fromQueryString(top.location.search);
-	
-	if(params.proxy) {
-		return 'http://' + params.proxy			
-	} else {
-		return 'http://akgmi-rest.zap.gina.alaska.edu'
-	}
-}
-
 Ext.define('App', {
   singleton: true,
-  restUrl: fetchRestUrl(),
+  proxyCheck: function() {
+		var params = Ext.Object.fromQueryString(top.location.search);
+		if(params.proxy) { this.config.restUrl = 'http://' + params.proxy }
+	},
+	configure: function() {
+		var me = this;
+		me.config = CONFIG;
+		me.proxyCheck();
+	}
 });
+App.configure();
 
 Ext.require('AKGMI.view.search.Themes');
 Ext.require('Ext.ux.DefaultText');
@@ -30,8 +29,9 @@ Ext.application({
   autoCreateViewPort: false,
   appFolder: 'javascripts/app',
   controllers: ['Search'],
-  store: ['Publications'],
+  store: ['Themes', 'Quadrangles', 'Publications'],
   launch: function() {
+	
     App.map = Ext.create('Ext.OpenLayers.Test', {
       renderTo: 'map',
       height: 500,

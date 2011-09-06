@@ -4,7 +4,7 @@ Ext.define('AKGMI.store.Quadrangles', {
   autoLoad: true,
   proxy: {
     type: 'jsonp',
-    url: App.restUrl + '/quadrangles.js',
+    url: App.config.restUrl + '/quadrangles.js',
     callbackParam: 'callback'
   }
 });
