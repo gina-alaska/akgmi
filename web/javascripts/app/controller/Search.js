@@ -16,6 +16,10 @@ Ext.define('AKGMI.controller.Search', {
           var values = form.getValues();
           values['themes[]'] = [];
 
+//          var quads = values['quadrangle']
+//          delete values['quadrangle']
+//          values['quadrangles[]'] = quads
+
           Ext.each(tree.getChecked(), function(item) {
             values['themes[]'].push(item.get('text'));
           }, this);
@@ -30,7 +34,22 @@ Ext.define('AKGMI.controller.Search', {
           var form = button.up('form');
           form.getForm().reset();
         }
+      },
+      'search_results button[toggleGroup=results-type]': {
+        toggle: this.resultsButtonHandler
       }
     });
+  },
+
+  resultsButtonHandler: function(button) {
+    if(button.pressed) {
+      this.getStore('Publications').clearFilter();
+      if(button.field) {
+        this.getStore('Publications').filter(button.field, true);
+      }
+    } else {
+      var b = button.up('toolbar').down('button[pressed=true]');
+      if(!b) { button.up('toolbar').down('button[text=Show All]').toggle(true); }
+    }
   }
 });

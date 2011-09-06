@@ -76,11 +76,42 @@ body.two-col {
     }
 
     .icons img {
-      width: 32px;
-      height: 32px;
+      width: 35px;
+      height: 35px;
       margin-left: 15px;
     }
 
     .body { clear: both; }
+  }
+
+  .all_sm_icon {
+    background-image: url(/images/icons/all_sm.png);
+  }
+  .report_sm_icon {
+    background-image: url(/images/icons/report_sm.png);
+  }
+  .maps_sm_icon {
+    background-image: url(/images/icons/maps_sm.png);
+  }
+  .digital_data_sm_icon {
+    background-image: url(/images/icons/digital_data_sm.png);
+  }
+  .link_go_sm_icon {
+    background-image: url(/images/icons/link_go_sm.png);
+  }
+  .offline_sm_icon {
+    background-image: url(/images/icons/offline_sm.png);
+  }
+
+  .x-btn-default-toolbar-large-icon-text-top {
+    .x-btn-icon {
+      height: 35px;
+      width: 35px;
+      margin: 0 auto;
+    }
+
+    .x-btn-inner {
+      padding-top: 39px;
+    }
   }
 }

@@ -273,13 +273,47 @@ body.two-col .result-wrap .keywords {
 }
 /* line 78, ../sass/partials/_two_col.scss */
 body.two-col .result-wrap .icons img {
-  width: 32px;
-  height: 32px;
+  width: 35px;
+  height: 35px;
   margin-left: 15px;
 }
 /* line 84, ../sass/partials/_two_col.scss */
 body.two-col .result-wrap .body {
   clear: both;
+}
+/* line 87, ../sass/partials/_two_col.scss */
+body.two-col .all_sm_icon {
+  background-image: url(/images/icons/all_sm.png);
+}
+/* line 90, ../sass/partials/_two_col.scss */
+body.two-col .report_sm_icon {
+  background-image: url(/images/icons/report_sm.png);
+}
+/* line 93, ../sass/partials/_two_col.scss */
+body.two-col .maps_sm_icon {
+  background-image: url(/images/icons/maps_sm.png);
+}
+/* line 96, ../sass/partials/_two_col.scss */
+body.two-col .digital_data_sm_icon {
+  background-image: url(/images/icons/digital_data_sm.png);
+}
+/* line 99, ../sass/partials/_two_col.scss */
+body.two-col .link_go_sm_icon {
+  background-image: url(/images/icons/link_go_sm.png);
+}
+/* line 102, ../sass/partials/_two_col.scss */
+body.two-col .offline_sm_icon {
+  background-image: url(/images/icons/offline_sm.png);
+}
+/* line 107, ../sass/partials/_two_col.scss */
+body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-icon {
+  height: 35px;
+  width: 35px;
+  margin: 0 auto;
+}
+/* line 113, ../sass/partials/_two_col.scss */
+body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
+  padding-top: 39px;
 }
 
 /* line 1, ../sass/partials/_extjs.scss */

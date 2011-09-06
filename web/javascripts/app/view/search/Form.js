@@ -7,7 +7,7 @@ Ext.define('AKGMI.view.search.Form', {
   },
   items: [{
     title: 'Publication Information',
-    flex: 2,
+    flex: 3,
     border: false,
     xtype: 'panel',
     layout: 'anchor',
@@ -27,7 +27,7 @@ Ext.define('AKGMI.view.search.Form', {
       displayField: 'name',
       valueField: 'id'
     },{
-      fieldLabel: 'Year Range',
+      fieldLabel: 'Year(s)',
       xtype: 'fieldcontainer',
       layout: 'hbox',
       labelWidth: 100,
@@ -45,8 +45,10 @@ Ext.define('AKGMI.view.search.Form', {
       }]
     },{
       xtype: 'combobox',
-      fieldLabel: 'Quadrangle',
-      name: 'quadrangle',
+      fieldLabel: 'Quadrangle(s)',
+      plugins: [Ext.create('Ext.ux.DefaultText', { text: 'Select one or more quadrangles' })],
+      name: 'quadrangles[]',
+      multiSelect: true,
       anchor: '100%',
       store: Ext.create('AKGMI.store.Quadrangles'),
       queryMode: 'local',
@@ -54,14 +56,61 @@ Ext.define('AKGMI.view.search.Form', {
       valueField: 'quad_number_dggs'
     },{
       fieldLabel: 'Scale',
-      name: 'scale',
-      anchor: '100%'
+      xtype: 'fieldcontainer',
+      layout: 'hbox',
+      labelWidth: 100,
+      anchor: '100%',
+      items: [{
+        xtype: 'combobox',
+        name: 'scale_from',
+        plugins: [Ext.create('Ext.ux.DefaultText', { text: 'From:' })],
+        store: Ext.create('Ext.data.Store', {
+          fields: ['key', 'display'],
+          data: [
+            { key: 1, display: '1:1' },
+            { key: 24000, display: '1:24,000'},
+            { key: 63600, display: '1:63,600'},
+            { key: 100000, display: '1:100,000'},
+            { key: 250000, display: '1:250,000'},
+            { key: 500000, display: '1:500,000'},
+            { key: 3500000, display: '1:3,500,000'}
+          ]
+        }),
+        displayField: 'display',
+        valueField: 'key',
+        flex: 1
+      }, { xtype: 'splitter' }, {
+        xtype: 'combobox',
+        name: 'scale_to',
+        flex: 1,
+        plugins: [Ext.create('Ext.ux.DefaultText', { text: 'To:' })],
+        store: Ext.create('Ext.data.Store', {
+          fields: ['key', 'display'],
+          data: [
+            { key: 24000, display: '1:24,000'},
+            { key: 63600, display: '1:63,600'},
+            { key: 100000, display: '1:100,000'},
+            { key: 250000, display: '1:250,000'},
+            { key: 500000, display: '1:500,000'},
+            { key: 3500000, display: '1:3,500,000'},
+            { key: 25000000, display: '1:25,000,000'}
+          ]
+        }),
+        displayField: 'display',
+        valueField: 'key',
+      }]
+    }, {
+      fieldLabel: '',
+      hideEmptyLabel: false,
+      xtype: 'checkbox',
+      boxLabel: 'Include Statewide Records',
+      name: 'statewide'
     }]
   },{
     xtype: 'search_themes',
     border: false,
     autoScroll: true,
-    flex: 3
+    flex: 4
   },{
     xtype: 'panel',
     layout: { type: 'hbox' },
