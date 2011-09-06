@@ -28,7 +28,7 @@ Ext.define('AKGMI.controller.Search', {
       'search_form button[text=Clear]': {
         click: function(button) {
           var form = button.up('form');
-          form.submit();
+          form.getForm().reset();
         }
       }
     });
