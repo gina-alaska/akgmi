@@ -1,7 +1,7 @@
 class PublicationsController < ApplicationController
   respond_to :js, :json, :html
 
-  caches_action :show, :expires_in => 1.hour
+  #caches_action :show, :expires_in => 1.hour
 
   def index
     @publications = Publication.active
