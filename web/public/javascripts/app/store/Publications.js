@@ -5,6 +5,7 @@ Ext.define('AKGMI.store.Publications', {
   proxy: {
     type: 'jsonp',
     url: App.config.restUrl + '/publications.js',
-    callbackParam: 'callback'
+    callbackParam: 'callback',
+    timeout: 240000
   }
 })
