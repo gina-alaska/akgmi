@@ -27,7 +27,20 @@ class Publication < ActiveRecord::Base
   set_primary_key 'citation_id'
 
   has_one :outline, :foreign_key => 'citation_id'
+  has_many :outlines, :foreign_key => 'citation_id'
   has_many :keyword_searchs, :class_name => 'Keyword', :foreign_key => 'citation_id'
 
-  scope :active, joins(:outline).where("#{Outline.table_name}.CITATION_ID IS NOT NULL")
+  scope :active, includes(:outlines).where("#{Outline.table_name}.CITATION_ID IS NOT NULL")#.where("#{Outline.table_name}.outline_source = ?", 'Map Outline')
+
+  def as_json(opts = nil)
+    serializable_hash({ :only => [
+        :citation_id, :publication_number, :biblio_ref_long, :publication_year, :publicsher,
+        :map, :report, :disk, :geospatial_data, :outside_link, :keywords
+      ],
+      :methods => [:outlines] })
+  end
+
+  def to_json(opts = nil)
+    serializable_hash({ :include => [:outline] })
+  end
 end
