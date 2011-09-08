@@ -1,8 +1,12 @@
 class Keyword < ActiveRecord::Base
   set_table_name 'DGGS_PUBLICATIONS.V_PUBS_KEYWORD_SEARCH'
 
+  def self.sanitize(items)
+    items.collect(&:downcase)
+  end
+
   def self.subquery(mode, items)
-    search_terms = items.collect(&:downcase)
+    search_terms = sanitize(items)
     search = self.select('DISTINCT CITATION_ID')
 
     case mode.to_sym
