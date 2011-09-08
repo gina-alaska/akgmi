@@ -8,6 +8,20 @@ Ext.define('AKGMI.model.Publication', {
     { name: 'report', convert: as_bool },
     { name: 'disk', convert: as_bool },
     { name: 'geospatial_data', convert: as_bool },
-    { name: 'outside_link', convert: as_bool }
+    { name: 'outside_link', convert: as_bool },
+    {
+      name: 'outlines',
+      convert: function(v, r) {
+        var wkt = new OpenLayers.Format.WKT();
+        var features = [];
+
+        Ext.each(v, function(item) {
+          var feature = wkt.read(item.wkt);
+          features.push(feature);
+        }, this);
+
+        return features;
+      }
+    }
   ]
 });

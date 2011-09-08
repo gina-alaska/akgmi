@@ -32,12 +32,20 @@ Ext.application({
   store: ['Themes', 'Quadrangles', 'Publications'],
   launch: function() {
 	
-    App.map = Ext.create('Ext.OpenLayers.Test', {
+    App.map = Ext.create('Ext.OpenLayers.Basic', {
       renderTo: 'map',
       height: 500,
       title: 'Alaska Geologic Map Index',
       border: false,
-      projection: 'aa'
+      projection: 'aa',
+      listeners: {
+        'ready': function(map) {
+          map.outlines = new OpenLayers.Layer.Vector('Outlines', {
+            isBaseLayer: false
+          });
+          map.getMap().addLayer(map.outlines);
+        }
+      }
     });
 
     App.sidebar = Ext.create('AKGMI.view.search.Form', {

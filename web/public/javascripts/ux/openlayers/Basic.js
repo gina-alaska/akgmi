@@ -1,4 +1,4 @@
-Ext.define('Ext.OpenLayers.Test', {
+Ext.define('Ext.OpenLayers.Basic', {
   extend: 'Ext.panel.Panel',
 
   config: {
@@ -14,7 +14,7 @@ Ext.define('Ext.OpenLayers.Test', {
       defaultZoom: 3,
       defaultLayers: ['bdl_polar'],
       maxExtent: new OpenLayers.Bounds(-6010000, -6010000, 6010000, 6010000),
-      zoomLevels: 18,
+      numZoomLevels: 18,
       maxResolution: (6010000 * 2.0 / 256.0),
       units: 'm',
       projection: "EPSG:3572",
@@ -25,7 +25,7 @@ Ext.define('Ext.OpenLayers.Test', {
       defaultZoom: 2,
       defaultLayers: ['bdl_aa'],
       maxExtent: new OpenLayers.Bounds(-3500000, -3500000, 3500000, 3500000),
-      zoomLevels: 18,
+      numZoomLevels: 18,
       maxResolution: (3500000 * 2.0 / 256.0),
       units: 'm',
       projection: "EPSG:3338",
@@ -34,7 +34,7 @@ Ext.define('Ext.OpenLayers.Test', {
     'google': {
       defaultCenter: new OpenLayers.LonLat(-147.849, 64.856),
       defaultZoom: 3,
-      zoomLevels: 18,
+      numZoomLevels: 18,
       defaultLayers: ['bdl', 'charts', 'topo', 'shaded_relief', 'landsat_pan'],
       projection: "EPSG:900913",
       units: 'm',

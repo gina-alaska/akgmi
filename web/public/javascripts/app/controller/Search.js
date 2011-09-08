@@ -5,12 +5,16 @@ Ext.define('AKGMI.controller.Search', {
   stores: ['AKGMI.store.Publications'],
 
   init: function() {
+    this.getStore('Publications').on('datachanged', this.searchLoaded, this);
+
     this.control({
       'search_form search_themes': {
         itemclick: function() { this.getStore('Publications').filter('123') }
       },
       'search_form button[text=Search]': {
         click: function(button) {
+          this.getStore('Publications').removeAll();
+
           var form = button.up('form');
           var tree = form.down('treepanel');
           var values = form.getValues();
@@ -31,6 +35,8 @@ Ext.define('AKGMI.controller.Search', {
       },
       'search_form button[text=Clear]': {
         click: function(button) {
+          this.getStore('Publications').removeAll();
+          
           var form = button.up('form');
           form.getForm().reset();
         }
@@ -49,7 +55,16 @@ Ext.define('AKGMI.controller.Search', {
       }
     } else {
       var b = button.up('toolbar').down('button[pressed=true]');
-      if(!b) { button.up('toolbar').down('button[text=Show All]').toggle(true); }
+      if(!b) { button.up('toolbar').down('button[text=Any Type]').toggle(true); }
     }
+  },
+
+  searchLoaded: function(store) {
+    var features = [];
+
+    App.map.outlines.removeAllFeatures();
+    store.each(function(item) {
+      App.map.outlines.addFeatures(item.get('outlines'));
+    }, this);
   }
 });
