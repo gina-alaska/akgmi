@@ -9,31 +9,39 @@ Ext.define('Ext.OpenLayers.Layers', {
       type: 'tiles',
       baseUrl: 'http://swmha.gina.alaska.edu/tilesrv/bdl/tile/',
       wrapDateLine: true,
-      transitionEffect: 'resize'
+      isBaseLayer: true
     },
     charts: {
       name: 'NOAA Charts',
       type: 'tiles',
       baseUrl: 'http://swmha.gina.alaska.edu/tilesrv/charts/tile/',
-      wrapDateLine: true
+      wrapDateLine: true,
+      isBaseLayer: true
+
     },
     topo: {
       name: 'Topographic DRG',
       type: 'tiles',
       baseUrl: 'http://swmha.gina.alaska.edu/tilesrv/drg/tile/',
-      wrapDateLine: true
+      wrapDateLine: true,
+      isBaseLayer: true
+
     },
     shaded_relief: {
       name: 'Shaded Relief',
       type: 'tiles',
       baseUrl: 'http://swmha.gina.alaska.edu/tilesrv/shaded_relief_ned/tile/',
-      wrapDateLine: true
+      wrapDateLine: true,
+      isBaseLayer: true
+
     },
     landsat_pan: {
       name: 'Landsat Pan',
       type: 'tiles',
       baseUrl: 'http://swmha.gina.alaska.edu/tilesrv/landsat_pan/tile/',
-      wrapDateLine: true
+      wrapDateLine: true,
+      isBaseLayer: true
+
     },
     landownership: {
       name: 'Land Ownerships',
@@ -52,12 +60,16 @@ Ext.define('Ext.OpenLayers.Layers', {
       name: 'Best Data Layer',
       type: 'tiles',
       baseUrl: 'http://swmha.gina.alaska.edu/tilesrv/bdl_esri_test/tile/',
-      wrapDateLine: false
+      wrapDateLine: false,
+      isBaseLayer: true
+
     },
     bdl_polar: {
       name: 'Best Data Layer (EPSG:3572)',
       type: 'tiles',
-      baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/bdl_polar/tile/'
+      baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/bdl_polar/tile/',
+      isBaseLayer: true
+
     },
     bdl_polar_wms: {
       name: 'Best Data Layer (EPSG:3572)',
@@ -98,6 +110,27 @@ Ext.define('Ext.OpenLayers.Layers', {
         wrapDateLine: false,
         isBaseLayer: false
       }
+    },
+    osm_base: {
+      name: 'Open Street Maps - Base',
+      type: 'tiles',
+      baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/osm/tile/',
+      wrapDateLine: false,
+      isBaseLayer: true
+    },
+    osm_google_overlay: {
+      name: 'Open Street Maps',
+      type: 'tiles',
+      baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/osm-google-ol/tile/',
+      wrapDateLine: false,
+      isBaseLayer: false
+    },
+    osm_overlay: {
+      name: 'Open Street Maps',
+      type: 'tiles',
+      baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/osm-ol/tile/',
+      wrapDateLine: false,
+      isBaseLayer: false
     }
   },
 
@@ -125,7 +158,8 @@ Ext.define('Ext.OpenLayers.Layers', {
     return new OpenLayers.Layer.TMS(this.layer_configs[name].name, this.layer_configs[name].baseUrl, {
       'type': 'jpeg',
       'getURL': this.getUrl,
-      'wrapDateLine': this.layer_configs[name].wrapDateLine
+      'wrapDateLine': this.layer_configs[name].wrapDateLine,
+      'isBaseLayer': this.layer_configs[name].isBaseLayer
     });
   },
 

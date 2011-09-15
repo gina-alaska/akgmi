@@ -23,7 +23,7 @@ Ext.define('Ext.OpenLayers.Basic', {
     'aa': {
       defaultCenter: new OpenLayers.LonLat(-147.849, 64.856),
       defaultZoom: 2,
-      defaultLayers: ['bdl_aa'],
+      defaultLayers: ['bdl_aa', 'osm_google_overlay'],
       maxExtent: new OpenLayers.Bounds(-3500000, -3500000, 3500000, 3500000),
       numZoomLevels: 18,
       maxResolution: (3500000 * 2.0 / 256.0),
