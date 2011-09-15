@@ -1,7 +1,7 @@
 <% if params[:callback] %>
 <%= params[:callback] + '(' -%>
 <% end %>
-<%= raw @publications.to_json -%>
+<%= raw @publications.as_json.to_json -%>
 <% if params[:callback] %>
 <%= ');' -%>
 <% end %>

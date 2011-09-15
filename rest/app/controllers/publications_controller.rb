@@ -1,7 +1,7 @@
 class PublicationsController < ApplicationController
   respond_to :js, :json, :html
 
-  caches_action :show, :expires_in => 1.hour
+  #caches_action :show, :expires_in => 1.hour
 
   def index
     @publications = Publication.active
@@ -15,7 +15,8 @@ class PublicationsController < ApplicationController
       @publications = @publications.where("#{Publication.table_name}.citation_id IN (#{sql})")
     end
 
-    unless params[:quadrangles].nil? or params[:quadrangles].empty?
+    quads = params[:quadrangles].map {|v| v.empty? ? nil : v }.compact if params[:quadrangles]
+    unless quads.nil? or quads.empty?
       sql = QuadrangleSearch.subquery(:all, params[:quadrangles])
       @publications = @publications.where("#{Publication.table_name}.citation_id IN (#{sql})")
     end
@@ -24,7 +25,14 @@ class PublicationsController < ApplicationController
       @publications = @publications.where("LOWER(#{Publication.table_name}.publisher) = LOWER(?)", params[:agency])
     end
 
-    respond_with(@publications)
+    unless params[:year_from].nil? or params[:year_from].empty?
+      @publications = @publications.where("publication_year >= ?", params[:year_from])
+    end
+    unless params[:year_to].nil? or params[:year_to].empty?
+      @publications = @publications.where("publication_year <= ?", params[:year_to])
+    end
+
+    respond_with(@publications.all.uniq!)
   end
 
   def show
