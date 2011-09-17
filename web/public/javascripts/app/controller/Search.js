@@ -37,7 +37,7 @@ Ext.define('AKGMI.controller.Search', {
       }
     } else {
       var b = button.up('toolbar').down('button[pressed=true]');
-      if(!b) { button.up('toolbar').down('button[text=Any Type]').toggle(true); }
+      if(!b) { button.up('toolbar').down('button[action=any]').toggle(true); }
     }
   },
 
