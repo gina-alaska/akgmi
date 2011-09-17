@@ -7,5 +7,5 @@ Ext.define('AKGMI.store.Themes', {
     callbackParam: 'callback'
   },
   autoLoad: true,
-  root: { text: 'Themes', expanded: true }
+  root: { text: 'Geologic/Geophysical Themes', expanded: true }
 });
