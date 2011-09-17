@@ -14,7 +14,7 @@ Ext.define('AKGMI.view.search.Form', {
     defaultType: 'textfield',
     items:[{
       xtype: 'combobox',
-      fieldLabel: 'Agency',
+      fieldLabel: CONFIG.get('search_form.agency'),
       name: 'agency',
       anchor: '100%',
       store: Ext.create('AKGMI.store.Agencies'),
@@ -22,7 +22,7 @@ Ext.define('AKGMI.view.search.Form', {
       displayField: 'name',
       valueField: 'id'
     },{
-      fieldLabel: 'Year(s)',
+      fieldLabel: CONFIG.get('search_form.years'),
       xtype: 'fieldcontainer',
       layout: 'hbox',
       labelWidth: 100,
@@ -40,8 +40,8 @@ Ext.define('AKGMI.view.search.Form', {
       }]
     },{
       xtype: 'combobox',
-      fieldLabel: 'Quadrangle(s)',
-      plugins: [Ext.create('Ext.ux.DefaultText', { text: 'Select one or more quadrangles' })],
+      fieldLabel: CONFIG.get('search_form.quadrangles'),
+      plugins: [Ext.create('Ext.ux.DefaultText', { text: CONFIG.get('search_form.quadrangles_default') })],
       name: 'quadrangles[]',
       multiSelect: true,
       anchor: '100%',
@@ -50,7 +50,7 @@ Ext.define('AKGMI.view.search.Form', {
       displayField: 'quad_name',
       valueField: 'quad_number_dggs'
     },{
-      fieldLabel: 'Scale',
+      fieldLabel: CONFIG.get('search_form.scale'),
       xtype: 'fieldcontainer',
       layout: 'hbox',
       labelWidth: 100,
@@ -58,18 +58,10 @@ Ext.define('AKGMI.view.search.Form', {
       items: [{
         xtype: 'combobox',
         name: 'scale_from',
-        plugins: [Ext.create('Ext.ux.DefaultText', { text: 'From:' })],
+        plugins: [Ext.create('Ext.ux.DefaultText', { text: CONFIG.get('search_form.scale_from_default') })],
         store: Ext.create('Ext.data.Store', {
           fields: ['key', 'display'],
-          data: [
-            { key: 1, display: '1:1' },
-            { key: 24000, display: '1:24,000'},
-            { key: 63600, display: '1:63,600'},
-            { key: 100000, display: '1:100,000'},
-            { key: 250000, display: '1:250,000'},
-            { key: 500000, display: '1:500,000'},
-            { key: 3500000, display: '1:3,500,000'}
-          ]
+          data: CONFIG.get('search_form.scale_from')
         }),
         displayField: 'display',
         valueField: 'key',
@@ -78,18 +70,10 @@ Ext.define('AKGMI.view.search.Form', {
         xtype: 'combobox',
         name: 'scale_to',
         flex: 1,
-        plugins: [Ext.create('Ext.ux.DefaultText', { text: 'To:' })],
+        plugins: [Ext.create('Ext.ux.DefaultText', { text: CONFIG.get('search_form.scale_to_default') })],
         store: Ext.create('Ext.data.Store', {
           fields: ['key', 'display'],
-          data: [
-            { key: 24000, display: '1:24,000'},
-            { key: 63600, display: '1:63,600'},
-            { key: 100000, display: '1:100,000'},
-            { key: 250000, display: '1:250,000'},
-            { key: 500000, display: '1:500,000'},
-            { key: 3500000, display: '1:3,500,000'},
-            { key: 25000000, display: '1:25,000,000'}
-          ]
+          data: CONFIG.get('search_form.scale_to')
         }),
         displayField: 'display',
         valueField: 'key',
@@ -98,7 +82,7 @@ Ext.define('AKGMI.view.search.Form', {
       fieldLabel: '',
       hideEmptyLabel: false,
       xtype: 'checkbox',
-      boxLabel: 'Include Statewide Records',
+      boxLabel: CONFIG.get('search_form.statewide'),
       name: 'statewide'
     }]
   },{

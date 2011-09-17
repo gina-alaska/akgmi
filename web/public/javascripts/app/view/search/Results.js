@@ -13,27 +13,33 @@ Ext.define('AKGMI.view.search.Results', {
       enableToggle: true, toggleGroup: 'results-type'
     },
     items: [{
-      text: 'Any Type',
+			action: 'any',
+      text: CONFIG.get('results.any_type'),
       iconCls: 'all_sm_icon',
       pressed: true
     }, {
-      text: 'Reports',
+			action: 'reports',
+      text: CONFIG.get('results.reports'),
       iconCls: 'report_sm_icon',
       field: 'report'
     }, {
-      text: 'Maps',
+			action: 'maps',
+      text: CONFIG.get('results.maps'),
       iconCls: 'maps_sm_icon',
       field: 'map'
     }, {
-      text: 'Geospatial',
+			action: 'geospatial',
+      text: CONFIG.get('results.geospatial'),
       iconCls: 'digital_data_sm_icon',
       field: 'geospatial_data'
     }, {
-      text: 'Outside Links',
+			action: 'outside_links',
+      text: CONFIG.get('results.outside_links'),
       iconCls: 'link_go_sm_icon',
       field: 'outside_link'
     }, {
-      text: 'CD/DVD',
+			action: 'cd_dvd',
+      text: CONFIG.get('results.cd_dvd'),
       iconCls: 'offline_sm_icon',
       field: 'disk'
     }]

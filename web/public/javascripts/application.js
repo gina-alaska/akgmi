@@ -53,25 +53,20 @@ Ext.application({
 			margin: '0 0 3 0',
 			border: false
 		});
-
     App.sidebar = Ext.create('AKGMI.view.search.Form', {
       border: true,
 			width: 350,
 			margins: '0 0 0 3',
 			bodyStyle: 'padding: 3px;',
 			region: 'east',
-			// split: true,
-			// collapseMode: 'mini',
-			// collapseDirection: 'right',
 			collapsible: true,
 			collapsed: true,
-			// hideCollapseTool: true,
-			title: CONFIG.getText('search_form.title'),
+			title: CONFIG.get('search_form.title'),
 			preventHeader: true
     });
 
     App.results = Ext.create('AKGMI.view.search.Results', {
-      title: 'Search Results',
+      title: CONFIG.get('results.title'),
       store: this.getStore('Publications'),
       border: false,
       autoScroll: true,

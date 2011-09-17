@@ -12,18 +12,18 @@ Ext.define('AKGMI.view.search.Toolbar', {
 		name: 'keyword',
 		plugins: [
 			Ext.create('Ext.ux.DefaultText', { 
-				text: CONFIG.getText('search_form.keyword_default') 
+				text: CONFIG.get('search_form.keyword_default') 
 			})
 		],
 		flex: 1
 	}, {
 		xtype: 'button', scale: 'medium',
-		text: CONFIG.getText('search_form.search_button'),
+		text: CONFIG.get('search_form.search_button'),
 		action: 'search'
 	}, {
 		margin: '0 0 0 5',
 		xtype: 'button', scale: 'medium',
-		text: CONFIG.getText('search_form.advanced_button'),
+		text: CONFIG.get('search_form.advanced_button'),
 		action: 'toggleAdvanced'
 	}]
 });
