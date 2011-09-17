@@ -6,6 +6,7 @@
   .x-panel-header-text {
     line-height: 24px;
     font-size: 20px;
+	margin-top: 0;
   }
 }
 
@@ -19,6 +20,10 @@
 .x-tree-panel .x-grid-row .x-grid-cell-inner img.noicon {
   display:none;
   background-image: none;
+}
+
+#viewport .x-layout-split-bottom {
+	display:none;
 }
 
 body.bp {
