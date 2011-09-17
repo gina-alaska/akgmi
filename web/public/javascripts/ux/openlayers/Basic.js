@@ -3,13 +3,15 @@ Ext.define('Ext.OpenLayers.Basic', {
 
   config: {
     map: null,
-    projection: 'aa'
+    projection: 'EPSG:3338'
   },
-
   mapConfig: {},
 
   projections: {
-    'polar': {
+		/**
+		 * Alaska centric polar projection
+		 */
+    'EPSG:3572': {
       defaultCenter: new OpenLayers.LonLat(-147.849, 64.856),
       defaultZoom: 3,
       defaultLayers: ['bdl_polar'],
@@ -20,7 +22,10 @@ Ext.define('Ext.OpenLayers.Basic', {
       projection: "EPSG:3572",
       displayProjection: new OpenLayers.Projection("EPSG:4326")
     },
-    'aa': {
+		/**
+		 * Alaskan Albers Equal Area
+		 */
+    'EPSG:3338': {
       defaultCenter: new OpenLayers.LonLat(-147.849, 64.856),
       defaultZoom: 2,
       defaultLayers: ['bdl_aa', 'osm_google_overlay'],
@@ -31,6 +36,9 @@ Ext.define('Ext.OpenLayers.Basic', {
       projection: "EPSG:3338",
       displayProjection: new OpenLayers.Projection("EPSG:4326")
     },
+		/*
+			TODO find the espg code for the google projections
+		*/
     'google': {
       defaultCenter: new OpenLayers.LonLat(-147.849, 64.856),
       defaultZoom: 3,
@@ -61,7 +69,6 @@ Ext.define('Ext.OpenLayers.Basic', {
 
   initMap: function() {
     this.map = new OpenLayers.Map(this.body.dom, this.mapConfig);
-
     this.initLayers();
 
     var center = this.mapConfig.defaultCenter.clone();

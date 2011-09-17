@@ -34,7 +34,7 @@ Ext.application({
     App.map = Ext.create('Ext.OpenLayers.Basic', {
 			region: 'center',
       border: true,
-      projection: 'aa',
+      projection: 'EPSG:3338',
 			margin: '0 0 0 0',
       listeners: {
         'ready': function(map) {
