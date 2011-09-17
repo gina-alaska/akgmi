@@ -1,3 +1,7 @@
+/**
+ * Layers definitions for AKGMI
+ * Only works with openlayers 2.11 due to the use of the new Layers.XYZ class
+ */
 Ext.define('Ext.OpenLayers.Layers', {
   "map": null,
 
@@ -155,12 +159,15 @@ Ext.define('Ext.OpenLayers.Layers', {
   },
 
   imageMapType: function(name) {
-    return new OpenLayers.Layer.TMS(this.layer_configs[name].name, this.layer_configs[name].baseUrl, {
-      'type': 'jpeg',
-      'getURL': this.getUrl,
-      'wrapDateLine': this.layer_configs[name].wrapDateLine,
-      'isBaseLayer': this.layer_configs[name].isBaseLayer
-    });
+    return new OpenLayers.Layer.XYZ(
+				this.layer_configs[name].name, 
+				this.layer_configs[name].baseUrl + "${x}/${y}/${z}", {
+      		'type': 'jpeg',
+					'transitionEffect': 'resize',
+      		'wrapDateLine': this.layer_configs[name].wrapDateLine,
+      		'isBaseLayer': this.layer_configs[name].isBaseLayer
+    		}
+		);
   },
 
   wmsMapType: function(name) {
