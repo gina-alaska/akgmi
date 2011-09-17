@@ -2,7 +2,6 @@ Ext.define('AKGMI.view.search.Themes', {
   extend: 'Ext.tree.Panel',
   alias: 'widget.search_themes',
 
-  title: 'Geologic/Geophysical Themes',
   rootVisible: false,
   multiSelect: true,
   checkOnly: false,
@@ -10,7 +9,6 @@ Ext.define('AKGMI.view.search.Themes', {
 
   initComponent: function() {
     this.callParent(arguments);
-
     this.on('itemclick', this.clickHandler, this);
   },
 

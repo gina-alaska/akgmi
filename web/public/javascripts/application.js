@@ -31,15 +31,15 @@ Ext.application({
   controllers: ['Search'],
   store: ['Themes', 'Quadrangles', 'Publications'],
   launch: function() {
-	
     App.map = Ext.create('Ext.OpenLayers.Basic', {
-      renderTo: 'map',
-      height: 500,
-      title: 'Alaska Geologic Map Index',
-      border: false,
+			region: 'center',
+      border: true,
       projection: 'aa',
+			margin: '0 0 0 0',
       listeners: {
         'ready': function(map) {
+					map.getMap().addControl(new OpenLayers.Control.LayerSwitcher());
+					
           map.outlines = new OpenLayers.Layer.Vector('Outlines', {
             isBaseLayer: false
           });
@@ -48,19 +48,46 @@ Ext.application({
       }
     });
 
+		App.search_toolbar = Ext.create('AKGMI.view.search.Toolbar', {
+			region: 'north',
+			margin: '0 0 3 0',
+			border: false
+		});
+
     App.sidebar = Ext.create('AKGMI.view.search.Form', {
-      border: false,
-      height: 500,
-      renderTo: 'sidebar'
+      border: true,
+			width: 350,
+			margins: '0 0 0 3',
+			bodyStyle: 'padding: 3px;',
+			region: 'east',
+			// split: true,
+			// collapseMode: 'mini',
+			// collapseDirection: 'right',
+			collapsible: true,
+			collapsed: true,
+			// hideCollapseTool: true,
+			title: CONFIG.getText('search_form.title'),
+			preventHeader: true
     });
 
     App.results = Ext.create('AKGMI.view.search.Results', {
       title: 'Search Results',
       store: this.getStore('Publications'),
       border: false,
-      height: 450,
       autoScroll: true,
+			autoHeight: true,
       renderTo: 'results'
     });
+
+		App.viewport = Ext.create('Ext.panel.Panel', {
+			id: 'viewport',
+    	layout: 'border',
+			renderTo: 'content',
+			cls: 'no-background',
+			border: false,			
+			autoHeight: true,
+			height: 500,
+    	items: [App.search_toolbar, App.map, App.sidebar]
+		});
   }
 });

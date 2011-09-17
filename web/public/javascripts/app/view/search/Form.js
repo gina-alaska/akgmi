@@ -6,18 +6,13 @@ Ext.define('AKGMI.view.search.Form', {
     align: 'stretch'
   },
   items: [{
-    title: 'Publication Information',
     flex: 3,
     border: false,
     xtype: 'panel',
     layout: 'anchor',
     bodyStyle: 'padding-top: 3px;',
     defaultType: 'textfield',
-    items: [{
-      fieldLabel: 'Keyword',
-      name: 'keyword',
-      anchor: '100%'
-    },{
+    items:[{
       xtype: 'combobox',
       fieldLabel: 'Agency',
       name: 'agency',
@@ -121,12 +116,14 @@ Ext.define('AKGMI.view.search.Form', {
       flex: 1,
       xtype: 'button',
       text: 'Clear',
-      scale: 'large'
+      scale: 'large',
+			action: 'reset'
     }, {
       flex: 2,
       xtype: 'button',
       text: 'Search',
-      scale: 'large'
+      scale: 'large',
+			action: 'search'
     }]
   }]
 });

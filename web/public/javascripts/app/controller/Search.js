@@ -11,39 +11,21 @@ Ext.define('AKGMI.controller.Search', {
       'search_form search_themes': {
         itemclick: function() { this.getStore('Publications').filter('123') }
       },
-      'search_form button[text=Search]': {
-        click: function(button) {
-          this.getStore('Publications').removeAll();
-
-          var form = button.up('form');
-          var tree = form.down('treepanel');
-          var values = form.getValues();
-          values['themes[]'] = [];
-
-//          var quads = values['quadrangle']
-//          delete values['quadrangle']
-//          values['quadrangles[]'] = quads
-
-          Ext.each(tree.getChecked(), function(item) {
-            values['themes[]'].push(item.get('text'));
-          }, this);
-
-          this.getStore('Publications').load({
-            params: values
-          });
-        }
-      },
-      'search_form button[text=Clear]': {
-        click: function(button) {
-          this.getStore('Publications').removeAll();
-          
-          var form = button.up('form');
-          form.getForm().reset();
-        }
+      'search_form button[action=search]': {
+        click: this.doSearch
+			},
+      'search_form button[action=reset]': {
+        click: this.resetForm
       },
       'search_results button[toggleGroup=results-type]': {
         toggle: this.resultsButtonHandler
-      }
+      },
+			'search_toolbar button[action=toggleAdvanced]': {
+				click: this.toggleAdvanced
+			},
+			'search_toolbar button[action=search]': {
+				click: this.doSearch
+			}
     });
   },
 
@@ -59,6 +41,39 @@ Ext.define('AKGMI.controller.Search', {
     }
   },
 
+	resetForm: function(button) {
+    this.getStore('Publications').removeAll();
+    var tb = Ext.ComponentQuery.query('search_toolbar')[0];
+		tb.down('textfield').setValue(null);
+    var form = button.up('form');
+    form.getForm().reset();
+  },
+
+	doSearch: function() {
+      this.getStore('Publications').removeAll();
+
+      var form = Ext.ComponentQuery.query('search_form')[0];
+      var tree = form.down('treepanel');
+      var values = form.getValues();
+			var tb = Ext.ComponentQuery.query('search_toolbar')[0];
+			var keyword = tb.down('textfield').getValue();
+			
+			values['keyword'] = keyword;			
+      values['themes[]'] = [];
+
+//          var quads = values['quadrangle']
+//          delete values['quadrangle']
+//          values['quadrangles[]'] = quads
+
+      Ext.each(tree.getChecked(), function(item) {
+        values['themes[]'].push(item.get('text'));
+      }, this);
+
+      this.getStore('Publications').load({
+        params: values
+      });		
+	},
+
   searchLoaded: function(store) {
     var features = [];
 
@@ -66,5 +81,9 @@ Ext.define('AKGMI.controller.Search', {
     store.each(function(item) {
       App.map.outlines.addFeatures(item.get('outlines'));
     }, this);
-  }
+  },
+	toggleAdvanced: function() {
+		var tb = Ext.ComponentQuery.query('search_form')[0];
+		tb.toggleCollapse();
+	}
 });

@@ -68,8 +68,9 @@ Ext.define('Ext.OpenLayers.Basic', {
     center.transform(this.map.displayProjection, this.map.getProjectionObject());
     this.map.setCenter(center, this.mapConfig.defaultZoom);
 
-    this.resizeMap();
-    this.fireEvent('ready', this);
+    Ext.defer(this.resizeMap, 100, this);
+    this.fireEvent('ready', this, { defer: 100 });
+		this.on('resize', this.resizeMap, this);
   },
 
   initLayers: function() {
