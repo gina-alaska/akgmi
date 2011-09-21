@@ -29,10 +29,15 @@ Ext.define('Ext.ux.DefaultText', {
 
     field.getSubmitValueWithoutCheck = field.getSubmitValue;
     field.getSubmitValue = Ext.bind(function() {
-      var me = this;
-      var v = me.getSubmitValueWithoutCheck();
-      return (v == me.defaultText ? '' : v);
+      var v = this.getSubmitValueWithoutCheck();
+      return (v == this.defaultText ? '' : v);
     }, field);
+    field.getValueWithoutCheck = field.getValue;
+    field.getValue = Ext.bind(function() {
+      var v = this.getValueWithoutCheck();
+      return (v == this.defaultText ? '' : v);
+    }, field);
+
 
     field.addCls('default');
 
