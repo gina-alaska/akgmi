@@ -1,5 +1,8 @@
 /**
  * Layers definitions for AKGMI
+ * 
+ * @author Will Fisher
+ * 
  * Only works with openlayers 2.11 due to the use of the new Layers.XYZ class
  */
 Ext.define('Ext.OpenLayers.Layers', {
@@ -127,7 +130,8 @@ Ext.define('Ext.OpenLayers.Layers', {
       type: 'tiles',
       baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/osm-google-ol/tile/',
       wrapDateLine: false,
-      isBaseLayer: false
+      isBaseLayer: false,
+      opacity: 0.75
     },
     osm_overlay: {
       name: 'Open Street Maps',
@@ -135,6 +139,15 @@ Ext.define('Ext.OpenLayers.Layers', {
       baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/osm-ol/tile/',
       wrapDateLine: false,
       isBaseLayer: false
+    },
+    land_ownership: {
+      name: 'Land Ownership',
+      type: 'tiles',
+      baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/glo/tile/',
+      wrapDateLine: true,
+      isBaseLayer: false,
+      opacity: 0.5,
+      hidden: true
     }
   },
 
@@ -165,7 +178,9 @@ Ext.define('Ext.OpenLayers.Layers', {
       		'type': 'jpeg',
 					'transitionEffect': 'resize',
       		'wrapDateLine': this.layer_configs[name].wrapDateLine,
-      		'isBaseLayer': this.layer_configs[name].isBaseLayer
+      		'isBaseLayer': this.layer_configs[name].isBaseLayer,
+      		'opacity': this.layer_configs[name].opacity ? this.layer_configs[name].opacity : 1,
+      		'visibility': this.layer_configs[name].hidden ? false : true
     		}
 		);
   },

@@ -1,3 +1,11 @@
+/**
+ * Basic Openlayers Panel
+ * 
+ * @author Will Fisher
+ * 
+ * This should not be modified in any significant way instead please extend into a new class 
+ * when adding any significant features   
+ **/
 Ext.define('Ext.OpenLayers.Basic', {
   extend: 'Ext.panel.Panel',
 
@@ -28,7 +36,7 @@ Ext.define('Ext.OpenLayers.Basic', {
     'EPSG:3338': {
       defaultCenter: new OpenLayers.LonLat(-147.849, 64.856),
       defaultZoom: 2,
-      defaultLayers: ['bdl_aa', 'osm_google_overlay'],
+      defaultLayers: ['bdl_aa', 'land_ownership', 'osm_google_overlay'],
       maxExtent: new OpenLayers.Bounds(-3500000, -3500000, 3500000, 3500000),
       numZoomLevels: 18,
       maxResolution: (3500000 * 2.0 / 256.0),
