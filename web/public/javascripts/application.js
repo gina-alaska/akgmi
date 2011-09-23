@@ -35,7 +35,7 @@ Ext.application({
       region: 'center',
       border: true,
       projection: 'EPSG:3338',
-      layers: ['bdl_aa', 'land_ownership', 'quads', 'osm_google_overlay'],
+      layers: ['bdl_aa', 'osm_base', 'land_ownership', 'quads', 'osm_google_overlay'],
       margin: '0 0 0 0',
       listeners: {
         'ready': function(map) {
