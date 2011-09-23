@@ -148,6 +148,15 @@ Ext.define('Ext.OpenLayers.Layers', {
       isBaseLayer: false,
       opacity: 0.5,
       hidden: true
+    },
+    quads: {
+      name: 'Quadrangles',
+      type: 'tiles',
+      baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/quad_aa/tile/',
+      wrapDateLine: true,
+      isBaseLayer: false,
+      // opacity: 0.75,
+      hidden: true
     }
   },
 

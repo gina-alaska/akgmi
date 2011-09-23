@@ -11,6 +11,7 @@ Ext.define('Ext.OpenLayers.Basic', {
 
   config: {
     map: null,
+    layers: null,
     projection: 'EPSG:3338'
   },
   mapConfig: {},
@@ -69,6 +70,9 @@ Ext.define('Ext.OpenLayers.Basic', {
     this.addEvents('ready');
 
     Ext.apply(this.mapConfig, this.projections[this.projection]);
+    if(this.layers != null) {
+      this.mapConfig.defaultLayers = this.layers;
+    }
 
     this.callParent(arguments);
 
@@ -89,11 +93,12 @@ Ext.define('Ext.OpenLayers.Basic', {
   },
 
   initLayers: function() {
-    this.layers = Ext.create('Ext.OpenLayers.Layers');
-    this.layers.init(this.getMap());
+    this._layers = Ext.create('Ext.OpenLayers.Layers');
+    this._layers.init(this.getMap());
 
+    this.mapConfig
     Ext.each(this.mapConfig.defaultLayers, function(name) {
-      this.getMap().addLayer(this.layers.getLayer(name));
+      this.getMap().addLayer(this._layers.getLayer(name));
     }, this)
   },
 
