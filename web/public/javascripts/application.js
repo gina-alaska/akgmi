@@ -32,14 +32,15 @@ Ext.application({
   store: ['Themes', 'Quadrangles', 'Publications'],
   launch: function() {
     App.map = Ext.create('Ext.OpenLayers.Basic', {
-			region: 'center',
+      region: 'center',
       border: true,
       projection: 'EPSG:3338',
-			margin: '0 0 0 0',
+      layers: ['bdl_aa', 'land_ownership', 'quads', 'osm_google_overlay'],
+      margin: '0 0 0 0',
       listeners: {
         'ready': function(map) {
-					map.getMap().addControl(new OpenLayers.Control.LayerSwitcher());
-					
+          map.getMap().addControl(new OpenLayers.Control.LayerSwitcher());
+		
           map.outlines = new OpenLayers.Layer.Vector('Outlines', {
             isBaseLayer: false
           });
