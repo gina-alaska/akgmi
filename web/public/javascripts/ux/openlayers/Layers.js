@@ -144,7 +144,7 @@ Ext.define('Ext.OpenLayers.Layers', {
       name: 'Land Ownership',
       type: 'tiles',
       baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/glo/tile/',
-      wrapDateLine: true,
+      wrapDateLine: false,
       isBaseLayer: false,
       opacity: 0.5,
       hidden: true
@@ -153,7 +153,7 @@ Ext.define('Ext.OpenLayers.Layers', {
       name: 'Quadrangles',
       type: 'tiles',
       baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/quad_aa/tile/',
-      wrapDateLine: true,
+      wrapDateLine: false,
       isBaseLayer: false,
       // opacity: 0.75,
       hidden: true
