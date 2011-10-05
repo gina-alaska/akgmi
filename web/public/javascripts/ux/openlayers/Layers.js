@@ -15,70 +15,65 @@ Ext.define('Ext.OpenLayers.Layers', {
       name: 'Best Data Layer',
       type: 'tiles',
       baseUrl: 'http://swmha.gina.alaska.edu/tilesrv/bdl/tile/',
-      wrapDateLine: true,
-      isBaseLayer: true
+      options: {
+        wrapDateLine: true,
+        isBaseLayer: true
+      }
     },
     charts: {
       name: 'NOAA Charts',
       type: 'tiles',
       baseUrl: 'http://swmha.gina.alaska.edu/tilesrv/charts/tile/',
-      wrapDateLine: true,
-      isBaseLayer: true
-
+      options: {
+        wrapDateLine: true,
+        isBaseLayer: true
+      }
     },
     topo: {
       name: 'Topographic DRG',
       type: 'tiles',
       baseUrl: 'http://swmha.gina.alaska.edu/tilesrv/drg/tile/',
-      wrapDateLine: true,
-      isBaseLayer: true
-
+      options: {
+        wrapDateLine: true,
+        isBaseLayer: true
+      }
     },
     shaded_relief: {
       name: 'Shaded Relief',
       type: 'tiles',
       baseUrl: 'http://swmha.gina.alaska.edu/tilesrv/shaded_relief_ned/tile/',
-      wrapDateLine: true,
-      isBaseLayer: true
-
+      options: {
+        wrapDateLine: true,
+        isBaseLayer: true
+      }
     },
     landsat_pan: {
       name: 'Landsat Pan',
       type: 'tiles',
       baseUrl: 'http://swmha.gina.alaska.edu/tilesrv/landsat_pan/tile/',
-      wrapDateLine: true,
-      isBaseLayer: true
-
-    },
-    landownership: {
-      name: 'Land Ownerships',
-      type: 'wms',
-      baseUrl: 'http://wms.proto.gina.alaska.edu/wms/land_ownership',
-      params: {
-        layers: 'states_poly,states_line',
-        transparent: true
-      },
       options: {
         wrapDateLine: true,
-        isBaseLayer: false
+        isBaseLayer: true
       }
     },
-    bdl_aa: {
+    bdl_3338: {
       name: 'Best Data Layer',
       type: 'tiles',
       baseUrl: 'http://swmha.gina.alaska.edu/tilesrv/bdl_esri_test/tile/',
-      wrapDateLine: false,
-      isBaseLayer: true
-
+      options: {
+        wrapDateLine: false,
+        isBaseLayer: true
+      }
     },
-    bdl_polar: {
+    bdl_3572: {
       name: 'Best Data Layer (EPSG:3572)',
       type: 'tiles',
       baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/bdl_polar/tile/',
-      isBaseLayer: true
-
+      options: {
+        isBaseLayer: true
+      }
     },
-    bdl_polar_wms: {
+    bdl_wms_3572: {
       name: 'Best Data Layer (EPSG:3572)',
       type: 'wms',
       baseUrl: 'http://wms.alaskamapped.org/cgi-bin/bdl.cgi?',
@@ -91,72 +86,58 @@ Ext.define('Ext.OpenLayers.Layers', {
         isBaseLayer: true
       }
     },
-    sdmi_soy_rgb_aa: {
-      name: 'RGB WMS',
-      type: 'wms',
-      baseUrl: 'http://wms.soy.gina.alaska.edu/map/ortho',
-      params: {
-        layers: "ORTHO.RGB-overview,ORTHO.RGB",
-        transparent: true
-      },
-      options: {
-        wrapDateLine: false,
-        isBaseLayer: false
-      }
-    },
-    sdmi_soy_cir_aa: {
-      name: 'CIR WMS',
-      type: 'wms',
-      baseUrl: 'http://wms.soy.gina.alaska.edu/map/ortho',
-      params: {
-        layers: "ORTHO_CIR-overview,ORTHO.CIR",
-        transparent: true
-      },
-      options: {
-        visibility: false,
-        wrapDateLine: false,
-        isBaseLayer: false
-      }
-    },
-    osm_base: {
+    osm_base_3338: {
       name: 'Open Street Maps - Base',
       type: 'tiles',
       baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/osm/tile/',
-      wrapDateLine: false,
-      isBaseLayer: true
+      options: {
+        wrapDateLine: false,
+        isBaseLayer: true,
+        attribution: '(c) <a href="http://www.openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+      }
     },
-    osm_google_overlay: {
+    osm_google_overlay_3338: {
       name: 'Open Street Maps',
       type: 'tiles',
       baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/osm-google-ol/tile/',
-      wrapDateLine: false,
-      isBaseLayer: false,
-      opacity: 0.75
+      options: {
+        wrapDateLine: false,
+        isBaseLayer: false,
+        opacity: 0.75,
+        attribution: '(c) <a href="http://www.openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+      }
     },
-    osm_overlay: {
+    osm_overlay_3338: {
       name: 'Open Street Maps',
       type: 'tiles',
       baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/osm-ol/tile/',
-      wrapDateLine: false,
-      isBaseLayer: false
+      options: {
+        wrapDateLine: false,
+        isBaseLayer: false,
+        attribution: '(c) <a href="http://www.openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+      }
     },
-    land_ownership: {
+    land_ownership_3338: {
       name: 'Land Ownership',
       type: 'tiles',
       baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/glo/tile/',
-      wrapDateLine: false,
-      isBaseLayer: false,
-      opacity: 0.5,
-      hidden: true
+      options: {
+        wrapDateLine: false,
+        isBaseLayer: false,
+        opacity: 0.5,
+        visibility: false        
+      }
     },
-    quads: {
+    quads_3338: {
       name: 'Quadrangles',
       type: 'tiles',
       baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/quad_aa/tile/',
-      wrapDateLine: false,
-      isBaseLayer: false,
-      // opacity: 0.75,
-      hidden: true
+      options: {
+        wrapDateLine: false,
+        isBaseLayer: false,
+        // opacity: 0.75,
+        hidden: true
+      }
     }
   },
 
@@ -181,16 +162,17 @@ Ext.define('Ext.OpenLayers.Layers', {
   },
 
   imageMapType: function(name) {
+    var opts = {};
+    Ext.apply(opts, this.layer_configs[name].options, {
+      type: 'jpeg',
+      transitionEffect: 'resize',
+      wrapDateLine: false,
+      visibility: true
+    });
     return new OpenLayers.Layer.XYZ(
 				this.layer_configs[name].name, 
-				this.layer_configs[name].baseUrl + "${x}/${y}/${z}", {
-      		'type': 'jpeg',
-					'transitionEffect': 'resize',
-      		'wrapDateLine': this.layer_configs[name].wrapDateLine,
-      		'isBaseLayer': this.layer_configs[name].isBaseLayer,
-      		'opacity': this.layer_configs[name].opacity ? this.layer_configs[name].opacity : 1,
-      		'visibility': this.layer_configs[name].hidden ? false : true
-    		}
+				this.layer_configs[name].baseUrl + "${x}/${y}/${z}", 
+				opts
 		);
   },
 

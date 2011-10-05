@@ -23,7 +23,7 @@ Ext.define('Ext.OpenLayers.Basic', {
     'EPSG:3572': {
       defaultCenter: new OpenLayers.LonLat(-147.849, 64.856),
       defaultZoom: 3,
-      defaultLayers: ['bdl_polar'],
+      defaultLayers: ['bdl_3572'],
       maxExtent: new OpenLayers.Bounds(-6010000, -6010000, 6010000, 6010000),
       numZoomLevels: 18,
       maxResolution: (6010000 * 2.0 / 256.0),
@@ -37,7 +37,7 @@ Ext.define('Ext.OpenLayers.Basic', {
     'EPSG:3338': {
       defaultCenter: new OpenLayers.LonLat(-147.849, 64.856),
       defaultZoom: 2,
-      defaultLayers: ['bdl_aa', 'osm_base', 'osm_google_overlay'],
+      defaultLayers: ['bdl_3338', 'osm_base_3338', 'osm_google_overlay_3338'],
       maxExtent: new OpenLayers.Bounds(-3500000, -3500000, 3500000, 3500000),
       numZoomLevels: 18,
       maxResolution: (3500000 * 2.0 / 256.0),
@@ -86,6 +86,8 @@ Ext.define('Ext.OpenLayers.Basic', {
     var center = this.mapConfig.defaultCenter.clone();
     center.transform(this.map.displayProjection, this.map.getProjectionObject());
     this.map.setCenter(center, this.mapConfig.defaultZoom);
+    
+    this.map.addControl(new OpenLayers.Control.Attribution());
 
     Ext.defer(this.resizeMap, 100, this);
     this.fireEvent('ready', this, { defer: 100 });
