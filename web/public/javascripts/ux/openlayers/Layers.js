@@ -136,7 +136,7 @@ Ext.define('Ext.OpenLayers.Layers', {
         wrapDateLine: false,
         isBaseLayer: false,
         // opacity: 0.75,
-        hidden: true
+        visibility: false
       }
     }
   },
