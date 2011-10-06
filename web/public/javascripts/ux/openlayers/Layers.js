@@ -128,6 +128,15 @@ Ext.define('Ext.OpenLayers.Layers', {
         visibility: false        
       }
     },
+    townships_3338: {
+      name: 'Townships',
+      type: 'tiles',
+      baseUrl: 'http://tiles.proto.gina.alaska.edu/tilesrv/pls_aa/tile/',
+      options: { 
+        isBaseLayer: false, 
+        visibility: false 
+      }
+    },
     quads_3338: {
       name: 'Quadrangles',
       type: 'tiles',

@@ -62,12 +62,8 @@ body.two-col {
   }
 
   .result-wrap {
-    margin-bottom: 10px;
+    padding: 5px 0 10px 0;
     font-size: 14px;
-
-    div {
-      margin-bottom: 3px;
-    }
 
     .title {
       font-size: 16px;
@@ -85,7 +81,17 @@ body.two-col {
       margin-left: 15px;
     }
 
-    .body { clear: both; }
+    .body { 
+		  clear: both; 
+	  }
+
+  	&.x-item-over {
+  		background-color: transparentize(#000, 0.9);
+  	}
+
+  	&.x-item-selected {
+  		background-color: transparentize(#FF0, 0.5);
+  	}
   }
 
   #viewport-body {

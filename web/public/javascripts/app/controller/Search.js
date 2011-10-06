@@ -20,13 +20,47 @@ Ext.define('AKGMI.controller.Search', {
       'search_results button[toggleGroup=results-type]': {
         toggle: this.resultsButtonHandler
       },
+      'search_results dataview': {
+        itemclick: this.onResultClick
+      }, 
+      'search_map': {
+        featureselect: this.onFeatureSelect
+      },
 			'search_toolbar button[action=toggleAdvanced]': {
 				click: this.toggleAdvanced
 			},
 			'search_toolbar button[action=search]': {
 				click: this.doSearch
+			},
+			'search_toolbar textfield': {
+				specialkey: this.doSearchOnEnter
 			}
     });
+  },
+  
+  onFeatureSelect: function(feature_id) {
+    var dv = App.results.down('dataview');
+    
+    var index = dv.getStore().findBy(function(r) {
+      var ol = r.get('outlines');
+      var status = Ext.each(ol, function(f) {
+        if(f.id == feature_id) { return false; }
+      }, this);
+      
+      /* status is an integer if Ext.each returns false */
+      return status !== true;
+    }, this);
+    var feature_record = dv.getStore().getAt(index);
+    
+    var selected = dv.getSelectionModel().getSelection();
+    var selIndex = Ext.Array.indexOf(selected, feature_record);
+    if(selIndex < 0) { dv.select(feature_record); dv.getNode(feature_record).scrollIntoView(); }
+  },
+  
+  onResultClick: function(view, record, item, index, e, eopts) {
+    var features = record.get('outlines');
+    // console.log(features);
+    App.map.featureSelector.clickFeature(features[0]);
   },
 
   resultsButtonHandler: function(button) {
@@ -47,6 +81,10 @@ Ext.define('AKGMI.controller.Search', {
 		tb.down('textfield').setValue(null);
     var form = button.up('form');
     form.getForm().reset();
+  },
+  
+  doSearchOnEnter: function(field, e) {
+    if(e.getKey() == e.ENTER) { this.doSearch(); }
   },
 
 	doSearch: function() {

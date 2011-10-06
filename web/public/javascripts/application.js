@@ -21,6 +21,7 @@ Ext.define('App', {
 });
 App.configure();
 
+Ext.require('Ext.OpenLayers.Basic');
 Ext.require('AKGMI.view.search.Themes');
 Ext.require('Ext.ux.DefaultText');
 
@@ -31,22 +32,12 @@ Ext.application({
   controllers: ['Search'],
   store: ['Themes', 'Quadrangles', 'Publications'],
   launch: function() {
-    App.map = Ext.create('Ext.OpenLayers.Basic', {
+    App.map = Ext.create('AKGMI.view.search.Map', {
       region: 'center',
       border: true,
-      projection: 'EPSG:3338',
-      layers: ['bdl_3338', 'osm_base_3338', 'land_ownership_3338', 'quads_3338', 'osm_google_overlay_3338'],
       margin: '0 0 0 0',
-      listeners: {
-        'ready': function(map) {
-          map.getMap().addControl(new OpenLayers.Control.LayerSwitcher());
-		
-          map.outlines = new OpenLayers.Layer.Vector('Outlines', {
-            isBaseLayer: false
-          });
-          map.getMap().addLayer(map.outlines);
-        }
-      }
+      projection: 'EPSG:3338',
+      layers: ['bdl_3338', 'osm_base_3338', 'land_ownership_3338', 'townships_3338', 'quads_3338', 'osm_google_overlay_3338']
     });
 
 		App.search_toolbar = Ext.create('AKGMI.view.search.Toolbar', {
@@ -62,8 +53,7 @@ Ext.application({
 			region: 'east',
 			collapsible: true,
 			collapsed: true,
-			title: CONFIG.get('search_form.title'),
-			preventHeader: true
+			title: CONFIG.get('search_form.title')
     });
 
     App.results = Ext.create('AKGMI.view.search.Results', {
