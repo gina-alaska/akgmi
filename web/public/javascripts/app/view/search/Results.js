@@ -47,7 +47,7 @@ Ext.define('AKGMI.view.search.Results', {
   initComponent: function() {
     this.items = Ext.create('Ext.view.View', {
       store: this.store,
-      singleSelect: true,
+      simpleSelect: true,
       trackOver: true,
       tpl: [
         '<tpl for=".">',

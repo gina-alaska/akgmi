@@ -24,7 +24,8 @@ Ext.define('AKGMI.controller.Search', {
         itemclick: this.onResultClick
       }, 
       'search_map': {
-        featureselect: this.onFeatureSelect
+        featureselect: this.onFeatureSelect,
+        featureunselect: this.onFeatureUnselect
       },
 			'search_toolbar button[action=toggleAdvanced]': {
 				click: this.toggleAdvanced
@@ -41,6 +42,33 @@ Ext.define('AKGMI.controller.Search', {
   onFeatureSelect: function(feature_id) {
     var dv = App.results.down('dataview');
     
+    var feature_record = this.findRecordFromFeatureId(feature_id);
+    var selected = dv.getSelectionModel().getSelection();
+    var selIndex = Ext.Array.indexOf(selected, feature_record);
+    if(selIndex < 0) { dv.select(feature_record, true); }
+  },
+  
+  onFeatureUnselect: function(feature_id) {
+    var dv = App.results.down('dataview');
+    
+    var feature_record = this.findRecordFromFeatureId(feature_id);
+    var allDeselected = Ext.each(feature_record.get('outlines'), function(f) {
+      if (Ext.Array.indexOf(App.map.outlines.selectedFeatures, f) !== -1) {
+        /* Found a feature that is still selected */
+        return false;
+      }
+    }, this);
+    
+    if(allDeselected === true) {
+      var selected = dv.getSelectionModel().getSelection();
+      var selIndex = Ext.Array.indexOf(selected, feature_record);
+      if(selIndex >= 0) { dv.deselect(feature_record, true); }      
+    }
+  },
+  
+  findRecordFromFeatureId: function(feature_id){
+    var dv = App.results.down('dataview');
+    
     var index = dv.getStore().findBy(function(r) {
       var ol = r.get('outlines');
       var status = Ext.each(ol, function(f) {
@@ -50,17 +78,25 @@ Ext.define('AKGMI.controller.Search', {
       /* status is an integer if Ext.each returns false */
       return status !== true;
     }, this);
-    var feature_record = dv.getStore().getAt(index);
     
-    var selected = dv.getSelectionModel().getSelection();
-    var selIndex = Ext.Array.indexOf(selected, feature_record);
-    if(selIndex < 0) { dv.select(feature_record); dv.getNode(feature_record).scrollIntoView(); }
+    if(Ext.isNumber(index)) {
+      return dv.getStore().getAt(index);      
+    } else {
+      return null;
+    }
   },
   
   onResultClick: function(view, record, item, index, e, eopts) {
     var features = record.get('outlines');
-    // console.log(features);
-    App.map.featureSelector.clickFeature(features[0]);
+    Ext.each(features, function(f) {
+      if(view.isSelected(item)) {
+        console.log('selected', f);
+        App.map.featureSelector.select(f);      
+      } else {
+        console.log('unselected', f);
+        App.map.featureSelector.unselect(f);              
+      }
+    }, this);
   },
 
   resultsButtonHandler: function(button) {

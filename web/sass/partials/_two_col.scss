@@ -118,3 +118,17 @@ div.olControlAttribution {
 	color: #000;
 	background-color: transparentize(#FFF, 0.75);
 }
+
+.olControlPanel {
+  right: 20px;
+  top: 0;
+  
+  div {
+    display:block;
+    float: right;
+    width: 28px;
+    height: 28px;
+    margin: 5px;
+    background-color: #fff;
+  } 
+}
