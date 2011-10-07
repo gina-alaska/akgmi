@@ -60,6 +60,7 @@ Ext.define('Ext.OpenLayers.Layers', {
       name: 'Best Data Layer',
       type: 'tiles',
       baseUrl: 'http://swmha.gina.alaska.edu/tilesrv/bdl_esri_test/tile/',
+      // numZoomLevels: 16,
       options: {
         wrapDateLine: false,
         isBaseLayer: true
@@ -127,6 +128,15 @@ Ext.define('Ext.OpenLayers.Layers', {
         opacity: 0.5,
         visibility: false        
       }
+    },
+    hydro_3338: {
+     name: 'Hydrography',
+     type: 'tiles',
+     baseUrl: 'http://tiles.proto.gina.alaska.edu/tilesrv/hydro_aa/tile/',
+     options: {
+       isBaseLayer: false,
+       visibility: false
+     }, 
     },
     townships_3338: {
       name: 'Townships',
