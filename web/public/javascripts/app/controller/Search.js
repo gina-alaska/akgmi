@@ -90,10 +90,8 @@ Ext.define('AKGMI.controller.Search', {
     var features = record.get('outlines');
     Ext.each(features, function(f) {
       if(view.isSelected(item)) {
-        console.log('selected', f);
         App.map.featureSelector.select(f);      
       } else {
-        console.log('unselected', f);
         App.map.featureSelector.unselect(f);              
       }
     }, this);
