@@ -20,12 +20,12 @@
 .olControlPanel {
   .olControlSelectFeatureItemActive {
     @include border-radius(2px);
-    background: url(/images/geo/select.png) no-repeat 2px 2px;
+    background: url(/images/geo/select-rectangle.png) no-repeat 2px 2px;
     background-color: transparentize(#00F, 0.5);
   }
   .olControlSelectFeatureItemInactive {
     @include border-radius(2px);
-    background: url(/images/geo/select.png) no-repeat 2px 2px;
-    background-color: transparentize(#FFF, 0.5);
+    background: url(/images/geo/select-rectangle.png) no-repeat 2px 2px;
+    background-color: transparentize(#FFF, 0.25);
   }
 }

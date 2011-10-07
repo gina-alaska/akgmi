@@ -29,14 +29,14 @@ Ext.define('AKGMI.view.search.Map', {
           fillOpacity: 0.25, 
           strokeColor: "#0000FF",
           strokeWidth: 2,
-          strokeOpacity: 0.5 
+          strokeOpacity: 0.5
         }),
         "select": new OpenLayers.Style({
           fillColor: "#FFFF00",
           fillOpacity: 0.25,
           strokeColor: "#FFFF00",
           strokeWidth: 2,
-          strokeOpacity: 0.5 
+          strokeOpacity: 0.75 
         }),  
       });
       map.outlines = new OpenLayers.Layer.Vector('Outlines', {
@@ -61,6 +61,21 @@ Ext.define('AKGMI.view.search.Map', {
       });
       
       this.navtoolbar.addControls([this.featureSelector]);
+      
+      this.featureClickSelector = new OpenLayers.Control.SelectFeature(map.outlines, {
+        title: 'Select Publications: Click an outline to select or click and drag to select multiple outlines',
+        type: OpenLayers.Control.TYPE_TOGGLE,
+        multiple: false,
+        hover: false,
+        toggle: true,
+        clickout: false,
+        box: false,
+        multipleKey: 'shiftKey',
+        onSelect: Ext.bind(this.onFeatureSelect, this),
+        onUnselect: Ext.bind(this.onFeatureUnselect, this)
+      });
+      map.getMap().addControl(this.featureClickSelector);
+      this.featureClickSelector.activate();
       
       // this.featureSelector.activate();
       map.getMap().addControl(this.navtoolbar);
