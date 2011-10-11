@@ -20,7 +20,8 @@ Ext.define('AKGMI.view.search.Form', {
       store: Ext.create('AKGMI.store.Agencies'),
       queryMode: 'local',
       displayField: 'name',
-      valueField: 'id'
+      valueField: 'id',
+      forceSelection: true
     },{
       fieldLabel: CONFIG.get('search_form.years'),
       xtype: 'fieldcontainer',
