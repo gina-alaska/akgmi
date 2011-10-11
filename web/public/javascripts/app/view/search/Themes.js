@@ -19,16 +19,12 @@ Ext.define('AKGMI.view.search.Themes', {
         record.set('checked', !record.get('checked'));
       }
 
-      if(record.get('checked')) {
-        record.parentNode.set('checked', true);
-      } else {
-        /* Check to make sure there are no other check children before we uncheck the parent */
-        var checked = false;
-        Ext.each(record.parentNode.childNodes, function(node) {
-          checked = checked || node.get('checked');
-        }, this);
-        record.parentNode.set('checked', checked);
-      }
+      /* Check to make sure there are no other check children before we uncheck the parent */
+      var checked = true;
+      Ext.each(record.parentNode.childNodes, function(node) {
+        checked = checked && node.get('checked');
+      }, this);
+      record.parentNode.set('checked', checked);
     } else {
       if(e.target.nodeName != 'INPUT') {
         !record.isExpanded() ? record.expand() : record.collapse();
