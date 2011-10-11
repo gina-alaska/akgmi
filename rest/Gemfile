@@ -10,6 +10,8 @@ gem 'ruby-oci8'
 gem 'activerecord-oracle_enhanced-adapter'
 gem 'nofxx-georuby'
 gem 'awesome_print'
+gem 'wicked_pdf', '~> 0.7.2'
+gem 'wkhtmltopdf', '~> 0.1.2'
 
 # Use unicorn as the web server
 # gem 'unicorn'
