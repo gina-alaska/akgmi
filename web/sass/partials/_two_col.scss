@@ -133,8 +133,9 @@ div.olControlAttribution {
   } 
 }
 
+.baseLayersDiv {
+  white-space: nowrap;
+}
 .dataLayersDiv {
-  .labelSpan {
-    white-space: nowrap;
-  }
+  white-space: nowrap;
 }
