@@ -88,10 +88,22 @@ Ext.define('AKGMI.controller.Search', {
   },
   
   beforeResultClick: function(view, record, item, index, e, eopts) {
-    if (e.target.getAttribute('class') == 'toggle') {
-      this.toggleKeywords(view, record, e.target);
-      return false;
+    switch(e.target.getAttribute('class')) {
+      case 'toggle':
+        this.toggleKeywords(view, record, e.target);
+        return false;
+      case 'zoomto':
+        this.zoomToRecord(view, record, e.target);
+        return false;
     }
+  },
+  
+  zoomToRecord: function(view, record, item){
+    var bounds = new OpenLayers.Bounds();
+    Ext.each(record.get('outlines'), function(outline) {
+      bounds.extend(outline.geometry.getBounds());
+    }, this);
+    App.map.fit(bounds);
   },
   
   toggleKeywords: function(view, record, item) {

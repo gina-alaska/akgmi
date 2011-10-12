@@ -67,7 +67,8 @@ Ext.define('AKGMI.view.search.Results', {
               '<span class="keywordlist" style="display:none;">Keywords: {keywords}<br /></span>',
             '</div>',
             '<div class="actions">',
-              '<a class="toggle" href="javascript:void(0)">Show Keywords</a>',
+              '<a class="toggle" href="javascript:void(0)">Show Keywords</a> | ',
+              '<a class="zoomto" href="javascript:void(0)">Zoom to</a>',
             '</div>',
           '</div>',
         '</tpl>'
