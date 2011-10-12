@@ -281,54 +281,21 @@ body.two-col .default .x-form-field {
   color: #888;
 }
 /* line 64, ../../sass/partials/_two_col.scss */
-body.two-col .result-wrap {
-  padding: 5px 0 10px 0;
-  font-size: 14px;
-}
-/* line 68, ../../sass/partials/_two_col.scss */
-body.two-col .result-wrap .title {
-  font-size: 16px;
-  text-decoration: underline;
-}
-/* line 73, ../../sass/partials/_two_col.scss */
-body.two-col .result-wrap .keywords {
-  font-size: 10px;
-  font-style: italic;
-}
-/* line 78, ../../sass/partials/_two_col.scss */
-body.two-col .result-wrap .icons img {
-  width: 35px;
-  height: 35px;
-  margin-left: 15px;
-}
-/* line 84, ../../sass/partials/_two_col.scss */
-body.two-col .result-wrap .body {
-  clear: both;
-}
-/* line 88, ../../sass/partials/_two_col.scss */
-body.two-col .result-wrap.x-item-over {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-/* line 92, ../../sass/partials/_two_col.scss */
-body.two-col .result-wrap.x-item-selected {
-  background-color: rgba(255, 255, 0, 0.5);
-}
-/* line 97, ../../sass/partials/_two_col.scss */
 body.two-col #viewport-body {
   background: none;
 }
-/* line 102, ../../sass/partials/_two_col.scss */
+/* line 69, ../../sass/partials/_two_col.scss */
 body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-icon {
   height: 35px;
   width: 35px;
   margin: 0 auto;
 }
-/* line 108, ../../sass/partials/_two_col.scss */
+/* line 75, ../../sass/partials/_two_col.scss */
 body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
   padding-top: 39px;
 }
 
-/* line 114, ../../sass/partials/_two_col.scss */
+/* line 81, ../../sass/partials/_two_col.scss */
 div.olControlAttribution {
   bottom: 0em;
   right: 0em;
@@ -337,12 +304,12 @@ div.olControlAttribution {
   background-color: rgba(255, 255, 255, 0.25);
 }
 
-/* line 122, ../../sass/partials/_two_col.scss */
+/* line 89, ../../sass/partials/_two_col.scss */
 .olControlPanel {
   right: 20px;
   top: 0;
 }
-/* line 126, ../../sass/partials/_two_col.scss */
+/* line 93, ../../sass/partials/_two_col.scss */
 .olControlPanel div {
   display: block;
   float: right;
@@ -352,14 +319,48 @@ div.olControlAttribution {
   background-color: #fff;
 }
 
-/* line 136, ../../sass/partials/_two_col.scss */
+/* line 103, ../../sass/partials/_two_col.scss */
 .baseLayersDiv {
   white-space: nowrap;
 }
 
-/* line 139, ../../sass/partials/_two_col.scss */
+/* line 106, ../../sass/partials/_two_col.scss */
 .dataLayersDiv {
   white-space: nowrap;
+}
+
+/* line 1, ../../sass/partials/_results.scss */
+.result-wrap {
+  padding: 5px 0 10px 0;
+  font-size: 14px;
+}
+/* line 5, ../../sass/partials/_results.scss */
+.result-wrap .title {
+  font-size: 16px;
+  text-decoration: underline;
+}
+/* line 10, ../../sass/partials/_results.scss */
+.result-wrap .keywordlist {
+  font-size: 10px;
+  font-style: italic;
+}
+/* line 15, ../../sass/partials/_results.scss */
+.result-wrap .icons img {
+  width: 35px;
+  height: 35px;
+  margin-left: 15px;
+}
+/* line 21, ../../sass/partials/_results.scss */
+.result-wrap .body {
+  clear: both;
+}
+/* line 25, ../../sass/partials/_results.scss */
+.result-wrap.x-item-over {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+/* line 29, ../../sass/partials/_results.scss */
+.result-wrap.x-item-selected {
+  background-color: rgba(255, 255, 0, 0.5);
 }
 
 /* line 1, ../../sass/partials/_icons.scss */

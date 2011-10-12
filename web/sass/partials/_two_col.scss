@@ -61,41 +61,8 @@ body.two-col {
     color:#888;
   }
 
-  .result-wrap {
-    padding: 5px 0 10px 0;
-    font-size: 14px;
-
-    .title {
-      font-size: 16px;
-      text-decoration: underline;
-    }
-
-    .keywords {
-      font-size: 10px;
-      font-style: italic;
-    }
-
-    .icons img {
-      width: 35px;
-      height: 35px;
-      margin-left: 15px;
-    }
-
-    .body { 
-		  clear: both; 
-	  }
-
-  	&.x-item-over {
-  		background-color: transparentize(#000, 0.9);
-  	}
-
-  	&.x-item-selected {
-  		background-color: transparentize(#FF0, 0.5);
-  	}
-  }
-
   #viewport-body {
-	background: none;
+  	background: none;
   }
 
   .x-btn-default-toolbar-large-icon-text-top {

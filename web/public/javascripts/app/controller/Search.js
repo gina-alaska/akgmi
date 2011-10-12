@@ -21,7 +21,8 @@ Ext.define('AKGMI.controller.Search', {
         toggle: this.resultsButtonHandler
       },
       'search_results dataview': {
-        itemclick: this.onResultClick
+        beforeitemclick: this.beforeResultClick,
+        itemclick: this.selectResults
       }, 
       'search_map': {
         featureselect: this.onFeatureSelect,
@@ -86,7 +87,33 @@ Ext.define('AKGMI.controller.Search', {
     }
   },
   
-  onResultClick: function(view, record, item, index, e, eopts) {
+  beforeResultClick: function(view, record, item, index, e, eopts) {
+    if (e.target.getAttribute('class') == 'toggle') {
+      this.toggleKeywords(view, record, e.target);
+      return false;
+    }
+  },
+  
+  toggleKeywords: function(view, record, item) {
+    var el        = Ext.get(item),
+        keywords  = el.up('div.result-wrap').down('div.keywords .keywordlist');
+    
+    if(keywords.isVisible()) {
+      keywords.slideOut('t', {
+        remove: false,
+        useDisplay: true
+      });
+      el.update('Show Keywords');
+    } else {
+      keywords.slideIn('t', {
+        remove: false,
+        useDisplay: true
+      });
+      el.update('Hide Keywords');
+    }
+  },
+  
+  selectResults: function(view, record, item) {
     var features = record.get('outlines');
     Ext.each(features, function(f) {
       if(view.isSelected(item)) {
@@ -94,7 +121,7 @@ Ext.define('AKGMI.controller.Search', {
       } else {
         App.map.featureSelector.unselect(f);              
       }
-    }, this);
+    }, this);    
   },
 
   resultsButtonHandler: function(button) {
