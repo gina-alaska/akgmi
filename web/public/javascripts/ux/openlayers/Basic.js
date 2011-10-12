@@ -110,5 +110,18 @@ Ext.define('Ext.OpenLayers.Basic', {
     this.getMap().updateSize();
     this.getMap().setCenter(center);
     this.getMap().baseLayer.redraw();
-  }
+  },
+  
+  panToBounds: function(bounds) {
+    this.getMap().panTo(bounds.getCenterLonLat());
+  },
+  
+  fit: function(bounds, minZoom) {
+    if(minZoom === undefined || minZoom === null) {
+      minZoom = 15;
+    }
+    var zoom = this.getMap().getZoomForExtent(bounds);
+    this.getMap().zoomTo(Math.min(zoom, minZoom));
+    this.panToBounds(bounds);
+  },
 })
