@@ -438,6 +438,40 @@ div.olControlAttribution {
   background-color: rgba(255, 255, 255, 0.75);
 }
 
+/* line 1, ../../sass/partials/_map.scss */
+div.olControlAttribution {
+  bottom: 0em;
+  right: 0em;
+  padding: 3px;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* line 9, ../../sass/partials/_map.scss */
+.olControlPanel {
+  right: 20px;
+  top: 0;
+}
+/* line 13, ../../sass/partials/_map.scss */
+.olControlPanel div {
+  display: block;
+  float: right;
+  width: 28px;
+  height: 28px;
+  margin: 5px;
+  background-color: #fff;
+}
+
+/* line 23, ../../sass/partials/_map.scss */
+.baseLayersDiv {
+  white-space: nowrap;
+}
+
+/* line 26, ../../sass/partials/_map.scss */
+.dataLayersDiv {
+  white-space: nowrap;
+}
+
 /* line 1, ../../sass/partials/_extjs.scss */
 .x-panel-header {
   background: none;
