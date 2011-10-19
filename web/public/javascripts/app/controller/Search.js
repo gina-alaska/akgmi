@@ -46,7 +46,6 @@ Ext.define('AKGMI.controller.Search', {
         form = Ext.ComponentQuery.query('search_form')[0],
         aoifield = form.down('hiddenfield[name=aoi]');
     
-    console.log(aoifield);
     aoifield.setValue(wkt);
   },
   
