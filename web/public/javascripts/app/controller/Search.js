@@ -26,7 +26,8 @@ Ext.define('AKGMI.controller.Search', {
       }, 
       'search_map': {
         featureselect: this.onFeatureSelect,
-        featureunselect: this.onFeatureUnselect
+        featureunselect: this.onFeatureUnselect,
+        aoiadded: this.onAOIAdded
       },
 			'search_toolbar button[action=toggleAdvanced]': {
 				click: this.toggleAdvanced
@@ -38,6 +39,15 @@ Ext.define('AKGMI.controller.Search', {
 				specialkey: this.doSearchOnEnter
 			}
     });
+  },
+  
+  onAOIAdded: function(map, aoi){
+    var wkt = aoi.geometry.toString(),
+        form = Ext.ComponentQuery.query('search_form')[0],
+        aoifield = form.down('hiddenfield[name=aoi]');
+    
+    console.log(aoifield);
+    aoifield.setValue(wkt);
   },
   
   onFeatureSelect: function(feature_id) {
