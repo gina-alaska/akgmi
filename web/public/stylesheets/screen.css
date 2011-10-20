@@ -1,54 +1,54 @@
 /*@import "blueprint/reset";*/
-/* line 9, /Users/will/workspace/akgmi/web/sass/partials/_page.scss */
+/* line 9, ../../sass/partials/_page.scss */
 body.bp {
   /*@include blueprint-typography(true);*/
 }
-/* line 9, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+/* line 9, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
 body.bp .clear {
   clear: both;
 }
-/* line 12, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+/* line 12, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
 body.bp .nowrap {
   white-space: nowrap;
 }
-/* line 16, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+/* line 16, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
 body.bp .clearfix {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 18, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+/* line 18, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
 body.bp .small {
   font-size: 0.8em;
   margin-bottom: 1.875em;
   line-height: 1.875em;
 }
-/* line 22, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+/* line 22, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
 body.bp .large {
   font-size: 1.2em;
   line-height: 2.5em;
   margin-bottom: 1.25em;
 }
-/* line 26, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+/* line 26, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
 body.bp .first {
   margin-left: 0;
   padding-left: 0;
 }
-/* line 29, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+/* line 29, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
 body.bp .last {
   margin-right: 0;
   padding-right: 0;
 }
-/* line 32, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+/* line 32, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
 body.bp .top {
   margin-top: 0;
   padding-top: 0;
 }
-/* line 35, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+/* line 35, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
 body.bp .bottom {
   margin-bottom: 0;
   padding-bottom: 0;
 }
-/* line 25, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_debug.scss */
+/* line 25, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_debug.scss */
 body.bp .showgrid {
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 0, 0, 0.5)), color-stop(5%, rgba(0, 0, 0, 0))), -webkit-gradient(linear, 0% 50%, 960 50%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(0%, rgba(100, 100, 225, 0.25)), color-stop(3.125%, rgba(100, 100, 225, 0.25)), color-stop(3.125%, rgba(0, 0, 0, 0)), color-stop(4.167%, rgba(0, 0, 0, 0)), color-stop(4.167%, rgba(100, 100, 225, 0.25)), color-stop(7.292%, rgba(100, 100, 225, 0.25)), color-stop(7.292%, rgba(0, 0, 0, 0)), color-stop(8.333%, rgba(0, 0, 0, 0)), color-stop(8.333%, rgba(100, 100, 225, 0.25)), color-stop(11.458%, rgba(100, 100, 225, 0.25)), color-stop(11.458%, rgba(0, 0, 0, 0)), color-stop(12.5%, rgba(0, 0, 0, 0)), color-stop(12.5%, rgba(100, 100, 225, 0.25)), color-stop(15.625%, rgba(100, 100, 225, 0.25)), color-stop(15.625%, rgba(0, 0, 0, 0)), color-stop(16.667%, rgba(0, 0, 0, 0)), color-stop(16.667%, rgba(100, 100, 225, 0.25)), color-stop(19.792%, rgba(100, 100, 225, 0.25)), color-stop(19.792%, rgba(0, 0, 0, 0)), color-stop(20.833%, rgba(0, 0, 0, 0)), color-stop(20.833%, rgba(100, 100, 225, 0.25)), color-stop(23.958%, rgba(100, 100, 225, 0.25)), color-stop(23.958%, rgba(0, 0, 0, 0)), color-stop(25%, rgba(0, 0, 0, 0)), color-stop(25%, rgba(100, 100, 225, 0.25)), color-stop(28.125%, rgba(100, 100, 225, 0.25)), color-stop(28.125%, rgba(0, 0, 0, 0)), color-stop(29.167%, rgba(0, 0, 0, 0)), color-stop(29.167%, rgba(100, 100, 225, 0.25)), color-stop(32.292%, rgba(100, 100, 225, 0.25)), color-stop(32.292%, rgba(0, 0, 0, 0)), color-stop(33.333%, rgba(0, 0, 0, 0)), color-stop(33.333%, rgba(100, 100, 225, 0.25)), color-stop(36.458%, rgba(100, 100, 225, 0.25)), color-stop(36.458%, rgba(0, 0, 0, 0)), color-stop(37.5%, rgba(0, 0, 0, 0)), color-stop(37.5%, rgba(100, 100, 225, 0.25)), color-stop(40.625%, rgba(100, 100, 225, 0.25)), color-stop(40.625%, rgba(0, 0, 0, 0)), color-stop(41.667%, rgba(0, 0, 0, 0)), color-stop(41.667%, rgba(100, 100, 225, 0.25)), color-stop(44.792%, rgba(100, 100, 225, 0.25)), color-stop(44.792%, rgba(0, 0, 0, 0)), color-stop(45.833%, rgba(0, 0, 0, 0)), color-stop(45.833%, rgba(100, 100, 225, 0.25)), color-stop(48.958%, rgba(100, 100, 225, 0.25)), color-stop(48.958%, rgba(0, 0, 0, 0)), color-stop(50%, rgba(0, 0, 0, 0)), color-stop(50%, rgba(100, 100, 225, 0.25)), color-stop(53.125%, rgba(100, 100, 225, 0.25)), color-stop(53.125%, rgba(0, 0, 0, 0)), color-stop(54.167%, rgba(0, 0, 0, 0)), color-stop(54.167%, rgba(100, 100, 225, 0.25)), color-stop(57.292%, rgba(100, 100, 225, 0.25)), color-stop(57.292%, rgba(0, 0, 0, 0)), color-stop(58.333%, rgba(0, 0, 0, 0)), color-stop(58.333%, rgba(100, 100, 225, 0.25)), color-stop(61.458%, rgba(100, 100, 225, 0.25)), color-stop(61.458%, rgba(0, 0, 0, 0)), color-stop(62.5%, rgba(0, 0, 0, 0)), color-stop(62.5%, rgba(100, 100, 225, 0.25)), color-stop(65.625%, rgba(100, 100, 225, 0.25)), color-stop(65.625%, rgba(0, 0, 0, 0)), color-stop(66.667%, rgba(0, 0, 0, 0)), color-stop(66.667%, rgba(100, 100, 225, 0.25)), color-stop(69.792%, rgba(100, 100, 225, 0.25)), color-stop(69.792%, rgba(0, 0, 0, 0)), color-stop(70.833%, rgba(0, 0, 0, 0)), color-stop(70.833%, rgba(100, 100, 225, 0.25)), color-stop(73.958%, rgba(100, 100, 225, 0.25)), color-stop(73.958%, rgba(0, 0, 0, 0)), color-stop(75%, rgba(0, 0, 0, 0)), color-stop(75%, rgba(100, 100, 225, 0.25)), color-stop(78.125%, rgba(100, 100, 225, 0.25)), color-stop(78.125%, rgba(0, 0, 0, 0)), color-stop(79.167%, rgba(0, 0, 0, 0)), color-stop(79.167%, rgba(100, 100, 225, 0.25)), color-stop(82.292%, rgba(100, 100, 225, 0.25)), color-stop(82.292%, rgba(0, 0, 0, 0)), color-stop(83.333%, rgba(0, 0, 0, 0)), color-stop(83.333%, rgba(100, 100, 225, 0.25)), color-stop(86.458%, rgba(100, 100, 225, 0.25)), color-stop(86.458%, rgba(0, 0, 0, 0)), color-stop(87.5%, rgba(0, 0, 0, 0)), color-stop(87.5%, rgba(100, 100, 225, 0.25)), color-stop(90.625%, rgba(100, 100, 225, 0.25)), color-stop(90.625%, rgba(0, 0, 0, 0)), color-stop(91.667%, rgba(0, 0, 0, 0)), color-stop(91.667%, rgba(100, 100, 225, 0.25)), color-stop(94.792%, rgba(100, 100, 225, 0.25)), color-stop(94.792%, rgba(0, 0, 0, 0)), color-stop(95.833%, rgba(0, 0, 0, 0)), color-stop(95.833%, rgba(100, 100, 225, 0.25)), color-stop(98.958%, rgba(100, 100, 225, 0.25)), color-stop(98.958%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
   background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0px, rgba(100, 100, 225, 0.25) 0px, rgba(100, 100, 225, 0.25) 30px, rgba(0, 0, 0, 0) 30px, rgba(0, 0, 0, 0) 40px, rgba(100, 100, 225, 0.25) 40px, rgba(100, 100, 225, 0.25) 70px, rgba(0, 0, 0, 0) 70px, rgba(0, 0, 0, 0) 80px, rgba(100, 100, 225, 0.25) 80px, rgba(100, 100, 225, 0.25) 110px, rgba(0, 0, 0, 0) 110px, rgba(0, 0, 0, 0) 120px, rgba(100, 100, 225, 0.25) 120px, rgba(100, 100, 225, 0.25) 150px, rgba(0, 0, 0, 0) 150px, rgba(0, 0, 0, 0) 160px, rgba(100, 100, 225, 0.25) 160px, rgba(100, 100, 225, 0.25) 190px, rgba(0, 0, 0, 0) 190px, rgba(0, 0, 0, 0) 200px, rgba(100, 100, 225, 0.25) 200px, rgba(100, 100, 225, 0.25) 230px, rgba(0, 0, 0, 0) 230px, rgba(0, 0, 0, 0) 240px, rgba(100, 100, 225, 0.25) 240px, rgba(100, 100, 225, 0.25) 270px, rgba(0, 0, 0, 0) 270px, rgba(0, 0, 0, 0) 280px, rgba(100, 100, 225, 0.25) 280px, rgba(100, 100, 225, 0.25) 310px, rgba(0, 0, 0, 0) 310px, rgba(0, 0, 0, 0) 320px, rgba(100, 100, 225, 0.25) 320px, rgba(100, 100, 225, 0.25) 350px, rgba(0, 0, 0, 0) 350px, rgba(0, 0, 0, 0) 360px, rgba(100, 100, 225, 0.25) 360px, rgba(100, 100, 225, 0.25) 390px, rgba(0, 0, 0, 0) 390px, rgba(0, 0, 0, 0) 400px, rgba(100, 100, 225, 0.25) 400px, rgba(100, 100, 225, 0.25) 430px, rgba(0, 0, 0, 0) 430px, rgba(0, 0, 0, 0) 440px, rgba(100, 100, 225, 0.25) 440px, rgba(100, 100, 225, 0.25) 470px, rgba(0, 0, 0, 0) 470px, rgba(0, 0, 0, 0) 480px, rgba(100, 100, 225, 0.25) 480px, rgba(100, 100, 225, 0.25) 510px, rgba(0, 0, 0, 0) 510px, rgba(0, 0, 0, 0) 520px, rgba(100, 100, 225, 0.25) 520px, rgba(100, 100, 225, 0.25) 550px, rgba(0, 0, 0, 0) 550px, rgba(0, 0, 0, 0) 560px, rgba(100, 100, 225, 0.25) 560px, rgba(100, 100, 225, 0.25) 590px, rgba(0, 0, 0, 0) 590px, rgba(0, 0, 0, 0) 600px, rgba(100, 100, 225, 0.25) 600px, rgba(100, 100, 225, 0.25) 630px, rgba(0, 0, 0, 0) 630px, rgba(0, 0, 0, 0) 640px, rgba(100, 100, 225, 0.25) 640px, rgba(100, 100, 225, 0.25) 670px, rgba(0, 0, 0, 0) 670px, rgba(0, 0, 0, 0) 680px, rgba(100, 100, 225, 0.25) 680px, rgba(100, 100, 225, 0.25) 710px, rgba(0, 0, 0, 0) 710px, rgba(0, 0, 0, 0) 720px, rgba(100, 100, 225, 0.25) 720px, rgba(100, 100, 225, 0.25) 750px, rgba(0, 0, 0, 0) 750px, rgba(0, 0, 0, 0) 760px, rgba(100, 100, 225, 0.25) 760px, rgba(100, 100, 225, 0.25) 790px, rgba(0, 0, 0, 0) 790px, rgba(0, 0, 0, 0) 800px, rgba(100, 100, 225, 0.25) 800px, rgba(100, 100, 225, 0.25) 830px, rgba(0, 0, 0, 0) 830px, rgba(0, 0, 0, 0) 840px, rgba(100, 100, 225, 0.25) 840px, rgba(100, 100, 225, 0.25) 870px, rgba(0, 0, 0, 0) 870px, rgba(0, 0, 0, 0) 880px, rgba(100, 100, 225, 0.25) 880px, rgba(100, 100, 225, 0.25) 910px, rgba(0, 0, 0, 0) 910px, rgba(0, 0, 0, 0) 920px, rgba(100, 100, 225, 0.25) 920px, rgba(100, 100, 225, 0.25) 950px, rgba(0, 0, 0, 0) 950px, rgba(0, 0, 0, 0) 960px);
@@ -62,89 +62,89 @@ body.bp .showgrid {
   background-size: 100% 18px, auto;
   background-position: left top;
 }
-/* line 4, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+/* line 4, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body.bp .feedback, body.bp .error, body.bp .alert, body.bp .notice, body.bp .success, body.bp .info {
   padding: 0.8em;
   margin-bottom: 1em;
   border: 2px solid #dddddd;
 }
-/* line 5, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+/* line 5, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body.bp .error, body.bp .alert {
   background: #fbe3e4;
   color: #8a1f11;
   border-color: #fbc2c4;
 }
-/* line 27, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+/* line 27, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body.bp .error a, body.bp .alert a {
   color: #8a1f11;
 }
-/* line 7, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+/* line 7, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body.bp .notice {
   background: #fff6bf;
   color: #514721;
   border-color: #ffd324;
 }
-/* line 36, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+/* line 36, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body.bp .notice a {
   color: #514721;
 }
-/* line 8, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+/* line 8, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body.bp .success {
   background: #e6efc2;
   color: #264409;
   border-color: #c6d880;
 }
-/* line 45, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+/* line 45, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body.bp .success a {
   color: #264409;
 }
-/* line 9, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+/* line 9, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body.bp .info {
   background: #d5edf8;
   color: #205791;
   border-color: #92cae4;
 }
-/* line 54, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+/* line 54, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body.bp .info a {
   color: #205791;
 }
-/* line 10, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+/* line 10, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body.bp .hide {
   display: none;
 }
-/* line 11, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+/* line 11, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body.bp .highlight {
   background: yellow;
 }
-/* line 12, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+/* line 12, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body.bp .added {
   background: #006600;
   color: white;
 }
-/* line 13, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+/* line 13, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body.bp .removed {
   background: #990000;
   color: white;
 }
-/* line 39, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
+/* line 39, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
 body.bp .box {
   padding: 1.5em;
   margin-bottom: 1.5em;
   background: #e5ecf9;
 }
-/* line 42, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
+/* line 42, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
 body.bp .border {
   padding-right: 4px;
   margin-right: 5px;
   border-right: 1px solid #dddddd;
 }
-/* line 45, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
+/* line 45, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
 body.bp .colborder {
   padding-right: 24px;
   margin-right: 25px;
   border-right: 1px solid #dddddd;
 }
-/* line 47, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
+/* line 47, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
 body.bp hr {
   background: #dddddd;
   color: #dddddd;
@@ -155,7 +155,7 @@ body.bp hr {
   margin: 0 0 1.45em;
   border: none;
 }
-/* line 49, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
+/* line 49, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
 body.bp hr.space {
   background: #dddddd;
   color: #dddddd;
@@ -169,67 +169,67 @@ body.bp hr.space {
   color: white;
   visibility: hidden;
 }
-/* line 51, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
+/* line 51, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
 body.bp form.inline {
   line-height: 3;
 }
-/* line 6, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_form.scss */
+/* line 6, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_form.scss */
 body.bp form.inline p {
   margin-bottom: 0;
 }
 
-/* line 9, /Users/will/workspace/akgmi/web/sass/partials/_form.scss */
+/* line 9, ../../sass/partials/_form.scss */
 .search input.x-form-text {
   height: 32px;
 }
-/* line 12, /Users/will/workspace/akgmi/web/sass/partials/_form.scss */
+/* line 12, ../../sass/partials/_form.scss */
 .search input {
   font-size: 20px;
   line-height: 20px;
 }
-/* line 16, /Users/will/workspace/akgmi/web/sass/partials/_form.scss */
+/* line 16, ../../sass/partials/_form.scss */
 .search .x-field-default {
   margin-bottom: 0px;
 }
-/* line 19, /Users/will/workspace/akgmi/web/sass/partials/_form.scss */
+/* line 19, ../../sass/partials/_form.scss */
 .search .x-btn-inner {
   font-size: 14px;
 }
 
-/* line 25, /Users/will/workspace/akgmi/web/sass/partials/_two_col.scss */
+/* line 25, ../../sass/partials/_two_col.scss */
 body.two-col h1 {
   font-size: 30px;
 }
-/* line 27, /Users/will/workspace/akgmi/web/sass/partials/_two_col.scss */
+/* line 27, ../../sass/partials/_two_col.scss */
 body.two-col #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 30, /Users/will/workspace/akgmi/web/sass/partials/_two_col.scss */
+/* line 30, ../../sass/partials/_two_col.scss */
 body.two-col #header, body.two-col #footer {
   display: inline;
   float: left;
   margin-right: 0;
   width: 950px;
 }
-/* line 147, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+/* line 147, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body.two-col #header, * html body.two-col #footer {
   overflow-x: hidden;
 }
-/* line 33, /Users/will/workspace/akgmi/web/sass/partials/_two_col.scss */
+/* line 33, ../../sass/partials/_two_col.scss */
 body.two-col #results {
   display: inline;
   float: left;
   margin-right: 0;
   width: 950px;
 }
-/* line 147, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+/* line 147, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body.two-col #results {
   overflow-x: hidden;
 }
-/* line 36, /Users/will/workspace/akgmi/web/sass/partials/_two_col.scss */
+/* line 36, ../../sass/partials/_two_col.scss */
 body.two-col #sidebar {
   height: 400px;
   display: inline;
@@ -237,11 +237,11 @@ body.two-col #sidebar {
   margin-right: 0;
   width: 310px;
 }
-/* line 147, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+/* line 147, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 43, /Users/will/workspace/akgmi/web/sass/partials/_two_col.scss */
+/* line 43, ../../sass/partials/_two_col.scss */
 body.two-col #map {
   height: 500px;
   display: inline;
@@ -249,22 +249,22 @@ body.two-col #map {
   margin-right: 10px;
   width: 630px;
 }
-/* line 147, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+/* line 147, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body.two-col #map {
   overflow-x: hidden;
 }
-/* line 51, /Users/will/workspace/akgmi/web/sass/partials/_two_col.scss */
+/* line 51, ../../sass/partials/_two_col.scss */
 body.two-col #content {
   display: inline;
   float: left;
   margin-right: 10px;
   width: 950px;
 }
-/* line 147, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+/* line 147, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body.two-col #content {
   overflow-x: hidden;
 }
-/* line 55, /Users/will/workspace/akgmi/web/sass/partials/_two_col.scss */
+/* line 55, ../../sass/partials/_two_col.scss */
 body.two-col .spacer {
   height: 10px;
   display: inline;
@@ -272,94 +272,98 @@ body.two-col .spacer {
   margin-right: 0;
   width: 950px;
 }
-/* line 147, /Users/will/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+/* line 147, ../../../../../.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body.two-col .spacer {
   overflow-x: hidden;
 }
-/* line 60, /Users/will/workspace/akgmi/web/sass/partials/_two_col.scss */
+/* line 60, ../../sass/partials/_two_col.scss */
 body.two-col .default .x-form-field {
   color: #888;
 }
-/* line 64, /Users/will/workspace/akgmi/web/sass/partials/_two_col.scss */
+/* line 64, ../../sass/partials/_two_col.scss */
 body.two-col #viewport-body {
   background: none;
 }
-/* line 69, /Users/will/workspace/akgmi/web/sass/partials/_two_col.scss */
+/* line 69, ../../sass/partials/_two_col.scss */
 body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-icon {
   height: 35px;
   width: 35px;
   margin: 0 auto;
 }
-/* line 75, /Users/will/workspace/akgmi/web/sass/partials/_two_col.scss */
+/* line 75, ../../sass/partials/_two_col.scss */
 body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
   padding-top: 39px;
 }
 
-/* line 1, /Users/will/workspace/akgmi/web/sass/partials/_results.scss */
+/* line 1, ../../sass/partials/_results.scss */
 .result-wrap {
   padding: 5px 0 10px 0;
   font-size: 14px;
 }
-/* line 5, /Users/will/workspace/akgmi/web/sass/partials/_results.scss */
+/* line 5, ../../sass/partials/_results.scss */
 .result-wrap .title {
   font-size: 16px;
   text-decoration: underline;
 }
-/* line 10, /Users/will/workspace/akgmi/web/sass/partials/_results.scss */
+/* line 10, ../../sass/partials/_results.scss */
 .result-wrap .keywordlist {
   font-size: 10px;
   font-style: italic;
 }
-/* line 15, /Users/will/workspace/akgmi/web/sass/partials/_results.scss */
+/* line 15, ../../sass/partials/_results.scss */
 .result-wrap .icons img {
   width: 35px;
   height: 35px;
   margin-left: 15px;
 }
-/* line 21, /Users/will/workspace/akgmi/web/sass/partials/_results.scss */
+/* line 21, ../../sass/partials/_results.scss */
 .result-wrap .body {
   clear: both;
 }
-/* line 25, /Users/will/workspace/akgmi/web/sass/partials/_results.scss */
+/* line 25, ../../sass/partials/_results.scss */
+.result-wrap .notes {
+  font-style: italic;
+}
+/* line 29, ../../sass/partials/_results.scss */
 .result-wrap.x-item-over {
   background-color: rgba(0, 0, 0, 0.1);
 }
-/* line 29, /Users/will/workspace/akgmi/web/sass/partials/_results.scss */
+/* line 33, ../../sass/partials/_results.scss */
 .result-wrap.x-item-selected {
   background-color: rgba(255, 255, 0, 0.5);
 }
 
-/* line 1, /Users/will/workspace/akgmi/web/sass/partials/_icons.scss */
+/* line 1, ../../sass/partials/_icons.scss */
 .all_sm_icon {
   background-image: url(/images/icons/all_sm.png);
 }
 
-/* line 4, /Users/will/workspace/akgmi/web/sass/partials/_icons.scss */
+/* line 4, ../../sass/partials/_icons.scss */
 .report_sm_icon {
   background-image: url(/images/icons/report_sm.png);
 }
 
-/* line 7, /Users/will/workspace/akgmi/web/sass/partials/_icons.scss */
+/* line 7, ../../sass/partials/_icons.scss */
 .maps_sm_icon {
   background-image: url(/images/icons/maps_sm.png);
 }
 
-/* line 10, /Users/will/workspace/akgmi/web/sass/partials/_icons.scss */
+/* line 10, ../../sass/partials/_icons.scss */
 .digital_data_sm_icon {
   background-image: url(/images/icons/digital_data_sm.png);
 }
 
-/* line 13, /Users/will/workspace/akgmi/web/sass/partials/_icons.scss */
+/* line 13, ../../sass/partials/_icons.scss */
 .link_go_sm_icon {
   background-image: url(/images/icons/link_go_sm.png);
 }
 
-/* line 16, /Users/will/workspace/akgmi/web/sass/partials/_icons.scss */
+/* line 16, ../../sass/partials/_icons.scss */
 .offline_sm_icon {
   background-image: url(/images/icons/offline_sm.png);
 }
 
-/* line 21, /Users/will/workspace/akgmi/web/sass/partials/_icons.scss */
+/* line 21, ../../sass/partials/_icons.scss */
 .olControlPanel .olControlSelectFeatureItemActive {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -370,7 +374,7 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
   background: url(/images/geo/pointer-info.png) no-repeat 2px 2px;
   background-color: rgba(0, 0, 255, 0.5);
 }
-/* line 26, /Users/will/workspace/akgmi/web/sass/partials/_icons.scss */
+/* line 26, ../../sass/partials/_icons.scss */
 .olControlPanel .olControlSelectFeatureItemInactive {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -381,7 +385,7 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
   background: url(/images/geo/pointer-info.png) no-repeat 2px 2px;
   background-color: rgba(255, 255, 255, 0.75);
 }
-/* line 31, /Users/will/workspace/akgmi/web/sass/partials/_icons.scss */
+/* line 31, ../../sass/partials/_icons.scss */
 .olControlPanel .olControlDrawFeatureItemActive {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -392,7 +396,7 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
   background: url(/images/geo/select-rectangle.png) no-repeat 2px 2px;
   background-color: rgba(0, 0, 255, 0.5);
 }
-/* line 36, /Users/will/workspace/akgmi/web/sass/partials/_icons.scss */
+/* line 36, ../../sass/partials/_icons.scss */
 .olControlPanel .olControlDrawFeatureItemInactive {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -404,7 +408,7 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
   background-color: rgba(255, 255, 255, 0.75);
 }
 
-/* line 1, /Users/will/workspace/akgmi/web/sass/partials/_map.scss */
+/* line 1, ../../sass/partials/_map.scss */
 div.olControlAttribution {
   bottom: 0em;
   right: 0em;
@@ -413,12 +417,12 @@ div.olControlAttribution {
   background-color: rgba(255, 255, 255, 0.25);
 }
 
-/* line 9, /Users/will/workspace/akgmi/web/sass/partials/_map.scss */
+/* line 9, ../../sass/partials/_map.scss */
 .olControlPanel {
   right: 20px;
   top: 0;
 }
-/* line 13, /Users/will/workspace/akgmi/web/sass/partials/_map.scss */
+/* line 13, ../../sass/partials/_map.scss */
 .olControlPanel div {
   display: block;
   float: right;
@@ -428,47 +432,47 @@ div.olControlAttribution {
   background-color: #fff;
 }
 
-/* line 23, /Users/will/workspace/akgmi/web/sass/partials/_map.scss */
+/* line 23, ../../sass/partials/_map.scss */
 .baseLayersDiv {
   white-space: nowrap;
 }
 
-/* line 26, /Users/will/workspace/akgmi/web/sass/partials/_map.scss */
+/* line 26, ../../sass/partials/_map.scss */
 .dataLayersDiv {
   white-space: nowrap;
 }
 
-/* line 1, /Users/will/workspace/akgmi/web/sass/partials/_extjs.scss */
+/* line 1, ../../sass/partials/_extjs.scss */
 .x-panel-header {
   background: none;
   border: none;
   padding: 0;
 }
-/* line 6, /Users/will/workspace/akgmi/web/sass/partials/_extjs.scss */
+/* line 6, ../../sass/partials/_extjs.scss */
 .x-panel-header .x-panel-header-text {
   line-height: 24px;
   font-size: 20px;
   margin-top: 0;
 }
 
-/* line 14, /Users/will/workspace/akgmi/web/sass/partials/_extjs.scss */
+/* line 14, ../../sass/partials/_extjs.scss */
 .x-btn-default-large .x-btn-inner {
   font-size: 16px;
   font-weight: bold;
 }
 
-/* line 20, /Users/will/workspace/akgmi/web/sass/partials/_extjs.scss */
+/* line 20, ../../sass/partials/_extjs.scss */
 .x-tree-panel .x-grid-row .x-grid-cell-inner img.noicon {
   display: none;
   background-image: none;
 }
 
-/* line 25, /Users/will/workspace/akgmi/web/sass/partials/_extjs.scss */
+/* line 25, ../../sass/partials/_extjs.scss */
 #viewport .x-layout-split-bottom {
   display: none;
 }
 
-/* line 30, /Users/will/workspace/akgmi/web/sass/partials/_extjs.scss */
+/* line 30, ../../sass/partials/_extjs.scss */
 body.bp th, body.bp td {
   padding: 0;
 }

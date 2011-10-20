@@ -21,6 +21,10 @@
   .body { 
 	  clear: both; 
   }
+  
+  .notes {
+    font-style: italic;
+  }
 
 	&.x-item-over {
 		background-color: transparentize(#000, 0.9);
