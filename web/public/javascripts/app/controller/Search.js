@@ -108,6 +108,8 @@ Ext.define('AKGMI.controller.Search', {
   },
   
   zoomToRecord: function(view, record, item){
+    Ext.get(document.body).scrollTo('top', 0);
+
     var bounds = new OpenLayers.Bounds();
     Ext.each(record.get('outlines'), function(outline) {
       bounds.extend(outline.geometry.getBounds());
