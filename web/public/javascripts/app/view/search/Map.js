@@ -59,7 +59,8 @@ Ext.define('AKGMI.view.search.Map', {
       map.outlines = new OpenLayers.Layer.Vector('Outlines', {
         isBaseLayer: false,
         styleMap: outline_styles,
-        displayInLayerSwitcher: false
+        displayInLayerSwitcher: false,
+        rendererOptions: { zIndexing: true }
       });
       
       var aoiStyles = new OpenLayers.StyleMap({
