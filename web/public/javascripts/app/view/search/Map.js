@@ -6,6 +6,7 @@
 Ext.define('AKGMI.view.search.Map', {
   extend: 'Ext.OpenLayers.Basic', 
   alias: 'widget.search_map',
+  bodyStyle: 'background: #000;',
   
   initComponent: function() {
     this.addEvents('featureselect', 'featureunselect', 'aoiadded');
