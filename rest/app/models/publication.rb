@@ -34,10 +34,16 @@ class Publication < ActiveRecord::Base
 
   def as_json(opts = nil)
     serializable_hash({ :only => [
-        :citation_id, :publication_number, :biblio_ref_long, :publication_year, :publicsher,
-        :map, :report, :disk, :geospatial_data, :outside_link, :keywords
+        :citation_id, :publication_number, :biblio_ref_long, :publication_year, :publisher,
+        :map, :report, :disk, :geospatial_data, :outside_link, :keywords, :url
       ],
-      :methods => [:outlines] })
+      :methods => [:outlines, :has_extent_outline] })
+  end
+
+  def has_extent_outline
+    has_extent = false
+    self.outlines.each { |o| has_extent ||= o.outline? }
+    has_extent
   end
 
   def to_json(opts = nil)

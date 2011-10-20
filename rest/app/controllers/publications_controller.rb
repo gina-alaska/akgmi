@@ -28,8 +28,13 @@ class PublicationsController < ApplicationController
     unless params[:year_from].nil? or params[:year_from].empty?
       @publications = @publications.where("publication_year >= ?", params[:year_from])
     end
+
     unless params[:year_to].nil? or params[:year_to].empty?
       @publications = @publications.where("publication_year <= ?", params[:year_to])
+    end
+
+    unless params[:aoi].nil? or params[:aoi].empty?
+      @publications = @publications.where("SDO_ANYINTERACT(#{Outline.table_name}.geometry, SDO_GEOMETRY(?, 3338)) = 'TRUE'", params[:aoi])
     end
 
     respond_with(@publications.all.uniq!)
