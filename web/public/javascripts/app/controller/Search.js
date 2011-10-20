@@ -163,6 +163,8 @@ Ext.define('AKGMI.controller.Search', {
 		tb.down('textfield').setValue(null);
     var form = button.up('form');
     form.getForm().reset();
+    
+    App.map.outlines.removeAllFeatures();
   },
   
   doSearchOnEnter: function(field, e) {
