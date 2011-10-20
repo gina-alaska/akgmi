@@ -2,7 +2,7 @@ function as_bool(v) { return (v == 'Y' ? true : false) }
 Ext.define('AKGMI.model.Publication', {
   extend: 'Ext.data.Model',
   fields: [
-    'citation_id', 'publication_number', 'authors', 'title', 'quadrangles',
+    'citation_id', 'publication_number', 'authors', 'title', 'quadrangles', 'has_extent_outline',
     'keywords', 'publication_year', 'publisher', 'biblio_ref_short', 'biblio_ref_long', 'url',
     { name: 'map', convert: as_bool },
     { name: 'report', convert: as_bool },
