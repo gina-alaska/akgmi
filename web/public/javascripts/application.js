@@ -43,6 +43,7 @@ Ext.application({
 		App.search_toolbar = Ext.create('AKGMI.view.search.Toolbar', {
 			region: 'north',
 			margin: '0 0 3 0',
+			height: 42,
 			border: false
 		});
     App.sidebar = Ext.create('AKGMI.view.search.Form', {
@@ -71,7 +72,6 @@ Ext.application({
 			renderTo: 'content',
 			cls: 'no-background',
 			border: false,			
-			autoHeight: true,
 			height: 500,
     	items: [App.search_toolbar, App.map, App.sidebar]
 		});

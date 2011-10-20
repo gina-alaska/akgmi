@@ -6,6 +6,7 @@
 Ext.define('AKGMI.view.search.Map', {
   extend: 'Ext.OpenLayers.Basic', 
   alias: 'widget.search_map',
+  bodyStyle: 'background: #000;',
   
   initComponent: function() {
     this.addEvents('featureselect', 'featureunselect', 'aoiadded');
@@ -56,9 +57,9 @@ Ext.define('AKGMI.view.search.Map', {
       });
       map.outlines = new OpenLayers.Layer.Vector('Outlines', {
         isBaseLayer: false,
-        styleMap: outline_styles
+        styleMap: outline_styles,
+        displayInLayerSwitcher: false
       });
-      map.getMap().addLayer(map.outlines);
       
       var aoiStyles = new OpenLayers.StyleMap({
         "default": new OpenLayers.Style({
@@ -66,23 +67,26 @@ Ext.define('AKGMI.view.search.Map', {
           fillOpacity: 0, 
           strokeColor: "#FF0000",
           strokeWidth: 2,
-          strokeOpacity: 0.5
+          strokeOpacity: 1
         }),
         "select": new OpenLayers.Style({
           fillColor: "#FFFF00",
           fillOpacity: 0.25,
           strokeColor: "#FFFF00",
           strokeWidth: 2,
-          strokeOpacity: 0.75 
+          strokeOpacity: 1 
         }),  
       });
       map.aoi = new OpenLayers.Layer.Vector('AOI', {
         isBaseLayer: false,
         displayInLayerSwitcher: false,
         styleMap: aoiStyles,
-        eventListeners: { beforefeaturesadded: Ext.bind(this.beforeAOIAdded, this) } 
+        eventListeners: { beforefeaturesadded: Ext.bind(this.beforeAOIAdded, this) },
+        rendererOptions: { zIndexing: true }
       });
-      map.getMap().addLayer(map.aoi);
+
+      map.getMap().addLayers([map.outlines, map.aoi]);
+      // map.getMap().addLayer(map.aoi);
                  
       this.navtoolbar = new OpenLayers.Control.Panel();
     
@@ -98,6 +102,7 @@ Ext.define('AKGMI.view.search.Map', {
         }
       });
     
+      // this.navtoolbar.addControls([this.aoiSelector]);
       this.featureSelector = new OpenLayers.Control.SelectFeature(map.outlines, {
         title: 'Select Publications: Click an outline to select or click and drag to select multiple outlines',
         type: OpenLayers.Control.TYPE_TOGGLE,
@@ -115,22 +120,22 @@ Ext.define('AKGMI.view.search.Map', {
       });
       
       this.navtoolbar.addControls([this.featureSelector, this.aoiSelector]);
+      // 
+      // this.featureClickSelector = new OpenLayers.Control.SelectFeature(map.outlines, {
+      //   title: 'Select Publications: Click an outline to select or click and drag to select multiple outlines',
+      //   type: OpenLayers.Control.TYPE_TOGGLE,
+      //   multiple: false,
+      //   hover: false,
+      //   toggle: true,
+      //   clickout: false,
+      //   box: false,
+      //   multipleKey: 'shiftKey',
+      //   onSelect: Ext.bind(this.onFeatureSelect, this),
+      //   onUnselect: Ext.bind(this.onFeatureUnselect, this)
+      // });
       
-      this.featureClickSelector = new OpenLayers.Control.SelectFeature(map.outlines, {
-        title: 'Select Publications: Click an outline to select or click and drag to select multiple outlines',
-        type: OpenLayers.Control.TYPE_TOGGLE,
-        multiple: false,
-        hover: false,
-        toggle: true,
-        clickout: false,
-        box: false,
-        multipleKey: 'shiftKey',
-        onSelect: Ext.bind(this.onFeatureSelect, this),
-        onUnselect: Ext.bind(this.onFeatureUnselect, this)
-      });
-      
-      map.getMap().addControl(this.featureClickSelector);
-      this.featureClickSelector.activate();
+      // map.getMap().addControl(this.featureClickSelector);
+      // this.featureClickSelector.activate();
       
       // this.featureSelector.activate();
       map.getMap().addControl(this.navtoolbar);

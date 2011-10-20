@@ -103,11 +103,17 @@ Ext.define('AKGMI.controller.Search', {
         return false;
       case 'zoomto':
         this.zoomToRecord(view, record, e.target);
-        return false;
+        if(view.isSelected(item)) {
+          return false;          
+        } else {
+          return true;
+        }
     }
   },
   
   zoomToRecord: function(view, record, item){
+    Ext.get(document.body).scrollTo('top', 0);
+
     var bounds = new OpenLayers.Bounds();
     Ext.each(record.get('outlines'), function(outline) {
       bounds.extend(outline.geometry.getBounds());
@@ -163,6 +169,8 @@ Ext.define('AKGMI.controller.Search', {
 		tb.down('textfield').setValue(null);
     var form = button.up('form');
     form.getForm().reset();
+    
+    App.map.outlines.removeAllFeatures();
   },
   
   doSearchOnEnter: function(field, e) {
