@@ -13,6 +13,9 @@ Ext.define('AKGMI.view.search.Form', {
     bodyStyle: 'padding-top: 3px;',
     defaultType: 'textfield',
     items:[{
+      xtype: 'hiddenfield',
+      name: 'aoi'
+    }, {
       xtype: 'combobox',
       fieldLabel: CONFIG.get('search_form.agency'),
       name: 'agency',
@@ -20,7 +23,8 @@ Ext.define('AKGMI.view.search.Form', {
       store: Ext.create('AKGMI.store.Agencies'),
       queryMode: 'local',
       displayField: 'name',
-      valueField: 'id'
+      valueField: 'id',
+      forceSelection: true
     },{
       fieldLabel: CONFIG.get('search_form.years'),
       xtype: 'fieldcontainer',

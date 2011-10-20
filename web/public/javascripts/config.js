@@ -1,5 +1,6 @@
 CONFIG = {
-	restUrl: 'http://dggsmaps.dnr.state.ak.us',
+  restUrl: 'http://akgmi-rest.zap.gina.alaska.edu',
+  // restUrl: 'http://dggsmaps.dnr.state.ak.us',
 	defaultLang: 'EN',
 	EN: {
 		search_form: {
