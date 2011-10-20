@@ -42,17 +42,17 @@ Ext.define('AKGMI.view.search.Map', {
       var outline_styles = new OpenLayers.StyleMap({
         "default": new OpenLayers.Style({
           fillColor: "#0000FF",
-          fillOpacity: 0.05, 
+          fillOpacity: 0.025, 
           strokeColor: "#0000FF",
           strokeWidth: 2,
           strokeOpacity: 0.8
         }),
         "select": new OpenLayers.Style({
           fillColor: "#FFFF00",
-          fillOpacity: 0.25,
+          fillOpacity: 0.025,
           strokeColor: "#FFFF00",
           strokeWidth: 2,
-          strokeOpacity: 0.9,
+          strokeOpacity: 1,
           zIndex: 10000
         }),  
       });
