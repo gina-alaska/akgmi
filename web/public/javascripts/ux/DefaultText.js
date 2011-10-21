@@ -44,7 +44,7 @@ Ext.define('Ext.ux.DefaultText', {
     field.on('render', this.setToDefault, this, { delay: 100 });
 
     field.on('focus', function(input) {
-      if(input.getSubmitValueWithoutCheck() == input.defaultText) { 
+      if(input.getValueWithoutCheck() == input.defaultText) { 
 				input.setValue(''); 
 			}
     }, this);
