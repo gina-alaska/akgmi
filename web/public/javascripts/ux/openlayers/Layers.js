@@ -136,7 +136,16 @@ Ext.define('Ext.OpenLayers.Layers', {
      options: {
        isBaseLayer: false,
        visibility: false
-     }, 
+     }
+    },
+    osm_hydro_3338: {
+      name: 'Hydrography',
+      type: 'tiles',
+      baseUrl: 'http://tiles.proto.gina.alaska.edu/tilesrv/osm-water/tile/',
+      options: {
+       isBaseLayer: false,
+       visibility: false
+     }
     },
     townships_3338: {
       name: 'Townships',

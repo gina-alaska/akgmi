@@ -103,7 +103,11 @@ Ext.define('AKGMI.controller.Search', {
         return false;
       case 'zoomto':
         this.zoomToRecord(view, record, e.target);
-        return false;
+        if(view.isSelected(item)) {
+          return false;          
+        } else {
+          return true;
+        }
     }
   },
   
