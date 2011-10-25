@@ -8,9 +8,6 @@ Ext.define('AKGMI.controller.Search', {
     this.getStore('Publications').on('datachanged', this.searchLoaded, this);
 
     this.control({
-      'search_form search_themes': {
-        itemclick: function() { this.getStore('Publications').filter('123') }
-      },
       'search_form button[action=search]': {
         click: this.doSearch
 			},

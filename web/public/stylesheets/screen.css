@@ -329,26 +329,27 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
   width: 30px;
   position: relative;
   display: inline-block;
+  margin: 0;
 }
-/* line 34, ../../sass/partials/_results.scss */
+/* line 35, ../../sass/partials/_results.scss */
 .result-wrap .checkbox input {
   vertical-align: middle;
 }
-/* line 40, ../../sass/partials/_results.scss */
+/* line 41, ../../sass/partials/_results.scss */
 .result-wrap .result-content {
   margin: 0;
   width: 930px;
   display: inline-block;
 }
-/* line 46, ../../sass/partials/_results.scss */
+/* line 47, ../../sass/partials/_results.scss */
 .result-wrap .notes {
   font-style: italic;
 }
-/* line 50, ../../sass/partials/_results.scss */
+/* line 51, ../../sass/partials/_results.scss */
 .result-wrap.x-item-over {
   background-color: rgba(0, 0, 0, 0.1);
 }
-/* line 54, ../../sass/partials/_results.scss */
+/* line 55, ../../sass/partials/_results.scss */
 .result-wrap.x-item-selected {
   background-color: rgba(255, 255, 0, 0.5);
 }
