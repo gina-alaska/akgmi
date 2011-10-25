@@ -22,7 +22,7 @@ class PublicationsController < ApplicationController
     end
 
     unless params[:agency].nil? or params[:agency].empty?
-      @publications = @publications.where("LOWER(#{Publication.table_name}.publisher) = LOWER(?)", params[:agency])
+      @publications = @publications.where("LOWER(#{Publication.table_name}.publisher) = ?", params[:agency].downcase)
     end
 
     unless params[:year_from].nil? or params[:year_from].empty?
@@ -33,8 +33,21 @@ class PublicationsController < ApplicationController
       @publications = @publications.where("publication_year <= ?", params[:year_to])
     end
 
+    if valid? :scale_from
+      @publications = @publications.where("#{Outline.table_name}.map_scale_denominator >= ?", params[:scale_from].to_i)
+    end
+    if valid? :scale_to
+      @publications = @publications.where("#{Outline.table_name}.map_scale_denominator <= ?", params[:scale_to].to_i)
+    end
+
+
     unless params[:aoi].nil? or params[:aoi].empty?
-      @publications = @publications.where("SDO_ANYINTERACT(#{Outline.table_name}.geometry, SDO_GEOMETRY(?, 3338)) = 'TRUE'", params[:aoi])
+      @aoi = GeoRuby::SimpleFeatures::Polygon.from_ewkt(params[:aoi])
+      @aoi.srid = 3338;
+
+      @publications = @publications.where(
+        "SDO_RELATE(#{Outline.table_name}.geometry, #{@aoi.as_sdo_rectangle}, 'mask=ANYINTERACT querytype = WINDOW') = 'TRUE'"
+      )
     end
 
     respond_with(@publications.all.uniq!)
@@ -43,5 +56,11 @@ class PublicationsController < ApplicationController
   def show
     @publication = Publication.find_by_citation_id(params[:id])
     respond_with(@publication)
+  end
+
+  protected
+
+  def valid?(field)
+    not (params[field].nil? or params[field].empty?)
   end
 end
