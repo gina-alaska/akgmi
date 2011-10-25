@@ -45,7 +45,7 @@ Ext.define('AKGMI.view.search.Results', {
   //   }]
   // }],
   initComponent: function() {
-    this.items = Ext.create('Ext.view.View', {
+    var dv = Ext.create('Ext.view.View', {
       store: this.store,
       simpleSelect: true,
       trackOver: true,
@@ -85,13 +85,18 @@ Ext.define('AKGMI.view.search.Results', {
       itemSelector: 'div.result-wrap',
       emptyText: 'No results found'
     });
-    this.items.on('itemclick', this.onItemClick);
+    dv.on('selectionchange', this.onSelectionChange);
+    this.items = [dv];
 
     this.callParent(arguments);
   },
-  onItemClick: function(view, record, item, index, e){
-    console.log('test');
-    var cb = Ext.fly(item).down('input[type=checkbox]').dom;
-    cb.checked = !view.isSelected(item);
+  onSelectionChange: function(dv, selections){
+    Ext.each(dv.view.getNodes(), function(item) {
+      if(selections.indexOf(dv.view.getRecord(item)) >= 0) {
+        Ext.fly(item).down('input[type=checkbox]').dom.checked = true;
+      } else {
+        Ext.fly(item).down('input[type=checkbox]').dom.checked = false;
+      }
+    }, this);
   }
 });
