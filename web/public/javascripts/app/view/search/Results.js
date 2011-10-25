@@ -52,26 +52,31 @@ Ext.define('AKGMI.view.search.Results', {
       tpl: [
         '<tpl for=".">',
           '<div class="result-wrap" id="citation_{citation_id}">',
-            '<div class="header">',
-              '<span class="title"><a href="{url}" target="_blank">{publication_number}</a></span>',
-              '<span class="icons">',
-                '<tpl if="report"><img class="report" alt="report" src="/images/icons/report_sm.png"></tpl>',
-                '<tpl if="map"><img class="map" alt="map" src="/images/icons/maps_sm.png"></tpl>',
-                '<tpl if="geospatial_data"><img class="geospatial" alt="geospatial" src="/images/icons/digital_data_sm.png"></tpl>',
-                '<tpl if="outside_link"><img class="outside_link" alt="outside_link" src="/images/icons/link_go_sm.png"></tpl>',
-                '<tpl if="disk"><img class="disk" alt="disk" src="/images/icons/offline_sm.png"></tpl>',
-              '</span>',
+            '<div class="checkbox">',
+              '<input type="checkbox" name="selected[]" />',
             '</div>',
-            '<div class="body">{biblio_ref_long}</div>',
-            '<tpl if="has_extent_outline">',
-              '<div class="notes">Please note that some areas within the outline may not be mapped.</div>',
-            '</tpl>',
-            '<div class="keywords">',
-              '<span class="keywordlist" style="display:none;">Keywords: {keywords}<br /></span>',
-            '</div>',
-            '<div class="actions">',
-              '<a class="toggle" href="javascript:void(0)">Show Keywords</a> | ',
-              '<a class="zoomto" href="javascript:void(0)">Zoom to</a>',
+            '<div class="result-content">',
+              '<div class="header">',
+                '<span class="title"><a href="{url}" target="_blank">{publication_number}</a></span>',
+                '<span class="icons">',
+                  '<tpl if="report"><img class="report" alt="report" src="/images/icons/report_sm.png"></tpl>',
+                  '<tpl if="map"><img class="map" alt="map" src="/images/icons/maps_sm.png"></tpl>',
+                  '<tpl if="geospatial_data"><img class="geospatial" alt="geospatial" src="/images/icons/digital_data_sm.png"></tpl>',
+                  '<tpl if="outside_link"><img class="outside_link" alt="outside_link" src="/images/icons/link_go_sm.png"></tpl>',
+                  '<tpl if="disk"><img class="disk" alt="disk" src="/images/icons/offline_sm.png"></tpl>',
+                '</span>',
+              '</div>',
+              '<div class="body">{biblio_ref_long}</div>',
+              '<tpl if="has_extent_outline">',
+                '<div class="notes">Please note that some areas within the outline may not be mapped.</div>',
+              '</tpl>',
+              '<div class="keywords">',
+                '<span class="keywordlist" style="display:none;">Keywords: {keywords}<br /></span>',
+              '</div>',
+              '<div class="actions">',
+                '<a class="toggle" href="javascript:void(0)">Show Keywords</a> | ',
+                '<a class="zoomto" href="javascript:void(0)">Zoom to</a>',
+              '</div>',
             '</div>',
           '</div>',
         '</tpl>'
@@ -80,7 +85,13 @@ Ext.define('AKGMI.view.search.Results', {
       itemSelector: 'div.result-wrap',
       emptyText: 'No results found'
     });
+    this.items.on('itemclick', this.onItemClick);
 
     this.callParent(arguments);
+  },
+  onItemClick: function(view, record, item, index, e){
+    console.log('test');
+    var cb = Ext.fly(item).down('input[type=checkbox]').dom;
+    cb.checked = !view.isSelected(item);
   }
 });

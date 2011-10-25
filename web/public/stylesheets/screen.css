@@ -297,38 +297,58 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
 
 /* line 1, ../../sass/partials/_results.scss */
 .result-wrap {
-  padding: 5px 0 10px 0;
+  padding: 10px 0 10px 0;
   font-size: 14px;
+  width: 960px;
+  display: block;
 }
-/* line 5, ../../sass/partials/_results.scss */
+/* line 7, ../../sass/partials/_results.scss */
 .result-wrap .title {
   font-size: 16px;
   text-decoration: underline;
 }
-/* line 10, ../../sass/partials/_results.scss */
+/* line 12, ../../sass/partials/_results.scss */
 .result-wrap .keywordlist {
   font-size: 10px;
   font-style: italic;
 }
-/* line 15, ../../sass/partials/_results.scss */
+/* line 17, ../../sass/partials/_results.scss */
 .result-wrap .icons img {
   width: 35px;
   height: 35px;
   margin-left: 15px;
 }
-/* line 21, ../../sass/partials/_results.scss */
+/* line 23, ../../sass/partials/_results.scss */
 .result-wrap .body {
   clear: both;
 }
-/* line 25, ../../sass/partials/_results.scss */
+/* line 27, ../../sass/partials/_results.scss */
+.result-wrap .checkbox {
+  padding: 5px;
+  top: -55px;
+  width: 30px;
+  position: relative;
+  display: inline-block;
+}
+/* line 34, ../../sass/partials/_results.scss */
+.result-wrap .checkbox input {
+  vertical-align: middle;
+}
+/* line 40, ../../sass/partials/_results.scss */
+.result-wrap .result-content {
+  margin: 0;
+  width: 930px;
+  display: inline-block;
+}
+/* line 46, ../../sass/partials/_results.scss */
 .result-wrap .notes {
   font-style: italic;
 }
-/* line 29, ../../sass/partials/_results.scss */
+/* line 50, ../../sass/partials/_results.scss */
 .result-wrap.x-item-over {
   background-color: rgba(0, 0, 0, 0.1);
 }
-/* line 33, ../../sass/partials/_results.scss */
+/* line 54, ../../sass/partials/_results.scss */
 .result-wrap.x-item-selected {
   background-color: rgba(255, 255, 0, 0.5);
 }
