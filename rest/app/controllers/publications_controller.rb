@@ -22,7 +22,7 @@ class PublicationsController < ApplicationController
     end
 
     unless params[:agency].nil? or params[:agency].empty?
-      @publications = @publications.where("LOWER(#{Publication.table_name}.publisher) = LOWER(?)", params[:agency])
+      @publications = @publications.where("LOWER(#{Publication.table_name}.publisher) = ?", params[:agency].downcase)
     end
 
     unless params[:year_from].nil? or params[:year_from].empty?
