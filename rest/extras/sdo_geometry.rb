@@ -21,8 +21,9 @@ GeoRuby::SimpleFeatures::Point.class_eval do
   def sdo_ordinate_array
     @with_z ? "#{@x},#{@y},#{@z}" : "#{@x},#{@y}, NULL"
   end
-  
+
 end
+
 GeoRuby::SimpleFeatures::LineString.class_eval do
   def as_sdo_geometry
     "MDSYS.SDO_GEOMETRY(#{sdo_gtype},#{sdo_srid},null,SDO_ELEM_INFO_ARRAY(#{sdo_starting_offset},#{sdo_etype},#{sdo_interpretation}),SDO_ORDINATE_ARRAY(#{sdo_ordinate_array}))"
@@ -60,12 +61,20 @@ GeoRuby::SimpleFeatures::Polygon.class_eval do
     "MDSYS.SDO_GEOMETRY(#{sdo_gtype},#{sdo_srid},null,SDO_ELEM_INFO_ARRAY(#{sdo_starting_offset},#{sdo_etype},#{sdo_interpretation}),SDO_ORDINATE_ARRAY(#{sdo_ordinate_array}))"
   end
 
+  def as_sdo_rectangle
+    bounding_points = []
+    bounding_box.each { |p| bounding_points << [p.x,p.y] }
+    
+    "MDSYS.SDO_GEOMETRY(#{sdo_gtype},#{sdo_srid},null,SDO_ELEM_INFO_ARRAY(#{sdo_starting_offset},#{sdo_etype},3),SDO_ORDINATE_ARRAY(#{bounding_points.join(',')}))"
+  end
+
   # dl03 POLYGON Geometry contains one polygon with or without holes
   def sdo_gtype
     d = @with_z ? 3 : 2
     l = @with_m ? (d==2 ? 3 : 4) : 0
     "#{d}#{l}03".to_i
   end
+
   def sdo_starting_offset 
     1 
   end
