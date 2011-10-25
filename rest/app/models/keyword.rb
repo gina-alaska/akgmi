@@ -5,25 +5,38 @@ class Keyword < ActiveRecord::Base
     items.collect(&:upcase)
   end
 
-  def self.subquery(mode, items)
+  def self.theme_subquery(items)
     search_terms = sanitize(items)
     search = self.select('DISTINCT CITATION_ID')
 
-    case mode.to_sym
-      when :any
-        search = search.where('KEYWORD_UPPERCASE IN (?)', search_terms)
-      when :all
-        first = search_terms.shift
-        search = search.where('KEYWORD_UPPERCASE LIKE (?)', "%#{first}%")
+    first = search_terms.shift
+    search = search.where('KEYWORD_UPPERCASE = ?', first)
+    
+    sq = Keyword.select('CITATION_ID')
+    search_terms.each do |item|
+      search = search.where(
+        'CITATION_ID IN (' +
+          sq.where('KEYWORD_UPPERCASE = ?', item).to_sql +
+        ')'
+      )
+    end
+    search.to_sql
+  end
+
+  def self.subquery(items)
+    search_terms = sanitize(items)
+    search = self.select('DISTINCT CITATION_ID')
+
+    first = search_terms.shift
+    search = search.where('KEYWORD_UPPERCASE LIKE (?)', "%#{first}%")
         
-        subquery = Keyword.select('CITATION_ID')
-        search_terms.each do |item|
-          search = search.where(
-            'CITATION_ID IN (' +
-              subquery.where('KEYWORD_UPPERCASE LIKE (?)', "%#{item}%").to_sql +
-            ')'
-          )
-        end
+    sq = Keyword.select('CITATION_ID')
+    search_terms.each do |item|
+      search = search.where(
+        'CITATION_ID IN (' +
+          sq.where('KEYWORD_UPPERCASE LIKE (?)', "%#{item}%").to_sql +
+        ')'
+      )
     end
     search.to_sql
   end
