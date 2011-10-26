@@ -10,8 +10,13 @@ class PublicationsController < ApplicationController
       #@publications = @publications.where(:themes => )
     end
 
-    unless params[:keyword].nil? or params[:keyword].empty?
-      sql = Keyword.subquery(:all, params[:keyword].split(/\s+/))
+    if valid? :keyword
+      sql = Keyword.subquery(params[:keyword].split(/\s+/))
+      @publications = @publications.where("#{Publication.table_name}.citation_id IN (#{sql})")
+    end
+
+    if valid? :themes
+      sql = Keyword.theme_subquery(params[:themes])
       @publications = @publications.where("#{Publication.table_name}.citation_id IN (#{sql})")
     end
 
