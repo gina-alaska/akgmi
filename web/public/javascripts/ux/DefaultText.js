@@ -6,50 +6,52 @@ Ext.define('Ext.ux.DefaultText', {
     this.callParent();
   },
 
-  setToDefault: function(input, force) {
-    if(force === true || input.getValue() == null || input.getValue() == '') { 
+  setToDefault: function(input) {
+    var v = input.getValue();
+    if(v == null || v == this.emptyValue || (Ext.isArray(v) && v.indexOf(this.emptyValue) >= 0)) { 
+      input.setValue('');
       input.addCls('default');
-			return input.setValueWithoutDefault(input.defaultText); 
+      return false;
 		}
   },
 
   init: function(field) {
 		var me = this;
 		
-    field.defaultText = this.text;
-    field.setValueWithoutDefault = field.setValue;
-    field.setValue = function(v) {
-      if(v == field.defaultText || v === undefined || v === null) {
-				return me.setToDefault(field, true);
-			} else {
-        this.removeCls('default');
-	      return this.setValueWithoutDefault(v);
-      }
-    }.bind(field);
-
-    field.getSubmitValueWithoutCheck = field.getSubmitValue;
-    field.getSubmitValue = Ext.bind(function() {
-      var v = this.getSubmitValueWithoutCheck();
-      return (v == this.defaultText ? '' : v);
-    }, field);
-    field.getValueWithoutCheck = field.getValue;
-    field.getValue = Ext.bind(function() {
-      var v = this.getValueWithoutCheck();
-      return (v == this.defaultText ? '' : v);
-    }, field);
-
+    this.emptyValue =  (this.emptyValue == null ? '' : this.emptyValue);
+		field.emptyText = this.text;
+		field.submitEmptyText = false;
 
     field.addCls('default');
 
     field.on('render', this.setToDefault, this, { delay: 100 });
 
     field.on('focus', function(input) {
-      if(input.getValueWithoutCheck() == input.defaultText) { 
-				input.setValue(''); 
-			}
+			input.removeCls('default');
+			if(input.getValue() == this.emptyValue) { input.setValue(''); }
     }, this);
 
     field.on('blur', this.setToDefault, this);
+    
+    /* 
+      If a user tells us to add an empty option and there is a store,
+      add it to the store based on the configured values
+    */
+    if(this.addEmptyChoice && field.store) {
+      var choice = {};
+      choice[field.valueField] = this.emptyValue;
+      choice[field.displayField] = this.text;
+      
+      field.store.on('load', function(store) {  
+        store.insert(0, choice);
+      });
+      field.store.insert(0, choice);
+    }
+    
+    /* If user selects blank option clear out all the other selections */
+    if(field.multiSelect) {
+      field.on('select', this.setToDefault, this);
+    }
 
     this.fireEvent('load', this)
   }

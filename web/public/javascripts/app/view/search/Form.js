@@ -18,9 +18,14 @@ Ext.define('AKGMI.view.search.Form', {
     }, {
       xtype: 'combobox',
       fieldLabel: CONFIG.get('search_form.agency'),
+      plugins: [Ext.create('Ext.ux.DefaultText', { 
+        text: 'Select an Agency', 
+        addEmptyChoice: true
+      })],
       name: 'agency',
       anchor: '100%',
       store: Ext.create('AKGMI.store.Agencies'),
+      
       queryMode: 'local',
       displayField: 'name',
       valueField: 'id',
@@ -45,14 +50,18 @@ Ext.define('AKGMI.view.search.Form', {
     },{
       xtype: 'combobox',
       fieldLabel: CONFIG.get('search_form.quadrangles'),
-      plugins: [Ext.create('Ext.ux.DefaultText', { text: CONFIG.get('search_form.quadrangles_default') })],
+      plugins: [Ext.create('Ext.ux.DefaultText', { 
+        text: CONFIG.get('search_form.quadrangles_default'),
+        addEmptyChoice: true
+      })],
       name: 'quadrangles[]',
       multiSelect: true,
       anchor: '100%',
       store: Ext.create('AKGMI.store.Quadrangles'),
       queryMode: 'local',
       displayField: 'quad_name',
-      valueField: 'quad_number_dggs'
+      valueField: 'quad_number_dggs',
+      forceSelection: true
     },{
       fieldLabel: CONFIG.get('search_form.scale'),
       xtype: 'fieldcontainer',
@@ -62,7 +71,7 @@ Ext.define('AKGMI.view.search.Form', {
       items: [{
         xtype: 'combobox',
         name: 'scale_from',
-        plugins: [Ext.create('Ext.ux.DefaultText', { text: CONFIG.get('search_form.scale_from_default') })],
+        plugins: [Ext.create('Ext.ux.DefaultText', { text: CONFIG.get('search_form.scale_from_default'), addEmptyChoice: true })],
         store: Ext.create('Ext.data.Store', {
           fields: ['key', 'display'],
           data: CONFIG.get('search_form.scale_from')
@@ -74,7 +83,7 @@ Ext.define('AKGMI.view.search.Form', {
         xtype: 'combobox',
         name: 'scale_to',
         flex: 1,
-        plugins: [Ext.create('Ext.ux.DefaultText', { text: CONFIG.get('search_form.scale_to_default') })],
+        plugins: [Ext.create('Ext.ux.DefaultText', { text: CONFIG.get('search_form.scale_to_default'), addEmptyChoice: true })],
         store: Ext.create('Ext.data.Store', {
           fields: ['key', 'display'],
           data: CONFIG.get('search_form.scale_to')
