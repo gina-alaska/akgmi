@@ -22,33 +22,37 @@ $active-tool-border-color: red;
 $inactive-tool-bg: #FFF;
 $inactive-tool-border-color: white;
 
+@mixin activeTool {
+  border: 1px solid $active-tool-border-color;
+  background-color: $active-tool-bg;
+  background-color: transparentize($active-tool-bg, 0.25);  
+}
+
+@mixin inactiveTool {
+  border: 1px solid $inactive-tool-border-color;
+  background-color: $inactive-tool-bg;
+  background-color: transparentize($inactive-tool-bg, 0.25);  
+}
+
 .olControlPanel {
   .olControlSelectFeatureItemActive {
     @include border-radius(2px);
-    border: 1px solid $active-tool-border-color;
     background: url(/images/geo/pointer-info.png) no-repeat;
-    background-color: $active-tool-bg;
-    background-color: transparentize($active-tool-bg, 0.25);
+    @include activeTool();
   }
   .olControlSelectFeatureItemInactive {
     @include border-radius(2px);
-    border: 1px solid $inactive-tool-border-color;
     background: url(/images/geo/pointer-info.png) no-repeat;
-    background-color: $inactive-tool-bg;
-    background-color: transparentize($inactive-tool-bg, 0.25);
+    @include inactiveTool();
   }
   .olControlDrawFeatureItemActive {
     @include border-radius(2px);
-    border: 1px solid $active-tool-border-color;
     background: url(/images/geo/shape_square_red.png) no-repeat 5px 5px;
-    background-color: $active-tool-bg;
-    background-color: transparentize($active-tool-bg, 0.25);
+    @include activeTool();
   }
   .olControlDrawFeatureItemInactive {
     @include border-radius(2px);
-    border: 1px solid $inactive-tool-border-color;
     background: url(/images/geo/shape_square_red.png) no-repeat 5px 5px;
-    background-color: $inactive-tool-bg;
-    background-color: transparentize($inactive-tool-bg, 0.25);
+    @include inactiveTool();
   }
 }
