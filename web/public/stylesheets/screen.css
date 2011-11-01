@@ -296,33 +296,39 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
 }
 
 /* line 1, ../../sass/partials/_results.scss */
+.noresults {
+  font-size: 18px;
+  text-align: center;
+}
+
+/* line 6, ../../sass/partials/_results.scss */
 .result-wrap {
   padding: 10px 0 10px 0;
   font-size: 14px;
   width: 960px;
   display: block;
 }
-/* line 7, ../../sass/partials/_results.scss */
+/* line 12, ../../sass/partials/_results.scss */
 .result-wrap .title {
   font-size: 16px;
   text-decoration: underline;
 }
-/* line 12, ../../sass/partials/_results.scss */
+/* line 17, ../../sass/partials/_results.scss */
 .result-wrap .keywordlist {
   font-size: 10px;
   font-style: italic;
 }
-/* line 17, ../../sass/partials/_results.scss */
+/* line 22, ../../sass/partials/_results.scss */
 .result-wrap .icons img {
   width: 35px;
   height: 35px;
   margin-left: 15px;
 }
-/* line 23, ../../sass/partials/_results.scss */
+/* line 28, ../../sass/partials/_results.scss */
 .result-wrap .body {
   clear: both;
 }
-/* line 27, ../../sass/partials/_results.scss */
+/* line 32, ../../sass/partials/_results.scss */
 .result-wrap .checkbox {
   padding: 5px;
   top: -55px;
@@ -331,25 +337,25 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
   display: inline-block;
   margin: 0;
 }
-/* line 35, ../../sass/partials/_results.scss */
+/* line 40, ../../sass/partials/_results.scss */
 .result-wrap .checkbox input {
   vertical-align: middle;
 }
-/* line 41, ../../sass/partials/_results.scss */
+/* line 46, ../../sass/partials/_results.scss */
 .result-wrap .result-content {
   margin: 0;
   width: 930px;
   display: inline-block;
 }
-/* line 47, ../../sass/partials/_results.scss */
+/* line 52, ../../sass/partials/_results.scss */
 .result-wrap .notes {
   font-style: italic;
 }
-/* line 51, ../../sass/partials/_results.scss */
+/* line 56, ../../sass/partials/_results.scss */
 .result-wrap.x-item-over {
   background-color: rgba(0, 0, 0, 0.1);
 }
-/* line 55, ../../sass/partials/_results.scss */
+/* line 60, ../../sass/partials/_results.scss */
 .result-wrap.x-item-selected {
   background-color: rgba(255, 255, 0, 0.5);
 }
@@ -505,4 +511,15 @@ div.olControlAttribution {
 /* line 30, ../../sass/partials/_extjs.scss */
 body.bp th, body.bp td {
   padding: 0;
+}
+
+/* line 36, ../../sass/partials/_extjs.scss */
+.x-toolbar-dggs .x-toolbar-text {
+  font-size: 14px;
+}
+/* line 39, ../../sass/partials/_extjs.scss */
+.x-toolbar-dggs .x-toolbar-text-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: black !important;
 }
