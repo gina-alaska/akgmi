@@ -384,7 +384,7 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
   background-image: url(/images/icons/offline_sm.png);
 }
 
-/* line 24, ../../sass/partials/_icons.scss */
+/* line 26, ../../sass/partials/_icons.scss */
 .olControlPanel .olControlSelectFeatureItemActive {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -392,11 +392,12 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
   -ms-border-radius: 2px;
   -khtml-border-radius: 2px;
   border-radius: 2px;
-  background: url(/images/geo/pointer-info.png) no-repeat 2px 2px;
+  border: 1px solid red;
+  background: url(/images/geo/pointer-info.png) no-repeat;
   background-color: yellow;
   background-color: rgba(255, 255, 0, 0.75);
 }
-/* line 30, ../../sass/partials/_icons.scss */
+/* line 33, ../../sass/partials/_icons.scss */
 .olControlPanel .olControlSelectFeatureItemInactive {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -404,11 +405,12 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
   -ms-border-radius: 2px;
   -khtml-border-radius: 2px;
   border-radius: 2px;
-  background: url(/images/geo/pointer-info.png) no-repeat 2px 2px;
+  border: 1px solid white;
+  background: url(/images/geo/pointer-info.png) no-repeat;
   background-color: white;
   background-color: rgba(255, 255, 255, 0.75);
 }
-/* line 36, ../../sass/partials/_icons.scss */
+/* line 40, ../../sass/partials/_icons.scss */
 .olControlPanel .olControlDrawFeatureItemActive {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -416,11 +418,12 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
   -ms-border-radius: 2px;
   -khtml-border-radius: 2px;
   border-radius: 2px;
-  background: url(/images/geo/shape_square_red.png) no-repeat 6px 6px;
+  border: 1px solid red;
+  background: url(/images/geo/shape_square_red.png) no-repeat 5px 5px;
   background-color: yellow;
   background-color: rgba(255, 255, 0, 0.75);
 }
-/* line 42, ../../sass/partials/_icons.scss */
+/* line 47, ../../sass/partials/_icons.scss */
 .olControlPanel .olControlDrawFeatureItemInactive {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -428,7 +431,8 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
   -ms-border-radius: 2px;
   -khtml-border-radius: 2px;
   border-radius: 2px;
-  background: url(/images/geo/shape_square_red.png) no-repeat 6px 6px;
+  border: 1px solid white;
+  background: url(/images/geo/shape_square_red.png) no-repeat 5px 5px;
   background-color: white;
   background-color: rgba(255, 255, 255, 0.75);
 }
