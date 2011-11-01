@@ -29,9 +29,15 @@ Ext.define('AKGMI.view.search.Map', {
     }, this);
   },
   onAOIAdded: function(e) {
+    this.aoiSelector.deactivate();
     this.fireEvent('aoiadded', this, this.aoi.features[0]);
   },
   beforeAOIAdded: function(){
+    this.aoi.removeAllFeatures();
+  },
+  
+  reset: function(){
+    this.outlines.removeAllFeatures();
     this.aoi.removeAllFeatures();
   },
   

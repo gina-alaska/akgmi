@@ -167,7 +167,7 @@ Ext.define('AKGMI.controller.Search', {
     var form = button.up('form');
     form.getForm().reset();
     
-    App.map.outlines.removeAllFeatures();
+    App.map.reset();
   },
   
   doSearchOnEnter: function(field, e) {
@@ -180,15 +180,11 @@ Ext.define('AKGMI.controller.Search', {
       var form = Ext.ComponentQuery.query('search_form')[0];
       var tree = form.down('treepanel');
       var values = form.getValues();
-			var tb = Ext.ComponentQuery.query('search_toolbar')[0];
-			var keyword = tb.down('textfield').getValue();
-			
-			values['keyword'] = keyword;			
-      values['themes[]'] = [];
+      var tb = Ext.ComponentQuery.query('search_toolbar')[0];
+      var keyword = tb.down('textfield').getValue();
 
-//          var quads = values['quadrangle']
-//          delete values['quadrangle']
-//          values['quadrangles[]'] = quads
+      values.keyword = keyword;			
+      values['themes[]'] = [];
 
       Ext.each(tree.getChecked(), function(item) {
         values['themes[]'].push(item.get('text'));
