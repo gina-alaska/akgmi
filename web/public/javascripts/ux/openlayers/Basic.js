@@ -39,7 +39,7 @@ Ext.define('Ext.OpenLayers.Basic', {
       defaultZoom: 2,
       defaultLayers: ['bdl_3338', 'osm_base_3338', 'osm_google_overlay_3338'],
       maxExtent: new OpenLayers.Bounds(-3500000, -3500000, 3500000, 3500000),
-      restrictedExtent: new OpenLayers.Bounds(-3500000, -3500000, 3500000, 3500000),
+      restrictedExtent: new OpenLayers.Bounds(-3500000, 0, 3500000, 3000000),
       // numZoomLevels: 18,
       maxResolution: (3500000 * 2.0 / 256.0),
       units: 'm',

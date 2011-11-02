@@ -19,7 +19,8 @@ Ext.define('AKGMI.controller.Search', {
       },
       'search_results dataview': {
         beforeitemclick: this.beforeResultClick,
-        itemclick: this.selectResults
+        itemclick: this.selectResults,
+        selectionchange: this.onSelectionChange
       }, 
       'search_map': {
         featureselect: this.onFeatureSelect,
@@ -53,6 +54,7 @@ Ext.define('AKGMI.controller.Search', {
     var selected = dv.getSelectionModel().getSelection();
     var selIndex = Ext.Array.indexOf(selected, feature_record);
     if(selIndex < 0) { dv.select(feature_record, true); }
+    App.results.updateSelectedCount(dv.getSelectionModel().getSelection().length || '0');
   },
   
   onFeatureUnselect: function(feature_id) {
@@ -69,8 +71,10 @@ Ext.define('AKGMI.controller.Search', {
     if(allDeselected === true) {
       var selected = dv.getSelectionModel().getSelection();
       var selIndex = Ext.Array.indexOf(selected, feature_record);
+      
       if(selIndex >= 0) { dv.deselect(feature_record, true); }      
-    }
+      App.results.updateSelectedCount(dv.getSelectionModel().getSelection().length || '0');
+    }    
   },
   
   findRecordFromFeatureId: function(feature_id){
@@ -167,7 +171,7 @@ Ext.define('AKGMI.controller.Search', {
     var form = button.up('form');
     form.getForm().reset();
     
-    App.map.outlines.removeAllFeatures();
+    App.map.reset();
   },
   
   doSearchOnEnter: function(field, e) {
@@ -180,15 +184,11 @@ Ext.define('AKGMI.controller.Search', {
       var form = Ext.ComponentQuery.query('search_form')[0];
       var tree = form.down('treepanel');
       var values = form.getValues();
-			var tb = Ext.ComponentQuery.query('search_toolbar')[0];
-			var keyword = tb.down('textfield').getValue();
-			
-			values['keyword'] = keyword;			
-      values['themes[]'] = [];
+      var tb = Ext.ComponentQuery.query('search_toolbar')[0];
+      var keyword = tb.down('textfield').getValue();
 
-//          var quads = values['quadrangle']
-//          delete values['quadrangle']
-//          values['quadrangles[]'] = quads
+      values.keyword = keyword;			
+      values['themes[]'] = [];
 
       Ext.each(tree.getChecked(), function(item) {
         values['themes[]'].push(item.get('text'));
@@ -198,6 +198,11 @@ Ext.define('AKGMI.controller.Search', {
         params: values
       });		
 	},
+	
+  onSelectionChange: function(view, selection) {
+    console.log(arguments);
+    App.results.updateSelectedCount(selection.length || '0');
+  },
 
   searchLoaded: function(store) {
     var features = [];
@@ -206,6 +211,7 @@ Ext.define('AKGMI.controller.Search', {
     store.each(function(item) {
       App.map.outlines.addFeatures(item.get('outlines'));
     }, this);
+    App.results.updateResultCount(store.getTotalCount() || '0');
   },
 	toggleAdvanced: function() {
 		var tb = Ext.ComponentQuery.query('search_form')[0];

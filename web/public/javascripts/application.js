@@ -11,7 +11,7 @@ Ext.define('App', {
   singleton: true,
   proxyCheck: function() {
 		var params = Ext.Object.fromQueryString(top.location.search);
-		if(params.proxy) { this.config.restUrl = 'http://' + params.proxy }
+		if(params.proxy) { this.config.restUrl = 'http://' + params.proxy; }
 	},
 	configure: function() {
 		var me = this;
@@ -58,7 +58,6 @@ Ext.application({
     });
 
     App.results = Ext.create('AKGMI.view.search.Results', {
-      title: CONFIG.get('results.title'),
       store: this.getStore('Publications'),
       border: false,
       autoScroll: true,
@@ -68,12 +67,12 @@ Ext.application({
 
 		App.viewport = Ext.create('Ext.panel.Panel', {
 			id: 'viewport',
-    	layout: 'border',
+      layout: 'border',
 			renderTo: 'content',
 			cls: 'no-background',
 			border: false,			
 			height: 500,
-    	items: [App.search_toolbar, App.map, App.sidebar]
+      items: [App.search_toolbar, App.map, App.sidebar]
 		});
   }
 });
