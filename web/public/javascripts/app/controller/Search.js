@@ -84,7 +84,7 @@ Ext.define('AKGMI.controller.Search', {
       var selected = dv.getSelectionModel().getSelection();
       var selIndex = Ext.Array.indexOf(selected, feature_record);
       
-      if(selIndex >= 0) { dv.deselect(feature_record, true); }      
+      if(selIndex >= 0) { dv.deselect(feature_record, false); }      
       App.results.updateSelectedCount(dv.getSelectionModel().getSelection().length || '0');
     }    
   },
