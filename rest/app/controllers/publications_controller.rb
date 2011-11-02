@@ -1,5 +1,5 @@
 class PublicationsController < ApplicationController
-  respond_to :js, :json, :html
+  respond_to :js, :json, :html, :pdf
 
   #caches_action :show, :expires_in => 1.hour
 
@@ -54,8 +54,15 @@ class PublicationsController < ApplicationController
         "SDO_RELATE(#{Outline.table_name}.geometry, #{@aoi.as_sdo_rectangle}, 'mask=ANYINTERACT querytype = WINDOW') = 'TRUE'"
       )
     end
-
-    respond_with(@publications.all.uniq!)
+    
+    respond_to do |format|
+      format.json
+      format.js
+      format.html
+      format.pdf do
+        render :pdf => 'publications.pdf', :layout => 'pdf.html'
+      end
+    end
   end
 
   def show
