@@ -1,5 +1,6 @@
 CONFIG = {
   restUrl: 'http://akgmi-rest.zap.gina.alaska.edu',
+  searchResource: 'publications',
   // restUrl: 'http://dggsmaps.dnr.state.ak.us',
 	defaultLang: 'EN',
 	EN: {
@@ -43,7 +44,11 @@ CONFIG = {
 			geospatial: 'Geospatial',
 			reports: 'Reports',
 			outside_links: 'Outside Links',
-			any_type: 'Any Type'
+			any_type: 'Any Type',
+			"export": 'Export',
+			'selectedcount': 'Selected: ',
+			'totalcount': 'Total Results: ',
+			noresultsfound: "No results found", 
 		}
 	},
 	get: function(path) {

@@ -43,7 +43,7 @@ Ext.define('AKGMI.controller.Search', {
   },
   
   onExportClick: function(){
-    var url = CONFIG.restUrl + '/publications.pdf';
+    var url = CONFIG.restUrl + '/' + CONFIG.searchResource + '.pdf';
     
     var values = this.getSearchParams();
     var params = Ext.Object.toQueryString(values);

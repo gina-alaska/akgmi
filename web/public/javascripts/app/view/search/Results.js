@@ -83,7 +83,7 @@ Ext.define('AKGMI.view.search.Results', {
       ],
       overItemCls: 'x-item-over',
       itemSelector: 'div.result-wrap',
-      emptyText: '<div class="noresults">No results found</div>'
+      emptyText: '<div class="noresults">'+CONFIG.get('results.noresultsfound')+'</div>'
     });
     dv.on('selectionchange', this.onSelectionChange);
     this.items = [dv];
@@ -96,10 +96,10 @@ Ext.define('AKGMI.view.search.Results', {
       ui: 'dggs',
       items: [
         Ext.create('Ext.toolbar.TextItem', { text: CONFIG.get('results.title'), ui: 'title' }), 
-        'Selected: ', this.selectedCount, '-',
-        'Total Results: ', this.totalCount,
+        CONFIG.get('results.selectedcount'), this.selectedCount, '-',
+        CONFIG.get('results.totalcount'), this.totalCount,
         '->', 
-        { xtype: 'button', text: 'Export', scale: 'medium' }
+        { xtype: 'button', text: CONFIG.get('results.export'), scale: 'medium' }
       ]
     });
 
