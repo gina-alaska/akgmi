@@ -94,12 +94,13 @@ Ext.define('AKGMI.view.search.Results', {
     this.dockedItems = Ext.create('Ext.toolbar.Toolbar', {
       dock: 'top',
       ui: 'dggs',
-        items: [
-          Ext.create('Ext.toolbar.TextItem', { text: CONFIG.get('results.title'), ui: 'title' }), 
-          '->', 
-          'Selected: ', this.selectedCount, '-',
-          'Total Results: ', this.totalCount
-        ]
+      items: [
+        Ext.create('Ext.toolbar.TextItem', { text: CONFIG.get('results.title'), ui: 'title' }), 
+        'Selected: ', this.selectedCount, '-',
+        'Total Results: ', this.totalCount,
+        '->', 
+        { xtype: 'button', text: 'Export', scale: 'medium' }
+      ]
     });
 
     this.callParent(arguments);

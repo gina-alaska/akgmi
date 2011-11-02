@@ -22,6 +22,9 @@ Ext.define('AKGMI.controller.Search', {
         itemclick: this.selectResults,
         selectionchange: this.onSelectionChange
       }, 
+      'search_results button[text=Export]': {
+        click: this.onExportClick
+      },
       'search_map': {
         featureselect: this.onFeatureSelect,
         featureunselect: this.onFeatureUnselect,
@@ -37,6 +40,15 @@ Ext.define('AKGMI.controller.Search', {
 				specialkey: this.doSearchOnEnter
 			}
     });
+  },
+  
+  onExportClick: function(){
+    var url = CONFIG.restUrl + '/publications.pdf';
+    
+    var values = this.getSearchParams();
+    var params = Ext.Object.toQueryString(values);
+    
+    var win = window.open(url + '?' + params);
   },
   
   onAOIAdded: function(map, aoi){
@@ -177,30 +189,32 @@ Ext.define('AKGMI.controller.Search', {
   doSearchOnEnter: function(field, e) {
     if(e.getKey() == e.ENTER) { this.doSearch(); }
   },
+  
+  getSearchParams: function() {
+    var form = Ext.ComponentQuery.query('search_form')[0];
+    var tree = form.down('treepanel');
+    var values = form.getValues();
+    var tb = Ext.ComponentQuery.query('search_toolbar')[0];
+    var keyword = tb.down('textfield').getValue();
 
-	doSearch: function() {
-      this.getStore('Publications').removeAll();
+    values.keyword = keyword;			
+    values['themes[]'] = [];
 
-      var form = Ext.ComponentQuery.query('search_form')[0];
-      var tree = form.down('treepanel');
-      var values = form.getValues();
-      var tb = Ext.ComponentQuery.query('search_toolbar')[0];
-      var keyword = tb.down('textfield').getValue();
+    Ext.each(tree.getChecked(), function(item) {
+      values['themes[]'].push(item.get('text'));
+    }, this);
 
-      values.keyword = keyword;			
-      values['themes[]'] = [];
+    return values;
+  },
 
-      Ext.each(tree.getChecked(), function(item) {
-        values['themes[]'].push(item.get('text'));
-      }, this);
-
-      this.getStore('Publications').load({
-        params: values
-      });		
+  doSearch: function() {
+    this.getStore('Publications').removeAll();
+    this.getStore('Publications').load({
+      params: this.getSearchParams()
+    });		
 	},
 	
   onSelectionChange: function(view, selection) {
-    console.log(arguments);
     App.results.updateSelectedCount(selection.length || '0');
   },
 
