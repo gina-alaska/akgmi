@@ -1,0 +1,13 @@
+.header
+  %h1 Geologic Map Index Search Results
+  %h2 
+    Generated:
+    = Time.now
+.results
+  - @publications.each do |pub|
+    .result
+      .title= link_to pub.publication_number, pub.url
+      .body= pub.biblio_ref_long
+      .keywords
+        Keywords: 
+        = pub.keywords
