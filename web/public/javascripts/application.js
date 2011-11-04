@@ -1,9 +1,9 @@
 Ext.Loader.setConfig({
   enabled: true,
   paths: {
-    'AKGMI': '/javascripts/app',
-    'Ext.OpenLayers': '/javascripts/ux/openlayers',
-    'Ext.ux': '/javascripts/ux'
+    'AKGMI': 'javascripts/app',
+    'Ext.OpenLayers': 'javascripts/ux/openlayers',
+    'Ext.ux': 'javascripts/ux'
   }
 });
 

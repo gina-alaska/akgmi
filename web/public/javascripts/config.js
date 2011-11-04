@@ -1,14 +1,14 @@
 CONFIG = {
-  restUrl: 'http://akgmi-rest.zap.gina.alaska.edu',
+  // restUrl: 'http://akgmi-rest.zap.gina.alaska.edu',
   searchResource: 'publications',
-  // restUrl: 'http://dggsmaps.dnr.state.ak.us',
+  restUrl: 'http://dggsmaps.dnr.state.ak.us',
 	defaultLang: 'EN',
 	EN: {
 		search_form: {
 			title: 'Advanced Search',
 			search_button: 'Search',
 			advanced_button: 'Advanced',
-			reset_button: 'Clear',
+			reset_button: 'Reset',
 			keyword_default: 'Enter search here',
 			agency: 'Agency',
 			years: 'Year(s)',
