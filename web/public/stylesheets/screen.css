@@ -362,37 +362,37 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
 
 /* line 1, ../../sass/partials/_icons.scss */
 .all_sm_icon {
-  background-image: url(/images/icons/all_sm.png);
+  background-image: url(../images/icons/all_sm.png);
 }
 
 /* line 4, ../../sass/partials/_icons.scss */
 .report_sm_icon {
-  background-image: url(/images/icons/report_sm.png);
+  background-image: url(../images/icons/report_sm.png);
 }
 
 /* line 7, ../../sass/partials/_icons.scss */
 .maps_sm_icon {
-  background-image: url(/images/icons/maps_sm.png);
+  background-image: url(../images/icons/maps_sm.png);
 }
 
 /* line 10, ../../sass/partials/_icons.scss */
 .digital_data_sm_icon {
-  background-image: url(/images/icons/digital_data_sm.png);
+  background-image: url(../images/icons/digital_data_sm.png);
 }
 
 /* line 13, ../../sass/partials/_icons.scss */
 .link_go_sm_icon {
-  background-image: url(/images/icons/link_go_sm.png);
+  background-image: url(../images/icons/link_go_sm.png);
 }
 
 /* line 16, ../../sass/partials/_icons.scss */
 .offline_sm_icon {
-  background-image: url(/images/icons/offline_sm.png);
+  background-image: url(../images/icons/offline_sm.png);
 }
 
 /* line 26, ../../sass/partials/_icons.scss */
 .olControlPanel .olControlSelectFeatureItemActive {
-  background: url("/images/geo/pointer-info.png") no-repeat ;
+  background: url("../images/geo/pointer-info.png") no-repeat ;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   -o-border-radius: 3px;
@@ -405,7 +405,7 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
 }
 /* line 33, ../../sass/partials/_icons.scss */
 .olControlPanel .olControlSelectFeatureItemInactive {
-  background: url("/images/geo/pointer-info.png") no-repeat ;
+  background: url("../images/geo/pointer-info.png") no-repeat ;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   -o-border-radius: 3px;
@@ -418,7 +418,7 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
 }
 /* line 26, ../../sass/partials/_icons.scss */
 .olControlPanel .olControlDrawFeatureItemActive {
-  background: url("/images/geo/shape_square_red.png") no-repeat 5px 5px;
+  background: url("../images/geo/shape_square_red.png") no-repeat 5px 5px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   -o-border-radius: 3px;
@@ -431,7 +431,7 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
 }
 /* line 33, ../../sass/partials/_icons.scss */
 .olControlPanel .olControlDrawFeatureItemInactive {
-  background: url("/images/geo/shape_square_red.png") no-repeat 5px 5px;
+  background: url("../images/geo/shape_square_red.png") no-repeat 5px 5px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   -o-border-radius: 3px;
