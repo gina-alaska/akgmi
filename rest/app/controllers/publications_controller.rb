@@ -60,7 +60,12 @@ class PublicationsController < ApplicationController
       format.js
       format.html
       format.pdf do
-        render :pdf => 'publications.pdf', :layout => 'pdf.html'
+        render :pdf => 'publications.pdf', 
+                :layout => 'pdf.html', 
+                :footer => {
+                  :right => '[page]/[toPage]',
+                  :line => true
+                }
       end
     end
   end
