@@ -1,13 +1,14 @@
 CONFIG = {
-  restUrl: 'http://akgmi-rest.zap.gina.alaska.edu',
-  // restUrl: 'http://dggsmaps.dnr.state.ak.us',
+  // restUrl: 'http://akgmi-rest.zap.gina.alaska.edu',
+  searchResource: 'publications',
+  restUrl: 'http://dggsmaps.dnr.state.ak.us',
 	defaultLang: 'EN',
 	EN: {
 		search_form: {
 			title: 'Advanced Search',
 			search_button: 'Search',
 			advanced_button: 'Advanced',
-			reset_button: 'Clear',
+			reset_button: 'Reset',
 			keyword_default: 'Enter search here',
 			agency: 'Agency',
 			years: 'Year(s)',
@@ -43,7 +44,11 @@ CONFIG = {
 			geospatial: 'Geospatial',
 			reports: 'Reports',
 			outside_links: 'Outside Links',
-			any_type: 'Any Type'
+			any_type: 'Any Type',
+			"export": 'Export',
+			'selectedcount': 'Selected: ',
+			'totalcount': 'Total Results: ',
+			noresultsfound: "No results found", 
 		}
 	},
 	get: function(path) {

@@ -59,11 +59,11 @@ Ext.define('AKGMI.view.search.Results', {
               '<div class="header">',
                 '<span class="title"><a href="{url}" target="_blank">{publication_number}</a></span>',
                 '<span class="icons">',
-                  '<tpl if="report"><img class="report" alt="report" src="/images/icons/report_sm.png"></tpl>',
-                  '<tpl if="map"><img class="map" alt="map" src="/images/icons/maps_sm.png"></tpl>',
-                  '<tpl if="geospatial_data"><img class="geospatial" alt="geospatial" src="/images/icons/digital_data_sm.png"></tpl>',
-                  '<tpl if="outside_link"><img class="outside_link" alt="outside_link" src="/images/icons/link_go_sm.png"></tpl>',
-                  '<tpl if="disk"><img class="disk" alt="disk" src="/images/icons/offline_sm.png"></tpl>',
+                  '<tpl if="report"><img class="report" alt="report" src="images/icons/report_sm.png"></tpl>',
+                  '<tpl if="map"><img class="map" alt="map" src="images/icons/maps_sm.png"></tpl>',
+                  '<tpl if="geospatial_data"><img class="geospatial" alt="geospatial" src="images/icons/digital_data_sm.png"></tpl>',
+                  '<tpl if="outside_link"><img class="outside_link" alt="outside_link" src="images/icons/link_go_sm.png"></tpl>',
+                  '<tpl if="disk"><img class="disk" alt="disk" src="images/icons/offline_sm.png"></tpl>',
                 '</span>',
               '</div>',
               '<div class="body">{biblio_ref_long}</div>',
@@ -83,7 +83,7 @@ Ext.define('AKGMI.view.search.Results', {
       ],
       overItemCls: 'x-item-over',
       itemSelector: 'div.result-wrap',
-      emptyText: '<div class="noresults">No results found</div>'
+      emptyText: '<div class="noresults">'+CONFIG.get('results.noresultsfound')+'</div>'
     });
     dv.on('selectionchange', this.onSelectionChange);
     this.items = [dv];
@@ -94,12 +94,13 @@ Ext.define('AKGMI.view.search.Results', {
     this.dockedItems = Ext.create('Ext.toolbar.Toolbar', {
       dock: 'top',
       ui: 'dggs',
-        items: [
-          Ext.create('Ext.toolbar.TextItem', { text: CONFIG.get('results.title'), ui: 'title' }), 
-          '->', 
-          'Selected: ', this.selectedCount, '-',
-          'Total Results: ', this.totalCount
-        ]
+      items: [
+        Ext.create('Ext.toolbar.TextItem', { text: CONFIG.get('results.title'), ui: 'title' }), 
+        CONFIG.get('results.selectedcount'), this.selectedCount, '-',
+        CONFIG.get('results.totalcount'), this.totalCount,
+        '->', 
+        { xtype: 'button', text: CONFIG.get('results.export'), scale: 'medium' }
+      ]
     });
 
     this.callParent(arguments);

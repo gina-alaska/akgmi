@@ -1,23 +1,23 @@
 Ext.Loader.setConfig({
   enabled: true,
   paths: {
-    'AKGMI': '/javascripts/app',
-    'Ext.OpenLayers': '/javascripts/ux/openlayers',
-    'Ext.ux': '/javascripts/ux'
+    'AKGMI': 'javascripts/app',
+    'Ext.OpenLayers': 'javascripts/ux/openlayers',
+    'Ext.ux': 'javascripts/ux'
   }
 });
 
 Ext.define('App', {
   singleton: true,
   proxyCheck: function() {
-		var params = Ext.Object.fromQueryString(top.location.search);
-		if(params.proxy) { this.config.restUrl = 'http://' + params.proxy; }
-	},
-	configure: function() {
-		var me = this;
-		me.config = CONFIG;
-		me.proxyCheck();
-	}
+    var params = Ext.Object.fromQueryString(top.location.search);
+    if(params.proxy) { this.config.restUrl = 'http://' + params.proxy; }
+  },
+  configure: function() {
+    var me = this;
+    me.config = CONFIG;
+    me.proxyCheck();
+  }
 });
 App.configure();
 
