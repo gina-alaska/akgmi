@@ -4,7 +4,7 @@
 <title>Alaska Geologic Map Index</title>
 <style>
   .header { text-align: center; }
-  h1 { font-size: 20pt; }
+  h1 { font-size: 20pt; margin-bottom: 0; }
   h2 { font-size: 16pt; }
   body { font-size: 12pt; }
   .result { margin-bottom: 15pt; }
@@ -12,6 +12,12 @@
 </style>
 </head>
 <body>
-  <%= yield %>
+  <div class="header">
+    <h1>Geologic Map Index Search Results</h1>
+    <h2>Generated: <%= Time.now -%></h2>
+  </div>
+  <div class="content">  
+    <%= yield %>
+  </div>
 </body>
 </html>

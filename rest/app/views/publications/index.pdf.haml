@@ -1,8 +1,8 @@
-.header
-  %h1 Geologic Map Index Search Results
-  %h2 
-    Generated:
-    = Time.now
+.query
+  - unless params[:themes].nil?
+  %label Themes:
+  %span = params[:themes].join(', ')
+  
 .results
   - @publications.each do |publication|
     = render :partial => 'publication.html.haml', :locals => { :publication => publication } 
