@@ -4,10 +4,5 @@
     Generated:
     = Time.now
 .results
-  - @publications.each do |pub|
-    .result
-      .title= link_to pub.publication_number, pub.url
-      .body= pub.biblio_ref_long
-      .keywords
-        Keywords: 
-        = pub.keywords
+  - @publications.each do |publication|
+    = render :partial => 'publication.html.haml', :locals => { :publication => publication } 
