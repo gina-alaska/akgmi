@@ -17,7 +17,7 @@ CONFIG = {
 			scale: 'Scale',
 			scale_from_default: 'From:',
 			scale_to_default: 'To:',
-			statewide: 'Include statewide records?',
+			statewide: 'Include statewide maps?',
 			scale_to:  [
         { key: 24000, display: '1:24,000'},
         { key: 63600, display: '1:63,600'},
