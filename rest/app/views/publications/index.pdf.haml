@@ -44,5 +44,5 @@
   - unless params[:selected_only] 
     %h4 Search Results 
     - @publications.each do |pub|
-      = render :partial => 'publication.html.haml', :locals => { :publication => pub } unless @selected.include? pub.citation_id
+      = render :partial => 'publication.html.haml', :locals => { :publication => pub } if @selected.nil? or not @selected.include?(pub.citation_id)
 
