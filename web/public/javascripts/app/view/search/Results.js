@@ -99,6 +99,26 @@ Ext.define('AKGMI.view.search.Results', {
       action: 'selected'
     }];
     
+    var sortHandler = function(button) {
+      this.getStore().sort(button.field, 'ASC');
+    };
+    var sortMenu = [{
+      text: 'Author',
+      field: 'authors',
+      scope: dv, 
+      handler: sortHandler
+    }, {
+      text: 'Publication Number',
+      field: 'publication_number', 
+      scope: dv, 
+      handler: sortHandler
+    }, {
+      text: 'Year',
+      field: 'publication_year',
+      scope: dv, 
+      handler: sortHandler
+    }];
+    
     this.dockedItems = Ext.create('Ext.toolbar.Toolbar', {
       dock: 'top',
       ui: 'dggs',
@@ -107,6 +127,7 @@ Ext.define('AKGMI.view.search.Results', {
         CONFIG.get('results.selectedcount'), this.selectedCount, '-',
         CONFIG.get('results.totalcount'), this.totalCount,
         '->', 
+        { xtype: 'button', text: CONFIG.get('results.sort'), scale: 'medium', menu: sortMenu, action: 'sort' },
         { xtype: 'button', text: CONFIG.get('results.export'), scale: 'medium', menu: exportMenu, action: 'export' },
         { xtype: 'button', text: CONFIG.get('results.reset'), scale: 'medium', action: 'reset' },
         { xtype: 'button', text: CONFIG.get('results.clear_highlighted'), scale: 'medium', action: 'clearSelected' }

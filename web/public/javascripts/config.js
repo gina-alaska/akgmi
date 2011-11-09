@@ -50,7 +50,8 @@ CONFIG = {
 			'totalcount': 'Total Results: ',
 			noresultsfound: "No results found", 
 			"reset": "Reset",
-			"clear_highlighted": "Clear Highlighted"
+			"clear_highlighted": "Clear Highlighted",
+			"sort": "Sort By"
 		}
 	},
 	get: function(path) {
