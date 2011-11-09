@@ -19,10 +19,16 @@ Ext.define('AKGMI.controller.Search', {
       },
       'search_results dataview': {
         beforeitemclick: this.beforeResultClick,
-        itemclick: this.selectResults,
+        itemclick: this.selectRecordFeatures,
         selectionchange: this.onSelectionChange
+      },
+      'search_results button[action=reset]': {
+        click: this.resetForm
+      },
+      'search_results button[action=clearSelected]': {
+        click: this.unselectAll
       }, 
-      'search_results button[text=Export]': {
+      'search_results menuitem[action=all]': {
         click: this.onExportClick
       },
       'search_map': {
@@ -40,6 +46,11 @@ Ext.define('AKGMI.controller.Search', {
 				specialkey: this.doSearchOnEnter
 			}
     });
+  },
+  
+  unselectAll: function(){
+    App.results.down('dataview').select([], false);
+    App.map.featureSelector.unselectAll();
   },
   
   onExportClick: function(){
@@ -153,7 +164,7 @@ Ext.define('AKGMI.controller.Search', {
     }
   },
   
-  selectResults: function(view, record, item) {
+  selectRecordFeatures: function(view, record, item) {
     var features = record.get('outlines');
     Ext.each(features, function(f) {
       if(view.isSelected(item)) {
@@ -181,7 +192,7 @@ Ext.define('AKGMI.controller.Search', {
     var tb = Ext.ComponentQuery.query('search_toolbar')[0];
 		tb.down('textfield').setValue(null);
     var form = button.up('form');
-    form.getForm().reset();
+    if (form) { form.getForm().reset(); }
     
     App.map.reset();
   },
@@ -214,7 +225,7 @@ Ext.define('AKGMI.controller.Search', {
     });		
 	},
 	
-  onSelectionChange: function(view, selection) {
+  onSelectionChange: function(viewModel, selection) {
     App.results.updateSelectedCount(selection.length || '0');
   },
 

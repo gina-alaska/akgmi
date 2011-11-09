@@ -100,6 +100,8 @@ Ext.define('AKGMI.view.search.Results', {
         CONFIG.get('results.totalcount'), this.totalCount,
         '->', 
         { xtype: 'button', text: CONFIG.get('results.export'), scale: 'medium' }
+        { xtype: 'button', text: CONFIG.get('results.reset'), scale: 'medium', action: 'reset' },
+        { xtype: 'button', text: CONFIG.get('results.clear_highlighted'), scale: 'medium', action: 'clearSelected' }
       ]
     });
 

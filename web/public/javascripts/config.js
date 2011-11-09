@@ -1,7 +1,7 @@
 CONFIG = {
-  // restUrl: 'http://akgmi-rest.zap.gina.alaska.edu',
+  restUrl: 'http://akgmi-rest.zap.gina.alaska.edu',
   searchResource: 'publications',
-  restUrl: 'http://dggsmaps.dnr.state.ak.us',
+  // restUrl: 'http://dggsmaps.dnr.state.ak.us',
 	defaultLang: 'EN',
 	EN: {
 		search_form: {
@@ -49,6 +49,8 @@ CONFIG = {
 			'selectedcount': 'Selected: ',
 			'totalcount': 'Total Results: ',
 			noresultsfound: "No results found", 
+			"reset": "Reset",
+			"clear_highlighted": "Clear Highlighted"
 		}
 	},
 	get: function(path) {
