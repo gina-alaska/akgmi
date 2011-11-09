@@ -20,7 +20,7 @@ Ext.define('AKGMI.controller.Search', {
       'search_results dataview': {
         beforeitemclick: this.beforeResultClick,
         itemclick: this.selectRecordFeatures,
-        selectionchange: this.onSelectionChange
+        selectionchange: { fn: this.onSelectionChange, buffer: 300 }
       },
       'search_results button[action=reset]': {
         click: this.resetForm
@@ -28,8 +28,11 @@ Ext.define('AKGMI.controller.Search', {
       'search_results button[action=clearSelected]': {
         click: this.unselectAll
       }, 
-      'search_results menuitem[action=all]': {
-        click: this.onExportClick
+      'search_results button[action=export] > menuitem[action=all]': {
+        click: this.exportAll
+      },
+      'search_results button[action=export] > menuitem[action=selected]': {
+        click: this.exportSelected
       },
       'search_map': {
         featureselect: this.onFeatureSelect,
@@ -53,13 +56,21 @@ Ext.define('AKGMI.controller.Search', {
     App.map.featureSelector.unselectAll();
   },
   
-  onExportClick: function(){
-    var url = CONFIG.restUrl + '/' + CONFIG.searchResource + '.pdf';
+  exportSelected:  function(){ this.export(true); },
+  exportAll: function(){ this.export(); },
+  
+  export: function(selectedOnly) {
+    var params,
+        url = CONFIG.restUrl + '/' + CONFIG.searchResource + '.pdf',
+        values = this.getSearchParams();
     
-    var values = this.getSearchParams();
-    var params = Ext.Object.toQueryString(values);
+    if(selectedOnly) { 
+      params = Ext.Object.toQueryString({ selected: values.selected, selected_only: true });
+    } else {
+      params = Ext.Object.toQueryString(values);      
+    }
     
-    var win = window.open(url + '?' + params);
+    var win = window.open(url + '?' + params);    
   },
   
   onAOIAdded: function(map, aoi){
@@ -227,6 +238,16 @@ Ext.define('AKGMI.controller.Search', {
 	
   onSelectionChange: function(viewModel, selection) {
     App.results.updateSelectedCount(selection.length || '0');
+    
+    var form = Ext.ComponentQuery.query('search_form')[0],
+        selectedfield = form.down('hiddenfield[name=selected]'),
+        ids = [];
+        
+    Ext.each(selection, function(item) { 
+      ids.push(item.get('citation_id')); 
+    }, this);
+    console.log(ids);
+    selectedfield.setValue(ids.join(','));
   },
 
   searchLoaded: function(store) {

@@ -91,6 +91,14 @@ Ext.define('AKGMI.view.search.Results', {
     this.selectedCount = Ext.create('Ext.toolbar.TextItem', { text: '0' });
     this.totalCount = Ext.create('Ext.toolbar.TextItem', { text: '0' });
     
+    var exportMenu = [{
+      text: 'All Records',
+      action: 'all'
+    }, {
+      text: 'Selected Records',
+      action: 'selected'
+    }];
+    
     this.dockedItems = Ext.create('Ext.toolbar.Toolbar', {
       dock: 'top',
       ui: 'dggs',
@@ -99,12 +107,11 @@ Ext.define('AKGMI.view.search.Results', {
         CONFIG.get('results.selectedcount'), this.selectedCount, '-',
         CONFIG.get('results.totalcount'), this.totalCount,
         '->', 
-        { xtype: 'button', text: CONFIG.get('results.export'), scale: 'medium' }
+        { xtype: 'button', text: CONFIG.get('results.export'), scale: 'medium', menu: exportMenu, action: 'export' },
         { xtype: 'button', text: CONFIG.get('results.reset'), scale: 'medium', action: 'reset' },
         { xtype: 'button', text: CONFIG.get('results.clear_highlighted'), scale: 'medium', action: 'clearSelected' }
       ]
     });
-
     this.callParent(arguments);
   },
   updateResultCount: function(count){

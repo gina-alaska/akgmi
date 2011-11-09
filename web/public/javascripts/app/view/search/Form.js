@@ -16,6 +16,9 @@ Ext.define('AKGMI.view.search.Form', {
       xtype: 'hiddenfield',
       name: 'aoi'
     }, {
+      xtype: 'hiddenfield',
+      name: 'selected'
+    }, {
       xtype: 'combobox',
       fieldLabel: CONFIG.get('search_form.agency'),
       plugins: [Ext.create('Ext.ux.DefaultText', { 
