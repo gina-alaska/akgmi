@@ -46,13 +46,18 @@ class PublicationsController < ApplicationController
     end
 
 
-    unless params[:aoi].nil? or params[:aoi].empty?
+    unless params[:aoi].blank?
       @aoi = GeoRuby::SimpleFeatures::Polygon.from_ewkt(params[:aoi])
       @aoi.srid = 3338;
 
       @publications = @publications.where(
         "SDO_RELATE(#{Outline.table_name}.geometry, #{@aoi.as_sdo_rectangle}, 'mask=ANYINTERACT querytype = WINDOW') = 'TRUE'"
       )
+    end
+
+    @selected = params[:selected].split(',').map(&:to_i) unless params[:selected].blank?
+    if @selected and params[:selected_only]
+      @publications = @publications.where(:citation_id => @selected)
     end
     
     respond_to do |format|

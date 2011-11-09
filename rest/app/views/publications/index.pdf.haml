@@ -34,5 +34,14 @@
       = params[:aoi]
  
 .results
-  - @publications.each do |publication|
-    = render :partial => 'publication.html.haml', :locals => { :publication => publication } 
+  - selected = []
+  - unless @selected.nil? or @selected.empty?
+    %h4 Selected Publications
+    - @publications.each do |pub|
+      = render :partial => 'publication.html.haml', :locals => { :publication => pub } if @selected.include? pub.citation_id
+
+  - unless params[:selected_only] 
+    %h4 Search Results 
+    - @publications.each do |pub|
+      = render :partial => 'publication.html.haml', :locals => { :publication => pub } unless @selected.include? pub.citation_id
+
