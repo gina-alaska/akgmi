@@ -305,7 +305,7 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
 .result-wrap {
   padding: 10px 0 10px 0;
   font-size: 14px;
-  width: 960px;
+  width: 950px;
   display: block;
 }
 /* line 12, ../../sass/partials/_results.scss */
@@ -344,18 +344,19 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
 /* line 46, ../../sass/partials/_results.scss */
 .result-wrap .result-content {
   margin: 0;
-  width: 930px;
+  padding: 0;
+  width: 910px;
   display: inline-block;
 }
-/* line 52, ../../sass/partials/_results.scss */
+/* line 53, ../../sass/partials/_results.scss */
 .result-wrap .notes {
   font-style: italic;
 }
-/* line 56, ../../sass/partials/_results.scss */
+/* line 57, ../../sass/partials/_results.scss */
 .result-wrap.x-item-over {
   background-color: rgba(0, 0, 0, 0.1);
 }
-/* line 60, ../../sass/partials/_results.scss */
+/* line 61, ../../sass/partials/_results.scss */
 .result-wrap.x-item-selected {
   background-color: rgba(255, 255, 0, 0.5);
 }
