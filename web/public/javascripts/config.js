@@ -9,7 +9,7 @@ CONFIG = {
 			search_button: 'Search',
 			advanced_button: 'Advanced',
 			reset_button: 'Reset',
-			keyword_default: 'Enter search here',
+			keyword_default: 'Enter author, title, publication number, OR keyword here',
 			agency: 'Agency',
 			years: 'Year(s)',
 			quadrangles: 'Quadrangle(s)',
