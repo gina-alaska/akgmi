@@ -8,6 +8,10 @@ Ext.define('AKGMI.controller.Search', {
     this.getStore('Publications').on('datachanged', this.searchLoaded, this);
 
     this.control({
+      'search_form': {
+        collapse: this.toggleOffAdvancedButton,
+        expand: this.toggleOnAdvancedButton
+      },
       'search_form button[action=search]': {
         click: this.doSearch
 			},
@@ -49,6 +53,13 @@ Ext.define('AKGMI.controller.Search', {
 				specialkey: this.doSearchOnEnter
 			}
     });
+  },
+  
+  toggleOnAdvancedButton: function(form){
+    App.search_toolbar.down('button[action=toggleAdvanced]').toggle(true);
+  },
+  toggleOffAdvancedButton: function(form){
+    App.search_toolbar.down('button[action=toggleAdvanced]').toggle(false);
   },
   
   unselectAll: function(){

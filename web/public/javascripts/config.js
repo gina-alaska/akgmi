@@ -5,9 +5,9 @@ CONFIG = {
 	defaultLang: 'EN',
 	EN: {
 		search_form: {
-			title: 'Advanced Search',
+			title: 'More Options',
 			search_button: 'Search',
-			advanced_button: 'Advanced',
+			advanced_button: 'More Options',
 			reset_button: 'Reset',
 			keyword_default: 'Enter author, title, publication number, OR keyword here',
 			agency: 'Agency',
