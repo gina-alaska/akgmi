@@ -109,13 +109,6 @@ Ext.define('AKGMI.view.search.Form', {
     layout: { type: 'hbox' },
     border: false,
     items: [{
-      margins: '0 3 0 0',
-      flex: 1,
-      xtype: 'button',
-      text: 'Clear',
-      scale: 'large',
-			action: 'reset'
-    }, {
       flex: 2,
       xtype: 'button',
       text: 'Search',
