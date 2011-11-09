@@ -1,8 +1,38 @@
 .query
+  %h3 Search parameters: 
+  - unless params[:keyword].nil? or params[:keyword].blank?
+    .param
+      %label Keywords:
+      %span= params[:keyword]
+  - unless params[:scale_from].blank? or params[:scale_to].blank?
+    .param
+      %label Scales:
+      = params[:scale_from]
+      &gt;
+      = params[:scale_to]
+  - unless params[:year_from].blank? or params[:year_to].blank?
+    .param
+      %label Years:
+      = params[:year_from]
+      &gt;
+      = params[:year_to]
+  - unless params[:quadrangles].nil? or params[:quadrangles].delete_if{|c| c.blank? }.empty?
+    .param
+      %label Quadrangles:
+      = params[:quadrangles].join(', ')
   - unless params[:themes].nil?
-  %label Themes:
-  %span = params[:themes].join(', ')
-  
+    .param
+      %label Themes:
+      %span= params[:themes].join(', ')
+  - unless params[:author].nil?
+    .param
+      %label Author:
+      = params[:author]
+  - unless params[:aoi].nil? or params[:aoi].empty?
+    .param
+      %label AOI:
+      = params[:aoi]
+ 
 .results
   - @publications.each do |publication|
     = render :partial => 'publication.html.haml', :locals => { :publication => publication } 
