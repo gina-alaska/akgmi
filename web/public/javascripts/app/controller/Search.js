@@ -246,7 +246,6 @@ Ext.define('AKGMI.controller.Search', {
     Ext.each(selection, function(item) { 
       ids.push(item.get('citation_id')); 
     }, this);
-    console.log(ids);
     selectedfield.setValue(ids.join(','));
   },
 
