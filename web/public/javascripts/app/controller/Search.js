@@ -267,7 +267,11 @@ Ext.define('AKGMI.controller.Search', {
     store.each(function(item) {
       App.map.outlines.addFeatures(item.get('outlines'));
     }, this);
-    App.results.updateResultCount(store.getTotalCount() || '0');
+    
+    var start = (store.currentPage - 1) * store.pageSize + 1;
+    var end = store.currentPage * store.getCount();
+    
+    App.results.updateResultCount(start, end, store.getTotalCount());
   },
 	toggleAdvanced: function() {
 		var tb = Ext.ComponentQuery.query('search_form')[0];
