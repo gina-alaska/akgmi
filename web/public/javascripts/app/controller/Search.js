@@ -32,6 +32,9 @@ Ext.define('AKGMI.controller.Search', {
       'search_results button[action=clearSelected]': {
         click: this.unselectAll
       }, 
+      'search_results button[action=sort] > menuitem': {
+        click: this.sortHandler
+      },
       'search_results button[action=export] > menuitem[action=all]': {
         click: this.exportAll
       },
@@ -53,6 +56,12 @@ Ext.define('AKGMI.controller.Search', {
 				specialkey: this.doSearchOnEnter
 			}
     });
+  },
+  
+  sortHandler: function(button){
+    /* Sort all fields asc except for publication year */
+    var dir = (button.field == 'publication_year' ? 'DESC' : 'ASC');
+    this.getStore('Publications').sort(button.field, dir);
   },
   
   toggleOnAdvancedButton: function(form){

@@ -106,21 +106,16 @@ Ext.define('AKGMI.view.search.Results', {
     var sortHandler = function(button) {
       this.getStore().sort(button.field, 'ASC');
     };
+    
     var sortMenu = [{
       text: 'Author',
-      field: 'authors',
-      scope: dv, 
-      handler: sortHandler
+      field: 'authors'
     }, {
       text: 'Publication Number',
-      field: 'publication_number', 
-      scope: dv, 
-      handler: sortHandler
+      field: 'publication_number'
     }, {
       text: 'Year',
-      field: 'publication_year',
-      scope: dv, 
-      handler: sortHandler
+      field: 'publication_year'
     }];
     
     
