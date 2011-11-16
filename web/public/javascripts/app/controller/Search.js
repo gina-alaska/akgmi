@@ -8,6 +8,10 @@ Ext.define('AKGMI.controller.Search', {
     this.getStore('Publications').on('datachanged', this.searchLoaded, this);
 
     this.control({
+      'search_form': {
+        collapse: this.toggleOffAdvancedButton,
+        expand: this.toggleOnAdvancedButton
+      },
       'search_form button[action=search]': {
         click: this.doSearch
 			},
@@ -49,6 +53,13 @@ Ext.define('AKGMI.controller.Search', {
 				specialkey: this.doSearchOnEnter
 			}
     });
+  },
+  
+  toggleOnAdvancedButton: function(form){
+    App.search_toolbar.down('button[action=toggleAdvanced]').toggle(true);
+  },
+  toggleOffAdvancedButton: function(form){
+    App.search_toolbar.down('button[action=toggleAdvanced]').toggle(false);
   },
   
   unselectAll: function(){
@@ -256,7 +267,11 @@ Ext.define('AKGMI.controller.Search', {
     store.each(function(item) {
       App.map.outlines.addFeatures(item.get('outlines'));
     }, this);
-    App.results.updateResultCount(store.getTotalCount() || '0');
+    
+    var start = (store.currentPage - 1) * store.pageSize + 1;
+    var end = store.currentPage * store.getCount();
+    
+    App.results.updateResultCount(start, end, store.getTotalCount());
   },
 	toggleAdvanced: function() {
 		var tb = Ext.ComponentQuery.query('search_form')[0];

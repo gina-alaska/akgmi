@@ -51,7 +51,8 @@ Ext.define('AKGMI.view.search.Map', {
           fillOpacity: 0.08, 
           strokeColor: "#0000FF",
           strokeWidth: 2,
-          strokeOpacity: 0.8
+          strokeOpacity: 0.8,
+          graphicZIndex: 0
         }),
         "select": new OpenLayers.Style({
           fillColor: "#FFFF00",
@@ -59,7 +60,7 @@ Ext.define('AKGMI.view.search.Map', {
           strokeColor: "#FFFF00",
           strokeWidth: 2,
           strokeOpacity: 1,
-          zIndex: 10000
+          graphicZIndex: 10000
         }),  
       });
       map.outlines = new OpenLayers.Layer.Vector('Outlines', {

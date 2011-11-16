@@ -89,7 +89,11 @@ Ext.define('AKGMI.view.search.Results', {
     this.items = [dv];
     
     this.selectedCount = Ext.create('Ext.toolbar.TextItem', { text: '0' });
-    this.totalCount = Ext.create('Ext.toolbar.TextItem', { text: '0' });
+
+    this.totalCountTpl = new Ext.Template('Displaying {0} - {1} of {2}');
+    this.totalCountTpl.compile();
+    
+    this.totalCount = Ext.create('Ext.toolbar.TextItem', { text: '' });
     
     var exportMenu = [{
       text: 'All Records',
@@ -99,14 +103,36 @@ Ext.define('AKGMI.view.search.Results', {
       action: 'selected'
     }];
     
+    var sortHandler = function(button) {
+      this.getStore().sort(button.field, 'ASC');
+    };
+    var sortMenu = [{
+      text: 'Author',
+      field: 'authors',
+      scope: dv, 
+      handler: sortHandler
+    }, {
+      text: 'Publication Number',
+      field: 'publication_number', 
+      scope: dv, 
+      handler: sortHandler
+    }, {
+      text: 'Year',
+      field: 'publication_year',
+      scope: dv, 
+      handler: sortHandler
+    }];
+    
+    
     this.dockedItems = Ext.create('Ext.toolbar.Toolbar', {
       dock: 'top',
       ui: 'dggs',
       items: [
         Ext.create('Ext.toolbar.TextItem', { text: CONFIG.get('results.title'), ui: 'title' }), 
         CONFIG.get('results.selectedcount'), this.selectedCount, '-',
-        CONFIG.get('results.totalcount'), this.totalCount,
+        this.totalCount,
         '->', 
+        { xtype: 'button', text: CONFIG.get('results.sort'), scale: 'medium', menu: sortMenu, action: 'sort' },
         { xtype: 'button', text: CONFIG.get('results.export'), scale: 'medium', menu: exportMenu, action: 'export' },
         { xtype: 'button', text: CONFIG.get('results.reset'), scale: 'medium', action: 'reset' },
         { xtype: 'button', text: CONFIG.get('results.clear_highlighted'), scale: 'medium', action: 'clearSelected' }
@@ -114,8 +140,9 @@ Ext.define('AKGMI.view.search.Results', {
     });
     this.callParent(arguments);
   },
-  updateResultCount: function(count){
-    this.totalCount.update(count);
+  updateResultCount: function(start, end, count){
+    
+    this.totalCount.update(this.totalCountTpl.apply([start, end, count]));
   },
   updateSelectedCount: function(count){
     this.selectedCount.update(count);
