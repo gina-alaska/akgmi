@@ -1,7 +1,6 @@
-<% if params[:callback] %>
-<%= params[:callback] + '(' -%>
-<% end %>
-<%= raw @publications.as_json.to_json -%>
-<% if params[:callback] %>
-<%= ');' -%>
-<% end %>
+<%= params[:callback] + '(' if params[:callback] -%>
+{
+  total: <%= @publications.count %>, 
+  publications: <%= raw @publications.as_json.to_json -%> 
+}
+<%= ');' if params[:callback] -%>
