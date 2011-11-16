@@ -99,6 +99,7 @@ Ext.define('AKGMI.controller.Search', {
         aoifield = form.down('hiddenfield[name=aoi]');
     
     aoifield.setValue(wkt);
+    this.doSearch();
   },
   
   onFeatureSelect: function(feature_id) {
