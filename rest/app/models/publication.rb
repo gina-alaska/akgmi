@@ -35,7 +35,7 @@ class Publication < ActiveRecord::Base
   def as_json(opts = nil)
     serializable_hash({ :only => [
         :citation_id, :publication_number, :biblio_ref_long, :publication_year, :publisher,
-        :map, :report, :disk, :geospatial_data, :outside_link, :keywords, :url
+        :map, :report, :disk, :geospatial_data, :outside_link, :keywords, :url, :authors
       ],
       :methods => [:outlines, :has_extent_outline] })
   end
