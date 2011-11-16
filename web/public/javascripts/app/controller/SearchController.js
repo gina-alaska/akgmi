@@ -1,12 +1,9 @@
 Ext.define('AKGMI.controller.Search', {
   extend: 'Ext.app.Controller',
 
-  models: ['AKGMI.model.Publication'],
-  stores: ['AKGMI.store.Publications'],
-
   init: function() {
     this.getStore('Publications').on('datachanged', this.searchLoaded, this);
-
+    
     this.control({
       'search_form': {
         collapse: this.toggleOffAdvancedButton,
@@ -17,29 +14,6 @@ Ext.define('AKGMI.controller.Search', {
 			},
       'search_form button[action=reset]': {
         click: this.resetForm
-      },
-      'search_results button[toggleGroup=results-type]': {
-        toggle: this.resultsButtonHandler
-      },
-      'search_results dataview': {
-        beforeitemclick: this.beforeResultClick,
-        itemclick: this.selectRecordFeatures,
-        selectionchange: { fn: this.onSelectionChange, buffer: 300 }
-      },
-      'search_results button[action=reset]': {
-        click: this.resetForm
-      },
-      'search_results button[action=clearSelected]': {
-        click: this.unselectAll
-      }, 
-      'search_results button[action=sort] > menuitem': {
-        click: this.sortHandler
-      },
-      'search_results button[action=export] > menuitem[action=all]': {
-        click: this.exportAll
-      },
-      'search_results button[action=export] > menuitem[action=selected]': {
-        click: this.exportSelected
       },
       'search_map': {
         featureselect: this.onFeatureSelect,
@@ -58,39 +32,11 @@ Ext.define('AKGMI.controller.Search', {
     });
   },
   
-  sortHandler: function(button){
-    /* Sort all fields asc except for publication year */
-    var dir = (button.field == 'publication_year' ? 'DESC' : 'ASC');
-    this.getStore('Publications').sort(button.field, dir);
-  },
-  
   toggleOnAdvancedButton: function(form){
     App.search_toolbar.down('button[action=toggleAdvanced]').toggle(true);
   },
   toggleOffAdvancedButton: function(form){
     App.search_toolbar.down('button[action=toggleAdvanced]').toggle(false);
-  },
-  
-  unselectAll: function(){
-    App.results.down('dataview').select([], false);
-    App.map.featureSelector.unselectAll();
-  },
-  
-  exportSelected:  function(){ this.export(true); },
-  exportAll: function(){ this.export(); },
-  
-  export: function(selectedOnly) {
-    var params,
-        url = CONFIG.restUrl + '/' + CONFIG.searchResource + '.pdf',
-        values = this.getSearchParams();
-    
-    if(selectedOnly) { 
-      params = Ext.Object.toQueryString({ selected: values.selected, selected_only: true });
-    } else {
-      params = Ext.Object.toQueryString(values);      
-    }
-    
-    var win = window.open(url + '?' + params);    
   },
   
   onAOIAdded: function(map, aoi){
@@ -151,73 +97,6 @@ Ext.define('AKGMI.controller.Search', {
       return null;
     }
   },
-  
-  beforeResultClick: function(view, record, item, index, e, eopts) {
-    switch(e.target.getAttribute('class')) {
-      case 'toggle':
-        this.toggleKeywords(view, record, e.target);
-        return false;
-      case 'zoomto':
-        this.zoomToRecord(view, record, e.target);
-        if(view.isSelected(item)) {
-          return false;          
-        } else {
-          return true;
-        }
-    }
-  },
-  
-  zoomToRecord: function(view, record, item){
-    Ext.get(document.body).scrollTo('top', 0);
-
-    var bounds = new OpenLayers.Bounds();
-    Ext.each(record.get('outlines'), function(outline) {
-      bounds.extend(outline.geometry.getBounds());
-    }, this);
-    App.map.fit(bounds);
-  },
-  
-  toggleKeywords: function(view, record, item) {
-    var el        = Ext.get(item),
-        keywords  = el.up('div.result-wrap').down('div.keywords .keywordlist');
-    
-    if(keywords.isVisible()) {
-      keywords.slideOut('t', {
-        remove: false,
-        useDisplay: true
-      });
-      el.update('Show Keywords');
-    } else {
-      keywords.slideIn('t', {
-        remove: false,
-        useDisplay: true
-      });
-      el.update('Hide Keywords');
-    }
-  },
-  
-  selectRecordFeatures: function(view, record, item) {
-    var features = record.get('outlines');
-    Ext.each(features, function(f) {
-      if(view.isSelected(item)) {
-        App.map.featureSelector.select(f);      
-      } else {
-        App.map.featureSelector.unselect(f);              
-      }
-    }, this);    
-  },
-
-  resultsButtonHandler: function(button) {
-    if(button.pressed) {
-      this.getStore('Publications').clearFilter();
-      if(button.field) {
-        this.getStore('Publications').filter(button.field, true);
-      }
-    } else {
-      var b = button.up('toolbar').down('button[pressed=true]');
-      if(!b) { button.up('toolbar').down('button[action=any]').toggle(true); }
-    }
-  },
 
 	resetForm: function(button) {
     this.getStore('Publications').removeAll();
@@ -256,19 +135,6 @@ Ext.define('AKGMI.controller.Search', {
       params: this.getSearchParams()
     });		
 	},
-	
-  onSelectionChange: function(viewModel, selection) {
-    App.results.updateSelectedCount(selection.length || '0');
-    
-    var form = Ext.ComponentQuery.query('search_form')[0],
-        selectedfield = form.down('hiddenfield[name=selected]'),
-        ids = [];
-        
-    Ext.each(selection, function(item) { 
-      ids.push(item.get('citation_id')); 
-    }, this);
-    selectedfield.setValue(ids.join(','));
-  },
 
   searchLoaded: function(store) {
     var features = [];
@@ -283,6 +149,7 @@ Ext.define('AKGMI.controller.Search', {
     
     App.results.updateResultCount(start, end, store.getTotalCount());
   },
+  
 	toggleAdvanced: function() {
 		var tb = Ext.ComponentQuery.query('search_form')[0];
 		tb.toggleCollapse();

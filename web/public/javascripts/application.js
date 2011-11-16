@@ -29,7 +29,8 @@ Ext.application({
   name: 'AKGMI',
   autoCreateViewPort: false,
   appFolder: 'javascripts/app',
-  controllers: ['Search'],
+  controllers: ['SearchController', 'ResultsController'],
+  models: ['Publication'],
   store: ['Themes', 'Quadrangles', 'Publications'],
   launch: function() {
     App.map = Ext.create('AKGMI.view.search.Map', {
