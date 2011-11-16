@@ -4,6 +4,9 @@ class PublicationsController < ApplicationController
   #caches_action :show, :expires_in => 1.hour
 
   def index
+    @limit = params[:limit] || 200
+    @page = 1 || params[:page]
+ 
     @publications = Publication.active
 
     if params[:themes]
@@ -59,13 +62,15 @@ class PublicationsController < ApplicationController
     if @selected and params[:selected_only]
       @publications = @publications.where(:citation_id => @selected)
     end
-    
+
+    @publications = @publications.paginate(per_page: @limit, page: @page)
+    logger.info @publications.count 
     respond_to do |format|
       format.json
       format.js
       format.html
       format.pdf do
-        render :pdf => 'publications.pdf', 
+        render :pdf => 'publications', 
                 :layout => 'pdf.html', 
                 :footer => {
                   :right => '[page]/[toPage]',
