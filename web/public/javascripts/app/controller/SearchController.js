@@ -1,4 +1,4 @@
-Ext.define('AKGMI.controller.Search', {
+Ext.define('AKGMI.controller.SearchController', {
   extend: 'Ext.app.Controller',
 
   init: function() {
@@ -12,9 +12,9 @@ Ext.define('AKGMI.controller.Search', {
       'search_form button[action=search]': {
         click: this.doSearch
 			},
-      'search_form button[action=reset]': {
+      'result_list button[action=reset]': {
         click: this.resetForm
-      },
+      },      
       'search_map': {
         featureselect: this.onFeatureSelect,
         featureunselect: this.onFeatureUnselect,
@@ -99,10 +99,11 @@ Ext.define('AKGMI.controller.Search', {
   },
 
 	resetForm: function(button) {
+    console.log('test');
     this.getStore('Publications').removeAll();
     var tb = Ext.ComponentQuery.query('search_toolbar')[0];
 		tb.down('textfield').setValue(null);
-    var form = button.up('form');
+    var form = Ext.ComponentQuery.query('search_form')[0];
     if (form) { form.getForm().reset(); }
     
     App.map.reset();

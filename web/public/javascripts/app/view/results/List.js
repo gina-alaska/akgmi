@@ -1,5 +1,5 @@
-Ext.define('AKGMI.view.search.Results', {
-  alias: 'widget.search_results',
+Ext.define('AKGMI.view.results.List', {
+  alias: 'widget.result_list',
   extend: 'Ext.panel.Panel',
   // dockedItems: [{
   //   xtype: 'toolbar',
@@ -103,10 +103,6 @@ Ext.define('AKGMI.view.search.Results', {
       action: 'selected'
     }];
     
-    var sortHandler = function(button) {
-      this.getStore().sort(button.field, 'ASC');
-    };
-    
     var sortMenu = [{
       text: 'Author',
       field: 'authors'
@@ -135,8 +131,13 @@ Ext.define('AKGMI.view.search.Results', {
     });
     this.callParent(arguments);
   },
+  
+  reset: function() {
+    this.selectedCount.update('0');
+    this.totalCount.update('');
+  },
+  
   updateResultCount: function(start, end, count){
-    
     this.totalCount.update(this.totalCountTpl.apply([start, end, count]));
   },
   updateSelectedCount: function(count){

@@ -58,7 +58,7 @@ Ext.application({
 			title: CONFIG.get('search_form.title')
     });
 
-    App.results = Ext.create('AKGMI.view.search.Results', {
+    App.results = Ext.create('AKGMI.view.results.List', {
       store: this.getStore('Publications'),
       border: false,
       autoScroll: true,

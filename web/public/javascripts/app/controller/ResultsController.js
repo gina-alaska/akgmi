@@ -7,30 +7,41 @@ Ext.define('AKGMI.controller.ResultsController', {
   extend: 'Ext.app.Controller', 
   init: function() {
     this.control({
-      'search_results button[toggleGroup=results-type]': {
+      'result_list': {
+        render: this.onStart
+      },
+      'result_list button[toggleGroup=results-type]': {
         toggle: this.resultsButtonHandler
       },
-      'search_results dataview': {
+      'result_list dataview': {
         beforeitemclick: this.beforeResultClick,
         itemclick: this.selectRecordFeatures,
         selectionchange: { fn: this.onSelectionChange, buffer: 300 }
       },
-      'search_results button[action=reset]': {
-        click: this.resetForm
+      'result_list button[action=reset]': {
+        click: this.formReset
       },
-      'search_results button[action=clearSelected]': {
+      'result_list button[action=clearSelected]': {
         click: this.unselectAll
       }, 
-      'search_results button[action=sort] > menuitem': {
+      'result_list button[action=sort] > menuitem': {
         click: this.sortHandler
       },
-      'search_results button[action=export] > menuitem[action=all]': {
+      'result_list button[action=export] > menuitem[action=all]': {
         click: this.exportAll
       },
-      'search_results button[action=export] > menuitem[action=selected]': {
+      'result_list button[action=export] > menuitem[action=selected]': {
         click: this.exportSelected
       }
     });
+  },
+  
+  onStart: function(panel) {
+    this.result_list = panel;
+  },
+  
+  formReset: function() {
+    this.result_list.reset();
   },
   
   sortHandler: function(button){
