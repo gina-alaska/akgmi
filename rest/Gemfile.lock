@@ -85,6 +85,7 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (0.3.30)
     wicked_pdf (0.7.2)
+    will_paginate (3.0.2)
     wkhtmltopdf (0.1.2)
 
 PLATFORMS
@@ -93,9 +94,10 @@ PLATFORMS
 DEPENDENCIES
   activerecord-oracle_enhanced-adapter
   awesome_print
-  haml
+  haml (~> 3.1.3)
   nofxx-georuby
   rails (= 3.1.1)
   ruby-oci8
   wicked_pdf (~> 0.7.2)
+  will_paginate (~> 3.0.2)
   wkhtmltopdf (~> 0.1.2)
