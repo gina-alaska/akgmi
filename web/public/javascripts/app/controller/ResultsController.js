@@ -148,14 +148,19 @@ Ext.define('AKGMI.controller.ResultsController', {
   },
   
   selectRecordFeatures: function(view, record, item) {
-    var features = record.get('outlines');
-    Ext.each(features, function(f) {
-      if(view.isSelected(item)) {
-        App.map.featureSelector.select(f);      
-      } else {
-        App.map.featureSelector.unselect(f);              
+    var id = record.get('citation_id'),
+        selected = view.isSelected(item);
+        
+    // App.map.featureSelector.unselectAll();
+    Ext.each(App.map.outlines.features, function(feature) {
+      if(feature.data.citation_id == id) {
+        if(selected) {
+          App.map.featureSelector.select(feature);          
+        } else {
+          App.map.featureSelector.unselect(feature);          
+        }
       }
-    }, this);    
+    }, this);
   },
 
   resultsButtonHandler: function(button) {
@@ -168,5 +173,5 @@ Ext.define('AKGMI.controller.ResultsController', {
       var b = button.up('toolbar').down('button[pressed=true]');
       if(!b) { button.up('toolbar').down('button[action=any]').toggle(true); }
     }
-  },  
+  }
 });

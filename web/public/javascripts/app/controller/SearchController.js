@@ -48,47 +48,30 @@ Ext.define('AKGMI.controller.SearchController', {
     this.doSearch();
   },
   
-  onFeatureSelect: function(feature_id) {
+  onFeatureSelect: function(map, feature) {
     var dv = App.results.down('dataview');
     
-    var feature_record = this.findRecordFromFeatureId(feature_id);
+    var feature_record = this.findRecordFromFeatureId(feature.data.citation_id);
     var selected = dv.getSelectionModel().getSelection();
     var selIndex = Ext.Array.indexOf(selected, feature_record);
     if(selIndex < 0) { dv.select(feature_record, true); }
-    App.results.updateSelectedCount(dv.getSelectionModel().getSelection().length || '0');
+    // App.results.updateSelectedCount(dv.getSelectionModel().getSelection().length || '0');
   },
   
-  onFeatureUnselect: function(feature_id) {
+  onFeatureUnselect: function(map, feature) {
     var dv = App.results.down('dataview');
-    
-    var feature_record = this.findRecordFromFeatureId(feature_id);
-    var allDeselected = Ext.each(feature_record.get('outlines'), function(f) {
-      if (Ext.Array.indexOf(App.map.outlines.selectedFeatures, f) !== -1) {
-        /* Found a feature that is still selected */
-        return false;
-      }
-    }, this);
-    
-    if(allDeselected === true) {
-      var selected = dv.getSelectionModel().getSelection();
-      var selIndex = Ext.Array.indexOf(selected, feature_record);
-      
-      if(selIndex >= 0) { dv.deselect(feature_record, false); }      
-      App.results.updateSelectedCount(dv.getSelectionModel().getSelection().length || '0');
-    }    
+    var record = this.findRecordFromFeatureId(feature.data.citation_id);
+    dv.deselect(record);
   },
   
-  findRecordFromFeatureId: function(feature_id){
+  findRecordFromFeatureId: function(id){
     var dv = App.results.down('dataview');
     
     var index = dv.getStore().findBy(function(r) {
-      var ol = r.get('outlines');
-      var status = Ext.each(ol, function(f) {
-        if(f.id == feature_id) { return false; }
-      }, this);
-      
-      /* status is an integer if Ext.each returns false */
-      return status !== true;
+      if(id == r.get('citation_id')) {
+        return true;
+      }
+      return false;
     }, this);
     
     if(Ext.isNumber(index)) {
@@ -136,13 +119,26 @@ Ext.define('AKGMI.controller.SearchController', {
       params: this.getSearchParams()
     });		
 	},
+	
+	buildFeatures: function(r) {
+    var wkt = new OpenLayers.Format.WKT();
+    var features = [];
+
+    Ext.each(r.get('outlines'), function(item) {
+      var feature = wkt.read(item.wkt);
+      feature.data = { citation_id: r.get('citation_id') };
+      features.push(feature);
+    }, this);
+
+    return features;
+	},
 
   searchLoaded: function(store) {
     var features = [];
 
     App.map.outlines.removeAllFeatures();
     store.each(function(item) {
-      App.map.outlines.addFeatures(item.get('outlines'));
+      App.map.outlines.addFeatures(this.buildFeatures(item));
     }, this);
     
     var start = (store.currentPage - 1) * store.pageSize + 1;

@@ -14,10 +14,10 @@ Ext.define('AKGMI.view.search.Map', {
     this.callParent(arguments);
   },
   onFeatureUnselect: function(feature) {
-    this.fireEvent('featureunselect', feature.id, this);
+    this.fireEvent('featureunselect', this, feature);
   },
   onFeatureSelect: function(feature) {
-    this.fireEvent('featureselect', feature.id, this);
+    this.fireEvent('featureselect', this, feature);
   },
   onToolActivate: function(e) {
     var active_id = e.object.id;
@@ -61,7 +61,7 @@ Ext.define('AKGMI.view.search.Map', {
           strokeWidth: 2,
           strokeOpacity: 1,
           graphicZIndex: 10000
-        }),  
+        })  
       });
       map.outlines = new OpenLayers.Layer.Vector('Outlines', {
         isBaseLayer: false,
@@ -84,7 +84,7 @@ Ext.define('AKGMI.view.search.Map', {
           strokeColor: "#FFFF00",
           strokeWidth: 2,
           strokeOpacity: 1 
-        }),  
+        })  
       });
       map.aoi = new OpenLayers.Layer.Vector('AOI', {
         isBaseLayer: false,

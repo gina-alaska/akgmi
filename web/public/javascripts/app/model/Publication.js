@@ -1,4 +1,4 @@
-function as_bool(v) { return (v == 'Y' ? true : false) }
+function as_bool(v) { return (v == 'Y' ? true : false); }
 Ext.define('AKGMI.model.Publication', {
   extend: 'Ext.data.Model',
   fields: [
@@ -10,18 +10,18 @@ Ext.define('AKGMI.model.Publication', {
     { name: 'geospatial_data', convert: as_bool },
     { name: 'outside_link', convert: as_bool },
     {
-      name: 'outlines',
-      convert: function(v, r) {
-        var wkt = new OpenLayers.Format.WKT();
-        var features = [];
-
-        Ext.each(v, function(item) {
-          var feature = wkt.read(item.wkt);
-          features.push(feature);
-        }, this);
-
-        return features;
-      }
+      name: 'outlines'//,
+      // convert: function(v, r) {
+      //   var wkt = new OpenLayers.Format.WKT();
+      //   var features = [];
+      // 
+      //   Ext.each(v, function(item) {
+      //     var feature = wkt.read(item.wkt);
+      //     features.push(feature);
+      //   }, this);
+      // 
+      //   return features;
+      // }
     }
   ]
 });
