@@ -1,49 +1,9 @@
 Ext.define('AKGMI.view.results.List', {
   alias: 'widget.result_list',
   extend: 'Ext.panel.Panel',
-  // dockedItems: [{
-  //   xtype: 'toolbar',
-  //   dock: 'top',
-  //   layout: {
-  //     type: 'hbox',
-  //     pack: 'center'
-  //   },
-  //   defaults: {
-  //     scale: 'large', iconAlign: 'top', minWidth: 80,
-  //     enableToggle: true, toggleGroup: 'results-type'
-  //   },
-  //   items: [{
-  //      action: 'any',
-  //     text: CONFIG.get('results.any_type'),
-  //     iconCls: 'all_sm_icon',
-  //     pressed: true
-  //   }, {
-  //      action: 'reports',
-  //     text: CONFIG.get('results.reports'),
-  //     iconCls: 'report_sm_icon',
-  //     field: 'report'
-  //   }, {
-  //      action: 'maps',
-  //     text: CONFIG.get('results.maps'),
-  //     iconCls: 'maps_sm_icon',
-  //     field: 'map'
-  //   }, {
-  //      action: 'geospatial',
-  //     text: CONFIG.get('results.geospatial'),
-  //     iconCls: 'digital_data_sm_icon',
-  //     field: 'geospatial_data'
-  //   }, {
-  //      action: 'outside_links',
-  //     text: CONFIG.get('results.outside_links'),
-  //     iconCls: 'link_go_sm_icon',
-  //     field: 'outside_link'
-  //   }, {
-  //      action: 'cd_dvd',
-  //     text: CONFIG.get('results.cd_dvd'),
-  //     iconCls: 'offline_sm_icon',
-  //     field: 'disk'
-  //   }]
-  // }],
+  
+  title: 'Search Results',
+  
   initComponent: function() {
     this.addEvents('selectionchanged');
     
@@ -121,14 +81,13 @@ Ext.define('AKGMI.view.results.List', {
       dock: 'top',
       ui: 'dggs',
       items: [
-        Ext.create('Ext.toolbar.TextItem', { text: CONFIG.get('results.title'), ui: 'title' }), 
         CONFIG.get('results.selectedcount'), this.selectedCount, '-',
         this.totalCount,
         '->', 
         { xtype: 'button', text: CONFIG.get('results.sort'), scale: 'medium', menu: sortMenu, action: 'sort' },
         { xtype: 'button', text: CONFIG.get('results.export'), scale: 'medium', menu: exportMenu, action: 'export' },
-        { xtype: 'button', text: CONFIG.get('results.reset'), scale: 'medium', action: 'reset' },
-        { xtype: 'button', text: CONFIG.get('results.clear_highlighted'), scale: 'medium', action: 'clearSelected' }
+        { xtype: 'button', text: CONFIG.get('results.clear_highlighted'), scale: 'medium', action: 'clearSelected' },
+        { xtype: 'button', text: CONFIG.get('results.reset'), scale: 'medium', action: 'reset' }
       ]
     });
     this.callParent(arguments);
