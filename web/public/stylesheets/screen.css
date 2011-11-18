@@ -514,22 +514,28 @@ body.bp th, body.bp td {
   padding: 0;
 }
 
-/* line 36, ../../sass/partials/_extjs.scss */
+/* line 35, ../../sass/partials/_extjs.scss */
+.x-toolbar-dggs {
+  border: none;
+  padding: 0;
+  margin-bottom: 2px;
+}
+/* line 40, ../../sass/partials/_extjs.scss */
 .x-toolbar-dggs .x-toolbar-text {
   font-size: 14px;
 }
-/* line 39, ../../sass/partials/_extjs.scss */
+/* line 43, ../../sass/partials/_extjs.scss */
 .x-toolbar-dggs .x-toolbar-text-title {
   font-size: 18px;
   font-weight: bold;
   color: black !important;
 }
-/* line 44, ../../sass/partials/_extjs.scss */
+/* line 48, ../../sass/partials/_extjs.scss */
 .x-toolbar-dggs .x-btn-inner {
   color: black;
   font-size: 14px;
 }
-/* line 49, ../../sass/partials/_extjs.scss */
+/* line 53, ../../sass/partials/_extjs.scss */
 .x-toolbar-dggs .x-btn-default-toolbar-medium {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -550,7 +556,7 @@ body.bp th, body.bp td {
   background-image: -ms-linear-gradient(top, white, #f9f9f9 48%, #e2e2e2 52%, #e7e7e7);
   background-image: linear-gradient(top, #ffffff, #f9f9f9 48%, #e2e2e2 52%, #e7e7e7);
 }
-/* line 65, ../../sass/partials/_extjs.scss */
+/* line 69, ../../sass/partials/_extjs.scss */
 .x-toolbar-dggs .x-btn-default-toolbar-medium-over {
   border-color: #81A4D0;
   background-image: none;
@@ -562,7 +568,7 @@ body.bp th, body.bp td {
   background-image: -ms-linear-gradient(top, #dbeeff, #d0e7ff 48%, #bbd2f0 52%, #bed6f5);
   background-image: linear-gradient(top, #dbeeff, #d0e7ff 48%, #bbd2f0 52%, #bed6f5);
 }
-/* line 77, ../../sass/partials/_extjs.scss */
+/* line 81, ../../sass/partials/_extjs.scss */
 .x-toolbar-dggs .x-btn-default-toolbar-medium-pressed {
   border-color: #7A9AC4;
   background-image: none;
