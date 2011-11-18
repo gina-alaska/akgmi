@@ -87,7 +87,6 @@ Ext.define('AKGMI.controller.SearchController', {
   },
 
 	resetForm: function(button) {
-    console.log('test');
     this.getStore('Publications').removeAll();
     var tb = Ext.ComponentQuery.query('search_toolbar')[0];
 		tb.down('textfield').setValue(null);
@@ -125,25 +124,25 @@ Ext.define('AKGMI.controller.SearchController', {
     });		
 	},
 	
-	buildFeatures: function(r) {
-    var wkt = new OpenLayers.Format.WKT();
-    var features = [];
+  buildFeatures: function(r) {
+    // var wkt = new OpenLayers.Format.WKT();
+    // var features = [];
 
-    Ext.each(r.get('outlines'), function(item) {
-      var feature = wkt.read(item.wkt);
-      feature.data = { citation_id: r.get('citation_id') };
-      features.push(feature);
-    }, this);
+    // Ext.each(r.get('outlines'), function(item) {
+    //     var feature = wkt.read(item.wkt);
+    //     feature.data = { citation_id: r.get('citation_id') };
+    //     features.push(feature);
+    //   }, this);
 
-    return features;
-	},
+    return r.get('outlines');
+  },
 
   searchLoaded: function(store) {
     var features = [];
 
     App.map.outlines.removeAllFeatures();
     store.each(function(item) {
-      App.map.outlines.addFeatures(this.buildFeatures(item));
+      App.map.outlines.addFeatures(item.get('outlines'));
     }, this);
     
     var start = (store.currentPage - 1) * store.pageSize + 1;
