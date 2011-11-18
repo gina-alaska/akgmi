@@ -45,6 +45,8 @@ Ext.define('AKGMI.view.results.List', {
   //   }]
   // }],
   initComponent: function() {
+    this.addEvents('selectionchanged');
+    
     var dv = Ext.create('Ext.view.View', {
       store: this.store,
       simpleSelect: true,
@@ -85,7 +87,7 @@ Ext.define('AKGMI.view.results.List', {
       itemSelector: 'div.result-wrap',
       emptyText: '<div class="noresults">'+CONFIG.get('results.noresultsfound')+'</div>'
     });
-    dv.on('selectionchange', this.onSelectionChange);
+    // dv.on('selectionchange', this.onSelectionChange);
     this.items = [dv];
     
     this.selectedCount = Ext.create('Ext.toolbar.TextItem', { text: '0' });
@@ -144,12 +146,5 @@ Ext.define('AKGMI.view.results.List', {
     this.selectedCount.update(count);
   },
   onSelectionChange: function(dv, selections){
-    Ext.each(dv.view.getNodes(), function(item) {
-      if(selections.indexOf(dv.view.getRecord(item)) >= 0) {
-        Ext.fly(item).down('input[type=checkbox]').dom.checked = true;
-      } else {
-        Ext.fly(item).down('input[type=checkbox]').dom.checked = false;
-      }
-    }, this);
   }
 });

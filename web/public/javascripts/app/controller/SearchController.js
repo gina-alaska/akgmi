@@ -50,18 +50,23 @@ Ext.define('AKGMI.controller.SearchController', {
   
   onFeatureSelect: function(map, feature) {
     var dv = App.results.down('dataview');
-    
+    var sm = App.results.down('dataview').getSelectionModel();    
     var feature_record = this.findRecordFromFeatureId(feature.data.citation_id);
-    var selected = dv.getSelectionModel().getSelection();
-    var selIndex = Ext.Array.indexOf(selected, feature_record);
-    if(selIndex < 0) { dv.select(feature_record, true); }
-    // App.results.updateSelectedCount(dv.getSelectionModel().getSelection().length || '0');
+    
+    dv.select(feature_record, true, true);
+    Ext.fly(dv.getNode(feature_record)).down('input[type=checkbox]').dom.checked = true;
+    
+    App.results.fireEvent('selectionchange', sm, sm.getSelection());
   },
   
   onFeatureUnselect: function(map, feature) {
     var dv = App.results.down('dataview');
-    var record = this.findRecordFromFeatureId(feature.data.citation_id);
-    dv.deselect(record);
+    var sm = App.results.down('dataview').getSelectionModel();
+    var feature_record = this.findRecordFromFeatureId(feature.data.citation_id);
+    
+    dv.deselect(feature_record, true, true);
+    Ext.fly(dv.getNode(feature_record)).down('input[type=checkbox]').dom.checked = false;
+    App.results.fireEvent('selectionchange', sm, sm.getSelection());
   },
   
   findRecordFromFeatureId: function(id){

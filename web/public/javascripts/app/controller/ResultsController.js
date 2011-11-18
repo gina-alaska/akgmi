@@ -8,7 +8,8 @@ Ext.define('AKGMI.controller.ResultsController', {
   init: function() {
     this.control({
       'result_list': {
-        render: this.onStart
+        render: this.onStart,
+        selectionchange: { fn: this.onSelectionChange, buffer: 300 }
       },
       'result_list button[toggleGroup=results-type]': {
         toggle: this.resultsButtonHandler
@@ -67,12 +68,14 @@ Ext.define('AKGMI.controller.ResultsController', {
     this.getStore('Publications').sort(button.field, dir);
   },
 	
-  onSelectionChange: function(viewModel, selection) {
-    App.results.updateSelectedCount(selection.length || '0');
+  onSelectionChange: function(sm, selection) {
+    var dv = App.results.down('dataview');
     
     var form = Ext.ComponentQuery.query('search_form')[0],
         selectedfield = form.down('hiddenfield[name=selected]'),
         ids = [];
+    
+    App.results.updateSelectedCount(selection.length || '0');
         
     Ext.each(selection, function(item) { 
       ids.push(item.get('citation_id')); 
