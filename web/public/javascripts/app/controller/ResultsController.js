@@ -9,7 +9,7 @@ Ext.define('AKGMI.controller.ResultsController', {
     this.control({
       'result_list': {
         render: this.onStart,
-        selectionchange: { fn: this.onSelectionChange, buffer: 300 }
+        selectionchange: { fn: this.onSelectionChange, buffer: 100 }
       },
       'result_list button[toggleGroup=results-type]': {
         toggle: this.resultsButtonHandler
@@ -17,7 +17,7 @@ Ext.define('AKGMI.controller.ResultsController', {
       'result_list dataview': {
         beforeitemclick: this.beforeResultClick,
         itemclick: this.selectRecordFeatures,
-        selectionchange: { fn: this.onSelectionChange, buffer: 300 }
+        selectionchange: { fn: this.onSelectionChange, buffer: 100 }
       },
       'result_list button[action=reset]': {
         click: this.formReset
