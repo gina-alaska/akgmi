@@ -123,19 +123,6 @@ Ext.define('AKGMI.controller.SearchController', {
       params: this.getSearchParams()
     });		
 	},
-	
-  buildFeatures: function(r) {
-    // var wkt = new OpenLayers.Format.WKT();
-    // var features = [];
-
-    // Ext.each(r.get('outlines'), function(item) {
-    //     var feature = wkt.read(item.wkt);
-    //     feature.data = { citation_id: r.get('citation_id') };
-    //     features.push(feature);
-    //   }, this);
-
-    return r.get('outlines');
-  },
 
   searchLoaded: function(store) {
     var features = [];
