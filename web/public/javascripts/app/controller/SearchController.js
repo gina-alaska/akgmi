@@ -119,9 +119,20 @@ Ext.define('AKGMI.controller.SearchController', {
 
   doSearch: function() {
     this.getStore('Publications').removeAll();
-    this.getStore('Publications').load({
-      params: this.getSearchParams()
-    });		
+    
+    valid_keys = ['keywords', 'aoi', 'quadrangles[]', 'themes[]', 'year_from', 'year_to'];
+    var q = this.getSearchParams();
+    var empty = true;
+    
+    for(var key in q) {
+      if(valid_keys.indexOf(key) >= 0) {
+        if(q[key].length > 0) { empty = false; }
+        if(!empty) { break; }
+      }
+    }
+    if(empty) { return false; }
+    
+    this.getStore('Publications').load({ params: q });		
 	},
 
   searchLoaded: function(store) {
