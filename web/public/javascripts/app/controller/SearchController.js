@@ -120,7 +120,7 @@ Ext.define('AKGMI.controller.SearchController', {
   doSearch: function() {
     this.getStore('Publications').removeAll();
     
-    valid_keys = ['keywords', 'aoi', 'quadrangles[]', 'themes[]', 'year_from', 'year_to'];
+    valid_keys = ['keyword', 'aoi', 'quadrangles[]', 'themes[]', 'year_from', 'year_to'];
     var q = this.getSearchParams();
     var empty = true;
     
