@@ -15,7 +15,12 @@ class PublicationsController < ApplicationController
 
     if valid? :keyword
       sql = Keyword.subquery(params[:keyword].split(/\s+/))
-      @publications = @publications.where("#{Publication.table_name}.citation_id IN (#{sql})")
+      #@publications = @publications.where("#{Publication.table_name}.citation_id IN (#{sql})")
+##{Publication.table_name}.citation_id IN (#{sql}) 
+      params[:keyword].split(/\s+/).each do |word|
+        @publications = @publications.where(
+          "lower(keywords) like ? OR lower(biblio_ref_long) LIKE ?", "%#{word.downcase}%", "%#{word.downcase}%")
+      end
     end
 
     if valid? :themes
