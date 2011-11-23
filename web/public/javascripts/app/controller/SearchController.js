@@ -120,6 +120,7 @@ Ext.define('AKGMI.controller.SearchController', {
   doSearch: function() {
     this.getStore('Publications').removeAll();
     
+    /* TODO: Find a way to get this list automatically, otherwise this has to be updated everytime a new field is added */
     valid_keys = ['keyword', 'aoi', 'quadrangles[]', 'themes[]', 'year_from', 'year_to'];
     var q = this.getSearchParams();
     var empty = true;
