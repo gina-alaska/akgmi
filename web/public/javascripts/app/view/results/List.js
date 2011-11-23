@@ -55,7 +55,7 @@ Ext.define('AKGMI.view.results.List', {
     this.totalCountTpl = new Ext.Template('Displaying {0} - {1} of {2}');
     this.totalCountTpl.compile();
     
-    this.totalCount = Ext.create('Ext.toolbar.TextItem', { text: '' });
+    this.totalCount = Ext.create('Ext.toolbar.TextItem', { text: this.totalCountTpl.apply(['0', '0', '0']) });
     
     var exportMenu = [{
       text: 'All Records',
@@ -79,10 +79,10 @@ Ext.define('AKGMI.view.results.List', {
     
     this.dockedItems = Ext.create('Ext.toolbar.Toolbar', {
       dock: 'top',
-      ui: 'dggs',
+      ui: 'footer',
+      cls: 'dggs',
       items: [
-        CONFIG.get('results.selectedcount'), this.selectedCount, '-',
-        this.totalCount,
+        CONFIG.get('results.selectedcount'), this.selectedCount, '-',this.totalCount, { text: '&larr; Prev' },{ text: 'Next &rarr;' },
         '->', 
         { xtype: 'button', text: CONFIG.get('results.sort'), scale: 'medium', menu: sortMenu, action: 'sort' },
         { xtype: 'button', text: CONFIG.get('results.export'), scale: 'medium', menu: exportMenu, action: 'export' },
