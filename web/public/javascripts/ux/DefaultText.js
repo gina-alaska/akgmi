@@ -8,7 +8,7 @@ Ext.define('Ext.ux.DefaultText', {
 
   setToDefault: function(input) {
     var v = input.getValue();
-    if(v == null || v == this.emptyValue || (Ext.isArray(v) && v.indexOf(this.emptyValue) >= 0)) { 
+    if(v === null || v == this.emptyValue || (Ext.isArray(v) && v.indexOf(this.emptyValue) >= 0)) { 
       input.setValue('');
       input.addCls('default');
       return false;
@@ -18,7 +18,7 @@ Ext.define('Ext.ux.DefaultText', {
   init: function(field) {
 		var me = this;
 		
-    this.emptyValue =  (this.emptyValue == null ? '' : this.emptyValue);
+    this.emptyValue =  (this.emptyValue ? this.emptyValue : null);
 		field.emptyText = this.text;
 		field.submitEmptyText = false;
 
@@ -28,7 +28,7 @@ Ext.define('Ext.ux.DefaultText', {
 
     field.on('focus', function(input) {
 			input.removeCls('default');
-			if(input.getValue() == this.emptyValue) { input.setValue(''); }
+			if(input.getValue() === null || input.getValue() == this.emptyValue) { input.setValue(''); }
     }, this);
 
     field.on('blur', this.setToDefault, this);
@@ -53,6 +53,6 @@ Ext.define('Ext.ux.DefaultText', {
       field.on('select', this.setToDefault, this);
     }
 
-    this.fireEvent('load', this)
+    this.fireEvent('load', this);
   }
 });
