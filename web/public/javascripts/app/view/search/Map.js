@@ -7,7 +7,9 @@ Ext.define('AKGMI.view.search.Map', {
   extend: 'Ext.OpenLayers.Basic', 
   alias: 'widget.search_map',
   bodyStyle: 'background: #000;',
-  
+  mapConfig: {
+    restrictedExtent: new OpenLayers.Bounds(-3500000, 0, 3500000, 3000000)
+  },
   initComponent: function() {
     this.addEvents('featureselect', 'featureunselect', 'aoiadded');
     
