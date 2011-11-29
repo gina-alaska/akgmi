@@ -51,7 +51,9 @@ CONFIG = {
 			noresultsfound: "No results found", 
 			"reset": "Reset",
 			"clear_highlighted": "Clear Highlighted",
-			"sort": "Sort By"
+			"sort": "Sort By",
+			"previous_page":'&larr; Prev',
+			"next_page": 'Next &rarr; '
 		}
 	},
 	get: function(path) {
