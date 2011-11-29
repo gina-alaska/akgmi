@@ -10,12 +10,12 @@ class Theme < ActiveRecord::Base
   def as_tree(opts = {})
     tree = { :text => self.theme_name }
 
-    if self.children.empty?
+    if children.empty?
       tree[:leaf] = true
       tree[:iconCls] = 'noicon'
     else
       tree[:leaf] = false
-      tree[:children] = self.children.collect { |c| c.as_tree(opts) }
+      tree[:children] = children.includes(:children).collect { |c| c.as_tree(opts) }
     end
 
     tree[:checked] = false if opts[:checked]
