@@ -53,6 +53,11 @@ class PublicationsController < ApplicationController
       @publications = @publications.where("#{Outline.table_name}.map_scale_denominator <= ?", params[:scale_to].to_i)
     end
 
+    unless (valid? :statewide and params[:statewide] == 'on')
+      logger.info "Include statewide"
+      @publications = @publications.where("#{Outline.table_name}.outline_source IN (?)", ['Map Extent', 'Map Outline'])
+    end
+
     unless params[:aoi_geographic].blank?
       @aoi_geographic = GeoRuby::SimpleFeatures::Polygon.from_ewkt(params[:aoi_geographic])
       @aoi_geographic.srid = 4326;
