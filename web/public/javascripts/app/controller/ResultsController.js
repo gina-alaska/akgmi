@@ -105,19 +105,17 @@ Ext.define('AKGMI.controller.ResultsController', {
         url = CONFIG.restUrl + '/' + CONFIG.searchResource + '.pdf',
         values = this.getSearchParams();
     
-    if(selectedOnly) { 
-      params = Ext.Object.toQueryString({ selected: values.selected, selected_only: true });
-    } else {
-      if(values.aoi) {
-        var wkt = new OpenLayers.Format.PrecisionWKT({ precision: 5 }),
-            feature = wkt.read(values.aoi);
+    if(values.aoi) {
+      var wkt = new OpenLayers.Format.PrecisionWKT({ precision: 5 }),
+          feature = wkt.read(values.aoi);
 
-        feature.geometry.transform(App.map.getMap().getProjectionObject(),App.map.getMap().displayProjection);
-
-        values.aoi_geographic = wkt.write(feature);        
-      }
-      params = Ext.Object.toQueryString(values);      
+      feature.geometry.transform(App.map.getMap().getProjectionObject(),App.map.getMap().displayProjection);
+      values.aoi_geographic = wkt.write(feature);        
     }
+    
+    if(selectedOnly) { values.selected_only = true; }
+    
+    params = Ext.Object.toQueryString(values);      
     
     var win = window.open(url + '?' + params);    
   },
