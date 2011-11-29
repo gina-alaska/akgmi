@@ -1,41 +1,40 @@
 .query
-  - unless params[:selected_only]
-    %h3 Search parameters: 
-    - unless params[:keyword].nil? or params[:keyword].blank?
-      .param
-        %label Keywords:
-        %span= params[:keyword]
-    - unless params[:scale_from].blank? or params[:scale_to].blank?
-      .param
-        %label Scales:
-        = params[:scale_from]
-        &gt;
-        = params[:scale_to]
-    - unless params[:year_from].blank? or params[:year_to].blank?
-      .param
-        %label Years:
-        = params[:year_from]
-        &gt;
-        = params[:year_to]
-    - unless params[:quadrangles].nil? or params[:quadrangles].delete_if{|c| c.blank? }.empty?
-      .param
-        %label Quadrangles:
-        = params[:quadrangles].join(', ')
-    - unless params[:themes].nil?
-      .param
-        %label Themes:
-        %span= params[:themes].join(', ')
-    - unless params[:author].nil?
-      .param
-        %label Author:
-        = params[:author]
-    - unless @bounds.nil?
-      .param
-        %label Geographic AOI
-        .coords
-          = "UL: (#{@bounds.upper_corner.x} #{@bounds.upper_corner.y}),"
-          = "LR: (#{@bounds.lower_corner.x} #{@bounds.lower_corner.y})"
-   
+  %h3 Search parameters: 
+  - unless params[:keyword].nil? or params[:keyword].blank?
+    .param
+      %label Keywords:
+      %span= params[:keyword]
+  - unless params[:scale_from].blank? or params[:scale_to].blank?
+    .param
+      %label Scales:
+      = params[:scale_from]
+      &gt;
+      = params[:scale_to]
+  - unless params[:year_from].blank? or params[:year_to].blank?
+    .param
+      %label Years:
+      = params[:year_from]
+      &gt;
+      = params[:year_to]
+  - unless params[:quadrangles].nil? or params[:quadrangles].delete_if{|c| c.blank? }.empty?
+    .param
+      %label Quadrangles:
+      = params[:quadrangles].join(', ')
+  - unless params[:themes].nil?
+    .param
+      %label Themes:
+      %span= params[:themes].join(', ')
+  - unless params[:author].nil?
+    .param
+      %label Author:
+      = params[:author]
+  - unless @bounds.nil?
+    .param
+      %label Geographic AOI
+      .coords
+        = "UL: (#{@bounds.upper_corner.x} #{@bounds.upper_corner.y}),"
+        = "LR: (#{@bounds.lower_corner.x} #{@bounds.lower_corner.y})"
+ 
 .results
   - unless @selected.nil? or @selected.empty?
     %h4 Selected Publications
