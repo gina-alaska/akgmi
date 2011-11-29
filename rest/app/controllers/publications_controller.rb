@@ -5,7 +5,7 @@ class PublicationsController < ApplicationController
 
   def index
     @limit = params[:limit] || 200
-    @page = 1 || params[:page]
+    @page = params[:page] || 1
  
     @publications = Publication.active
 
