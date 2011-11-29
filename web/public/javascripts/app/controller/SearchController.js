@@ -132,7 +132,8 @@ Ext.define('AKGMI.controller.SearchController', {
       }
     }
     if(empty) { return false; }
-    
+      
+    this.getStore('Publications').pageSize = App.results.limitselector.getValue();
     this.getStore('Publications').load({ params: q });		
 	},
 

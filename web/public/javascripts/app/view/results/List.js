@@ -76,12 +76,16 @@ Ext.define('AKGMI.view.results.List', {
       field: 'publication_year'
     }];
     
+    this.limitselector = Ext.create('AKGMI.view.results.LimitSelector', {
+      width: 50
+    });
     
     this.dockedItems = Ext.create('Ext.toolbar.Toolbar', {
       dock: 'top',
       ui: 'footer',
       cls: 'dggs',
       items: [
+        'Showing: ', this.limitselector,
         CONFIG.get('results.selectedcount'), this.selectedCount, '-',this.totalCount, 
         { xtype: 'button', text:CONFIG.get('results.previous_page'), scale: 'medium', action: 'prev' },
         { xtype: 'button', text: CONFIG.get('results.next_page'), scale: 'medium', action: 'next' },
