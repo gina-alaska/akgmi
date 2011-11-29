@@ -4,19 +4,24 @@
 <title>Alaska Geologic Map Index</title>
 <style>
   .header { text-align: center; }
-  h1 { font-size: 20pt; margin: 0; }
-  h2 { font-size: 12pt; margin-top: 0; }
-  h3 { font-size: 12pt; margin-bottom: 0; margin-left: -15px; }
+  h1 { font-size: 16pt; }
+  h2 { font-size: 12pt; margin: 0; font-weight: normal; }
+  h3 { font-size: 12pt; margin-bottom: 0; }
   body { font-size: 12pt; }
-  .query { margin-left: 15px; margin-bottom: 15px; }
+  .query { margin: 15px 0 15px 0; }
+  .param { margin-left: 15px; }
   .result { margin-bottom: 15px; }
   .title { font-size: 14pt; }
+  .coords { margin-left: 15px; }
 </style>
 </head>
 <body>
   <div class="header">
-    <h1>DGGS :: Geologic Map Index Search Results</h2>
-    <h2>Generated: <%= Time.now -%></h2>
+    <h1>Query Results from Geologic Map Index of Alaska</h1>
+    <h2>Division of Geological & Geophysical Surveys (DGGS)</h2>
+    <h2>Alaska Department of Natural Resources</h2>
+    <h2>Phone: (907) 451-5000 || Fax: (907) 451-5050</h2>
+    <h2><a href="http://www.dggs.alaska.gov/">http://www.dggs.alaska.gov/</a></h2>
   </div>
   <div class="content">  
     <%= yield %>

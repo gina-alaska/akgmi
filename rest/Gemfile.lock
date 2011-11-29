@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/gina-alaska/wicked_pdf.git
+  revision: d65512324aed9fd09d9b3b9d2c6f1c6958459d6d
+  specs:
+    wicked_pdf (0.7.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -84,7 +90,6 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.30)
-    wicked_pdf (0.7.2)
     will_paginate (3.0.2)
     wkhtmltopdf (0.1.2)
 
@@ -98,6 +103,6 @@ DEPENDENCIES
   nofxx-georuby
   rails (= 3.1.1)
   ruby-oci8
-  wicked_pdf (~> 0.7.2)
+  wicked_pdf (~> 0.7.2)!
   will_paginate (~> 3.0.2)
   wkhtmltopdf (~> 0.1.2)

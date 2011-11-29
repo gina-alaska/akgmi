@@ -29,13 +29,14 @@
       .param
         %label Author:
         = params[:author]
-    - unless params[:aoi].nil? or params[:aoi].empty?
+    - unless @bounds.nil?
       .param
-        %label AOI:
-        = params[:aoi]
+        %label Geographic AOI
+        .coords
+          = "UL: (#{@bounds.upper_corner.x} #{@bounds.upper_corner.y}),"
+          = "LR: (#{@bounds.lower_corner.x} #{@bounds.lower_corner.y})"
    
 .results
-  - selected = []
   - unless @selected.nil? or @selected.empty?
     %h4 Selected Publications
     - @publications.each do |pub|
