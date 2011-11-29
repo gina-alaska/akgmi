@@ -82,7 +82,9 @@ Ext.define('AKGMI.view.results.List', {
       ui: 'footer',
       cls: 'dggs',
       items: [
-        CONFIG.get('results.selectedcount'), this.selectedCount, '-',this.totalCount, { text: '&larr; Prev' },{ text: 'Next &rarr;' },
+        CONFIG.get('results.selectedcount'), this.selectedCount, '-',this.totalCount, 
+        { xtype: 'button', text:CONFIG.get('results.previous_page'), scale: 'medium', action: 'prev' },
+        { xtype: 'button', text: CONFIG.get('results.next_page'), scale: 'medium', action: 'next' },
         '->', 
         { xtype: 'button', text: CONFIG.get('results.sort'), scale: 'medium', menu: sortMenu, action: 'sort' },
         { xtype: 'button', text: CONFIG.get('results.export'), scale: 'medium', menu: exportMenu, action: 'export' },
