@@ -100,6 +100,12 @@ Ext.define('AKGMI.controller.ResultsController', {
     if(selectedOnly) { 
       params = Ext.Object.toQueryString({ selected: values.selected, selected_only: true });
     } else {
+      var wkt = new OpenLayers.Format.PrecisionWKT({ precision: 5 }),
+          feature = wkt.read(values.aoi);
+          
+      feature.geometry.transform(App.map.getMap().getProjectionObject(),App.map.getMap().displayProjection);
+      
+      values.aoi_geographic = wkt.write(feature);
       params = Ext.Object.toQueryString(values);      
     }
     
