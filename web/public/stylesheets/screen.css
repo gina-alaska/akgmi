@@ -523,7 +523,7 @@ body.bp th, body.bp td {
 /* line 40, ../../sass/partials/_extjs.scss */
 .dggs .x-toolbar-text {
   color: #000 !important;
-  font-size: 14px;
+  font-size: 12px;
 }
 /* line 44, ../../sass/partials/_extjs.scss */
 .dggs .x-toolbar-text-title {
@@ -534,5 +534,9 @@ body.bp th, body.bp td {
 /* line 49, ../../sass/partials/_extjs.scss */
 .dggs .x-btn-inner {
   color: black;
-  font-size: 14px;
+  font-size: 12px;
+}
+/* line 53, ../../sass/partials/_extjs.scss */
+.dggs input.x-form-field {
+  font-size: 12px;
 }

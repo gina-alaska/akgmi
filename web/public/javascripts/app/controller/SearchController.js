@@ -41,8 +41,6 @@ Ext.define('AKGMI.controller.SearchController', {
     });
   },
   prevPage: function() {
-    console.log('tst');
-    
     var dv = App.results.down('dataview'),
         store = dv.getStore();
     var q = this.getSearchParams();
@@ -159,7 +157,7 @@ Ext.define('AKGMI.controller.SearchController', {
     
     var q = this.getSearchParams();
     if(q) {
-      this.getStore('Publications').pageSize = App.results.limitselector.getValue();
+      this.getStore('Publications').pageSize = App.results.limitSelector.getValue();
       this.getStore('Publications').loadPage(1, { params: q });      
     }
 	},

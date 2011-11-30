@@ -25,8 +25,8 @@ Ext.define('AKGMI.controller.ResultsController', {
       'result_list button[action=clearSelected]': {
         click: this.unselectAll
       }, 
-      'result_list button[action=sort] > menuitem': {
-        click: this.sortHandler
+      'result_list sortselector': {
+        change: this.sortHandler
       },
       'result_list button[action=export] > menuitem[action=all]': {
         click: this.exportAll
@@ -62,10 +62,10 @@ Ext.define('AKGMI.controller.ResultsController', {
     return values;
   },  
   
-  sortHandler: function(button){
+  sortHandler: function(field){
     /* Sort all fields asc except for publication year */
-    var dir = (button.field == 'publication_year' ? 'DESC' : 'ASC');
-    this.getStore('Publications').sort(button.field, dir);
+    var dir = (field.getValue() == 'publication_year' ? 'DESC' : 'ASC');
+    this.getStore('Publications').sort(field.getValue(), dir);
   },
 	
   onSelectionChange: function(sm, selection) {

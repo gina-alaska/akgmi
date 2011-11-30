@@ -76,7 +76,10 @@ Ext.define('AKGMI.view.results.List', {
       field: 'publication_year'
     }];
     
-    this.limitselector = Ext.create('AKGMI.view.results.LimitSelector', {
+    this.sortSelector = Ext.create('AKGMI.view.results.SortSelector', {
+      width: 150
+    }),
+    this.limitSelector = Ext.create('AKGMI.view.results.LimitSelector', {
       width: 50
     });
     
@@ -85,15 +88,15 @@ Ext.define('AKGMI.view.results.List', {
       ui: 'footer',
       cls: 'dggs',
       items: [
-        'Showing: ', this.limitselector,
+        'Showing: ', this.limitSelector,
         CONFIG.get('results.selectedcount'), this.selectedCount, '-',this.totalCount, 
-        { xtype: 'button', text: CONFIG.get('results.previous_page'), scale: 'medium', action: 'prev' },
-        { xtype: 'button', text: CONFIG.get('results.next_page'), scale: 'medium', action: 'next' },
+        { xtype: 'button', text: CONFIG.get('results.previous_page'), scale: 'small', action: 'prev' },
+        { xtype: 'button', text: CONFIG.get('results.next_page'), scale: 'small', action: 'next' },
         '->', 
-        { xtype: 'button', text: CONFIG.get('results.sort'), scale: 'medium', menu: sortMenu, action: 'sort' },
-        { xtype: 'button', text: CONFIG.get('results.export'), scale: 'medium', menu: exportMenu, action: 'export' },
-        { xtype: 'button', text: CONFIG.get('results.clear_highlighted'), scale: 'medium', action: 'clearSelected' },
-        { xtype: 'button', text: CONFIG.get('results.reset'), scale: 'medium', action: 'reset' }
+        'Sort By: ', this.sortSelector,
+        { xtype: 'button', text: CONFIG.get('results.export'), scale: 'small', menu: exportMenu, action: 'export' },
+        { xtype: 'button', text: CONFIG.get('results.clear_highlighted'), scale: 'small', action: 'clearSelected' },
+        { xtype: 'button', text: CONFIG.get('results.reset'), scale: 'small', action: 'reset' }
       ]
     });
     this.callParent(arguments);
