@@ -33,16 +33,8 @@ Ext.define('AKGMI.controller.ResultsController', {
       },
       'result_list button[action=export] > menuitem[action=selected]': {
         click: this.exportSelected
-      },
-      'result_list button[action=next]': {
-        click: this.nextPage
       }
     });
-  },
-  
-  nextPage: function() {
-    var dv = App.results.down('dataview');
-    dv.getStore().nextPage();
   },
   
   onStart: function(panel) {

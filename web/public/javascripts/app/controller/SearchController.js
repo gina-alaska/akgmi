@@ -12,9 +12,6 @@ Ext.define('AKGMI.controller.SearchController', {
       'search_form button[action=search]': {
         click: this.doSearch
 			},
-      'result_list button[action=reset]': {
-        click: this.resetForm
-      },      
       'search_map': {
         featureselect: this.onFeatureSelect,
         featureunselect: this.onFeatureUnselect,
@@ -28,9 +25,37 @@ Ext.define('AKGMI.controller.SearchController', {
 			},
 			'search_toolbar textfield': {
 				specialkey: this.doSearchOnEnter
-			}
+			},
+			'result_list button[action=reset]': {
+        click: this.resetForm
+      },  
+      'result_list limitselector': {
+        change: this.doSearch
+      },
+			'result_list button[action=next]': {
+        click: this.nextPage
+      },
+      'result_list button[action=prev]': {
+        click: this.prevPage
+      }
     });
   },
+  prevPage: function() {
+    console.log('tst');
+    
+    var dv = App.results.down('dataview'),
+        store = dv.getStore();
+    var q = this.getSearchParams();
+    
+    if(store.currentPage > 1 && q) { store.previousPage({ params: q }); }
+  },
+  nextPage: function() {
+    var dv = App.results.down('dataview'),
+        store = dv.getStore();
+    var q = this.getSearchParams();
+    var maxPage = Math.ceil(store.getTotalCount() / store.pageSize); 
+    if(store.currentPage < maxPage && q) { store.nextPage({ params: q }); }
+  },  
   
   toggleOnAdvancedButton: function(form){
     App.search_toolbar.down('button[action=toggleAdvanced]').toggle(true);
@@ -113,6 +138,18 @@ Ext.define('AKGMI.controller.SearchController', {
     Ext.each(tree.getChecked(), function(item) {
       values['themes[]'].push(item.get('text'));
     }, this);
+    
+    /* TODO: Find a way to get this list automatically, otherwise this has to be updated everytime a new field is added */
+    var empty = true, 
+        valid_keys = ['keyword', 'aoi', 'quadrangles[]', 'themes[]', 'year_from', 'year_to', 'statewide'];
+        
+    for(var key in values) {
+      if(valid_keys.indexOf(key) >= 0) {
+        if(values[key].length > 0) { empty = false; }
+        if(!empty) { break; }
+      }
+    }
+    if(empty) { return false; }
 
     return values;
   },
@@ -120,21 +157,11 @@ Ext.define('AKGMI.controller.SearchController', {
   doSearch: function() {
     this.getStore('Publications').removeAll();
     
-    /* TODO: Find a way to get this list automatically, otherwise this has to be updated everytime a new field is added */
-    valid_keys = ['keyword', 'aoi', 'quadrangles[]', 'themes[]', 'year_from', 'year_to', 'statewide'];
     var q = this.getSearchParams();
-    var empty = true;
-    
-    for(var key in q) {
-      if(valid_keys.indexOf(key) >= 0) {
-        if(q[key].length > 0) { empty = false; }
-        if(!empty) { break; }
-      }
+    if(q) {
+      this.getStore('Publications').pageSize = App.results.limitselector.getValue();
+      this.getStore('Publications').loadPage(1, { params: q });      
     }
-    if(empty) { return false; }
-      
-    this.getStore('Publications').pageSize = App.results.limitselector.getValue();
-    this.getStore('Publications').load({ params: q });		
 	},
 
   searchLoaded: function(store) {
@@ -145,8 +172,8 @@ Ext.define('AKGMI.controller.SearchController', {
       App.map.outlines.addFeatures(item.get('outlines'));
     }, this);
     
-    var start = (store.currentPage - 1) * store.pageSize + 1;
-    var end = store.currentPage * store.getCount();
+    var start = (store.currentPage-1) * store.pageSize + 1;
+    var end = start + store.getCount() - 1;
     
     App.results.updateResultCount(start, end, store.getTotalCount());
   },
