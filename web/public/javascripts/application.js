@@ -63,13 +63,13 @@ Ext.application({
       border: false,
       autoScroll: true,
 			autoHeight: true,
-      renderTo: 'results'
+      renderTo: 'akgmi_results'
     });
 
 		App.viewport = Ext.create('Ext.panel.Panel', {
 			id: 'viewport',
       layout: 'border',
-			renderTo: 'content',
+			renderTo: 'akgmi_search',
 			cls: 'no-background',
 			border: false,			
 			height: 500,

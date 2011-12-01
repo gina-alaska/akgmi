@@ -1,31 +1,240 @@
-<html>
-<head>
-  <link href="ext/resources/css/ext-all.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-  <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
-  <!--[if IE]>
-    <link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
-  <![endif]-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" /><!--this removes the IE compatibility view button from IE8 browsers-->
+    <title>Alaska Division of Geological &amp; Geophysical Surveys</title>
+    <style type="text/css">
+    ul#menu  li ul#about-us{width:19.8em;}
+    ul#menu  li ul#publications{width:7.8em;}
+    ul#menu  li ul#sections{width:39.6em;}
+    ul#menu  li ul#statemap{width:13.65em;}
+    ul#menu  li ul#geophysics{width:20.15em;}
+    ul#menu  li ul#gmc{width:28.6em;}
+    ul#menu  li ul#ask-a-geologist{width:16.9em;}
+    ul#menu  li ul#links{width:10.4em; right:0px;}
+    ul#menu  li ul li#engineering{height:66px}
+    ul#menu  li ul li#geocomm{height:22px}
+    ul#menu  li ul li#volcanology{height:44px}
+    ul#menu  li ul li#minerals{height:88px}
+    ul#menu  li ul li#energy{height:66px}
+    </style>
+    <link type="text/css" rel="stylesheet" href="http://www.dggs.alaska.gov/css/text.css" />
+    <!-- IE fixes -->
+    <!--[if IE 8]><link type="text/css" rel="stylesheet" href="http://www.dggs.alaska.gov/css/ie8.css" /><![endif]-->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-285827-2']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- specifies which google search action to use -->
+    <script type="text/javascript" src="http://www.dggs.alaska.gov/includes/scripts/js/select-google-search.js"></script>
+    
+    <!--- AKGMI SPECIFIC ITEMS -->
+    <link href="ext/resources/css/ext-all.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+    <!--[if IE]>
+      <link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <![endif]-->
 
-  <script src="javascripts/proj4js/lib/proj4js-compressed.js" type="text/javascript"></script>
-  <script src="javascripts/proj4js/lib/projCode/merc.js" type="text/javascript"></script>
-  <script src="javascripts/proj4js/lib/projCode/aea.js" type="text/javascript"></script>
-  <script src="javascripts/proj4js/lib/projCode/laea.js" type="text/javascript"></script>
-  <script src="javascripts/proj4js/lib/defs/EPSG3572.js" type="text/javascript"></script>
-  <script src="javascripts/proj4js/lib/defs/EPSG3338.js" type="text/javascript"></script>
-  <script src="javascripts/OpenLayers-2.11/OpenLayers.js" type="text/javascript"></script>
-  <script src="javascripts/ux/openlayers/PrecisionWKT.js" type="text/javascript"></script>
-  <script src="ext/ext-all-debug.js" type="text/javascript"></script>
-  <script src="javascripts/config.js" type="text/javascript"></script>
-  <script src="javascripts/application.js" type="text/javascript"></script>
-</head>
-<body class="bp two-col">
-<div id="container" class="container">
-  <div id="header"><h1>AKGMI Development Site</h1></div>
-  <div id="content"></div>
-  <!-- <div id="sidebar"></div> -->
-  <!-- <div class="spacer">&nbsp;</div> -->
-  <div id="results"></div>
-</div>
-</body>
+    <script src="javascripts/proj4js/lib/proj4js-compressed.js" type="text/javascript"></script>
+    <script src="javascripts/proj4js/lib/projCode/merc.js" type="text/javascript"></script>
+    <script src="javascripts/proj4js/lib/projCode/aea.js" type="text/javascript"></script>
+    <script src="javascripts/proj4js/lib/projCode/laea.js" type="text/javascript"></script>
+    <script src="javascripts/proj4js/lib/defs/EPSG3572.js" type="text/javascript"></script>
+    <script src="javascripts/proj4js/lib/defs/EPSG3338.js" type="text/javascript"></script>
+    <script src="javascripts/OpenLayers-2.11/OpenLayers.js" type="text/javascript"></script>
+    <script src="javascripts/ux/openlayers/PrecisionWKT.js" type="text/javascript"></script>
+    <script src="ext/ext-all-debug.js" type="text/javascript"></script>
+    <script src="javascripts/config.js" type="text/javascript"></script>
+    <script src="javascripts/application.js" type="text/javascript"></script>
+    
+  </head>
+  <body>
+    <!-- Hidden Skip Link for Screen Reader -->
+    <a href="#maincontent" class="hidden">Skip to content</a> <!-- This div controls the top background image and background color -->
+    <div id="background_top">
+    <!-- This div is a container div for all the content to be 960px wide -->
+      <div id="container">
+        <div id="top_bar">
+          <ul>
+            <li id="soa"><a  title="State of Alaska home page" href="http://alaska.gov/" name="soa">State of Alaska</a>
+              <!-- empty spans put overlapping triangles adjacent to the link button-->
+              <span class="triangle"></span>
+              <span class="triangle"></span>
+            </li>
+            <li><a href="https://my.alaska.gov/">myAlaska</a></li>
+            <li><a href="http://alaska.gov/akdir1.html">My Government</a></li>
+            <li><a href="http://alaska.gov/residentHome.html">Resident</a></li>
+            <li><a href="http://alaska.gov/businessHome.html">Business in Alaska</a></li>
+            <li><a href="http://alaska.gov/visitorHome.html">Visiting Alaska</a></li>
+            <li><a href="http://alaska.gov/employeeHome.html">State Employees</a></li>
+          </ul>
+        </div><!-- End top_bar-->
+        <div id="header" class="group">
+        <!-- This is the start of the header div this holds the whole header banner -->
+          <form name="myform" onSubmit="return OnSubmitForm();" id="searchbox_002634298853236152339:bnejxtm-ynk">
+            <input type="hidden" name="ie" value="UTF-8" />
+            <input type="hidden" name="cof" value="FORID:11" />
+            <input value="date:D:L:d1" name="sort" type="hidden" />
+            <input value="StateWide" name="site" type="hidden" />
+            <input value="StateWide" name="proxystylesheet" type="hidden" />
+            <input value="www.dggs.alaska.gov/" name="siteurl" type="hidden" />
+            <fieldset id="radio">
+              <input id="dggs_search" type="radio" name="cx" value="002634298853236152339:bnejxtm-ynk" checked="checked" />
+              <label for="dggs_search">DGGS</label>
+              <input id ="soa_search" type="radio" name="cx" value="1" />
+              <label for="soa_search">State of Alaska</label>
+            </fieldset>
+            <fieldset id="searchbox">
+              <!--empty spans put overlapping triangles adjacent to the search button-->
+              <span class="triangle"></span>
+              <span class="triangle"></span>
+              <input type="text" name="q" />
+              <button title="Search" name="sa" type="submit">search</button>
+            </fieldset>
+          </form>
+          <a href="/" id="dggs" class="nav_image_link" name="dggs">Alaska Division of Geological &amp; Geophysical Surveys</a>
+          <ul id="menu">
+            <li><a href="/index.php">Home</a></li>
+            <li><a href="">About Us</a>
+              <ul id="about-us" class="long_list hoverbox">
+                <li><a href="/about-us/admin.php">Director's Office</a></li>
+                <li><a href="/about-us/alaska-statutes.php">Alaska Statutes</a></li>
+                <li><a href="/pubs/keyword/dggs-annual-reports">Annual Reports</a></li>
+                <li><a href="/about-us/jobs.php">Employment</a></li>
+                <li><a href="/about-us/staff-directory.php">Staff Directory</a></li>
+              </ul>
+            </li>
+            <li><a href="">Publications</a>
+              <ul id="publications" class="short_list hoverbox">
+                <li><a href="/pubs/">Search</a></li>
+                <li><a href="/publications/publication-sales.php">Sales</a></li>
+                <li><a href="/pubs/newreports">New Releases</a></li>
+              </ul>
+            </li>
+            <li><a href="">Sections</a>
+              <ul id="sections" class="long_list hoverbox">
+                <li id="engineering"><a href="/sections/engineering/">Engineering Geology</a>
+                  <ul>
+                    <li><a href="/sections/engineering/geohazards/">Guide to Geologic Hazards in Alaska</a></li>
+                    <li><a href="/sections/engineering/map-teach.php">MAPTEACH</a></li>
+                  </ul>
+                </li>
+                <li id="geocomm"><a href="/sections/geocomm/">Geologic Communications</a></li>
+                <li id="volcanology"><a href="/sections/volcanology/">Volcanology</a>
+                  <ul>
+                    <li><a href="http://www.avo.alaska.edu">Alaska Volcano Observatory (AVO)</a></li>
+                  </ul>
+                </li>
+                <li id="minerals"><a href="/sections/minerals/">Mineral Resources</a>
+                  <ul>
+                    <li><a href="/pubs/minerals">Alaska's Mineral Industry Reports</a></li>
+                    <li><a href="/sections/minerals/ree.php">Rare Earth Elements</a></li>
+                    <li><a href="/webgeochem">WebGeochem</a></li>
+                  </ul>
+                </li>
+                <li id="energy"><a href="/sections/energy/">Energy Resources</a>
+                  <ul>
+                    <li><a href="/sections/energy/gas-hydrates.php">Gas Hydrates</a></li>
+                    <li><a href="/sections/energy/sponsors-proposals.php">Sponsors' Proposals</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="">STATEMAP</a>
+              <ul id="statemap" class="short_list hoverbox">
+                <li><a href="/statemap/general-info.php">Program information</a></li>
+                <li><a href="/pubs/keyword/statemap-project">STATEMAP Publications</a></li>
+              </ul>
+            </li>
+            <li><a href="">Geophysics</a>
+              <ul id="geophysics" class="short_list hoverbox">
+                <li><a href="/geophysics/general-info.php">Program Information</a></li>
+                <li><a href="/pubs/geophysics">Geophysical Survey Publications</a></li>
+              </ul>
+            </li>
+            <li><a href="">Geologic Materials Center</a>
+              <ul id="gmc" class="long_list hoverbox">
+                <li><a href="/gmc/general-info.php">General Information</a></li>
+                <li><a href="/gmc/inventory.php">Inventory</a></li>
+                <li><a href="/gmc/newsletter.php">Newsletter</a></li>
+                <li><a href="/gmc/hours-and-location.php">Hours and Location</a></li>
+                <li><a href="/gmc/policy-and-facilities.php">Policy and Facilities</a></li>
+                <li><a href="/gmc/staff.php">Staff</a></li>
+                <li><a href="/pubs/series/dggs/geologic-materials-center-data-report">Data Reports</a></li>
+              </ul>
+            </li>
+            <li><a href="">Contact Us</a>
+              <ul id="ask-a-geologist" class="short_list hoverbox">
+                <li><a href="/ask-a-geologist/faq.php">Frequently Asked Questions</a></li>
+                <li><a href="/ask-a-geologist/contact-us.php">Ask a Geologist</a></li>
+              </ul>
+            </li>
+            <li><a href="">Links</a>
+              <ul id="links" class="short_list hoverbox">
+                <li><a href="/links/geology-links.php">Related Websites</a></li>
+              </ul>
+            </li>
+          </ul><!-- end menu -->
+          <div id="tools">
+            <ul id="addthis">
+              <li id="twitter"><a  href="http://twitter.com/akdggs" title="Follow us on Twitter">Follow us on Twitter</a></li>
+              <li id="facebook"><a href="http://www.facebook.com/pages/Fairbanks-AK/Alaska-DGGS/346699054500" title="Join our fan page on Facebook">Join our fan page on Facebook</a></li>
+              <li id="rss"><a href="http://feeds.feedburner.com/DggsNews" title="DGGS News">DGGS News</a></li>
+            </ul>
+            <ul id="breadcrumb">
+              <li><a href="http://dnr.alaska.gov/">Natural Resources</a></li>
+              <li><a href="/">Geological &amp; Geophysical Surveys</a></li>
+            </ul>
+          </div><!-- End tools -->
+        </div><!-- End header -->
+        <div id="content" class="group">
+          <a name="maincontent" class="hidden">main content</a><!-- The anchor for skip to content on top of page -->
+          <h1>Geologic Map Index of Alaska</h1>
+          <!-- These get filled in by extjs -->
+          <div id="akgmi_search"></div>
+          <div id="akgmi_results"></div>
+        </div>
+        <div id="footer">
+          <div id="department_footer" class="group" >
+            <div>
+              <span>Department of Natural Resources, Division of Geological &amp; Geophysical Surveys (DGGS)</span><br />
+              <span>3354 College Road, Fairbanks, AK 99709</span><br />
+              <ul>
+                <li>Phone: (907) 451-5000</li>
+                <li>Fax: (907) 451-5050</li>
+                <li><a href="mailto:dggspubs@alaska.gov">Contact DGGS</a></li>
+              </ul>
+            </div><!-- DGGS contact info-->
+            <ul id="notices">
+              <li><a href="http://dnr.alaska.gov/shared/notices/privacy.htm">Privacy</a></li>
+              <li><a href="http://dnr.alaska.gov/shared/notices/copyright.htm">Copyright</a></li>
+            </ul>
+          </div> <!-- End Department Footer-->
+          <div id="soa_footer">
+            <div>
+              <span>State of Alaska</span>
+              <span>&copy; 2010</span>
+              <span><a href="mailto:simone.montayne@alaska.gov">Webmaster</a></span>
+            </div>
+            <ul>
+              <li><a href="http://alaska.gov">State of Alaska</a></li>
+              <li><a href="https://myalaska.state.ak.us/home/app">myAlaska</a></li>
+              <li><a href="http://alaska.gov/akdir1.html">My Government</a></li>
+              <li><a href="http://alaska.gov/residentHome.html">Resident</a></li>
+              <li><a href="http://alaska.gov/businessHome.html">Business in Alaska</a></li>
+              <li><a href="http://alaska.gov/visitorHome.html">Visiting Alaska</a></li>
+              <li><a href="http://alaska.gov/employeeHome.html">State Employees</a></li>
+            </ul>
+          </div><!-- End SOA Footer-->
+        </div><!-- End Footer-->
+      </div><!-- End background_top-->
+    </body>
 </html>
