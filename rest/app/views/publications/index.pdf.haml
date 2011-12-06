@@ -30,9 +30,9 @@
       = params[:author]
   - unless @bounds.nil?
     .param
-      %label AOI,
-      = "UL: (#{@bounds.upper_corner.y} #{@bounds.lower_corner.x}),"
-      = "LR: (#{@bounds.lower_corner.y} #{@bounds.upper_corner.x})"
+      %label Area of Interest,
+      = "Upper Left: (#{@bounds.upper_corner.y} #{@bounds.lower_corner.x}),"
+      = "Lower Right: (#{@bounds.lower_corner.y} #{@bounds.upper_corner.x})"
  
 .results
   - unless @selected.nil? or @selected.empty?
