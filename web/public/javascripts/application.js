@@ -63,7 +63,8 @@ Ext.application({
       border: false,
       autoScroll: true,
 			autoHeight: true,
-      renderTo: 'akgmi_results'
+      renderTo: 'akgmi_results',
+      hidden: true
     });
 
 		App.viewport = Ext.create('Ext.panel.Panel', {
