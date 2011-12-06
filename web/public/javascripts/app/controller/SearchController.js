@@ -116,7 +116,10 @@ Ext.define('AKGMI.controller.SearchController', {
     var form = Ext.ComponentQuery.query('search_form')[0];
     if (form) { form.getForm().reset(); }
     
+    form.down('treepanel').reset();
+    
     App.map.reset();
+    App.results.hide();
   },
   
   doSearchOnEnter: function(field, e) {
@@ -154,6 +157,8 @@ Ext.define('AKGMI.controller.SearchController', {
 
   doSearch: function() {
     this.getStore('Publications').removeAll();
+    
+    App.results.show();
     
     var q = this.getSearchParams();
     if(q) {

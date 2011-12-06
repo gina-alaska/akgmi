@@ -90,8 +90,8 @@ Ext.define('AKGMI.view.results.List', {
       items: [
         'Showing: ', this.limitSelector,
         CONFIG.get('results.selectedcount'), this.selectedCount, '-',this.totalCount, 
-        { xtype: 'button', text: CONFIG.get('results.previous_page'), scale: 'small', action: 'prev' },
-        { xtype: 'button', text: CONFIG.get('results.next_page'), scale: 'small', action: 'next' },
+        { xtype: 'button', text: CONFIG.get('results.previous_page'), scale: 'small', action: 'prev', disabled: true },
+        { xtype: 'button', text: CONFIG.get('results.next_page'), scale: 'small', action: 'next', disabled: true },
         '->', 
         'Sort By: ', this.sortSelector,
         { xtype: 'button', text: CONFIG.get('results.export'), scale: 'small', menu: exportMenu, action: 'export' },
@@ -100,6 +100,22 @@ Ext.define('AKGMI.view.results.List', {
       ]
     });
     this.callParent(arguments);
+    
+    this.store.on('load', this.updatePaging, this);
+  },
+  
+  updatePaging: function(){
+    if(this.store.currentPage == 1) {
+      this.down('button[action="prev"]').disable();
+    } else {
+      this.down('button[action="prev"]').enable();
+    }
+    var maxPage = Math.ceil(this.store.getTotalCount() / this.store.pageSize); 
+    if(this.store.currentPage == maxPage) {
+      this.down('button[action="next"]').disable();
+    } else {
+      this.down('button[action="next"]').enable();
+    }
   },
   
   reset: function() {

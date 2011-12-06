@@ -32,6 +32,10 @@ body.bp {
   }
 }
 
+.list-ct {
+  text-align: left;
+}
+
 .dggs {
   border: none;
   padding: 0;
@@ -52,6 +56,7 @@ body.bp {
   }
   input.x-form-field {
     font-size: 12px;
+    text-align: left;
   }
   
   //.x-btn-default-toolbar-medium {
