@@ -47,10 +47,11 @@ Ext.define('AKGMI.view.results.SelectedWindow', {
     this.addItems(this.getData());
     this.updateContent(this.index);
     
+    this.width = 300;
+    this.height = 200;
+    
     Ext.apply(this, {
       title: 'Selected Records',
-      width: 400,
-      height: 300,
       layout: 'fit',
       closeAction: 'hide',
       dockedItems: [{
@@ -126,5 +127,16 @@ Ext.define('AKGMI.view.results.SelectedWindow', {
   
   prevItem: function(){
     this.updateContent(this.index - 1);
+  },
+  open: function() {
+    var pos = App.map.getPosition(),
+        mapWidth = App.map.getWidth(),
+        mapHeight = App.map.getHeight();
+        
+    loc = {
+      x: pos[0] + mapWidth - this.width,
+      y: pos[1] + mapHeight - this.height
+    }
+    this.showAt(loc.x, loc.y);
   }
 });

@@ -79,7 +79,7 @@ Ext.define('AKGMI.controller.SearchController', {
     var feature_record = this.findRecordFromFeatureId(feature.data.citation_id);
     
     this.selectedWindow.addItems(feature_record);
-    this.selectedWindow.show();
+    this.selectedWindow.open();
     
     dv.select(feature_record, true, true);
     Ext.fly(dv.getNode(feature_record)).down('input[type=checkbox]').dom.checked = true;
@@ -93,7 +93,7 @@ Ext.define('AKGMI.controller.SearchController', {
     var feature_record = this.findRecordFromFeatureId(feature.data.citation_id);
     
     this.selectedWindow.removeItems(feature_record);
-    this.selectedWindow.show();
+    this.selectedWindow.open();
     
     dv.deselect(feature_record, true, true);
     Ext.fly(dv.getNode(feature_record)).down('input[type=checkbox]').dom.checked = false;
