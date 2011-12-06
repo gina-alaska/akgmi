@@ -116,6 +116,8 @@ Ext.define('AKGMI.controller.SearchController', {
     var form = Ext.ComponentQuery.query('search_form')[0];
     if (form) { form.getForm().reset(); }
     
+    form.down('treepanel').reset();
+    
     App.map.reset();
   },
   

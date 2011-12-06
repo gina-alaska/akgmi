@@ -34,5 +34,11 @@ Ext.define('AKGMI.view.search.Themes', {
         node.set('checked', record.get('checked'));
       });
     }
+  },
+  
+  reset: function() {
+    Ext.each(this.getChecked(), function(r) {
+      r.set('checked', false);
+    }, this);
   }
 })
