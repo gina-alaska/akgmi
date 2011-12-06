@@ -1,12 +1,16 @@
-.x-panel-header {
+.x-border-layout-ct {
   background: none;
+}
+
+.x-panel-header {
+  background: #FFFFFF;
   border: none;
   padding: 0;
-  
+    
   .x-panel-header-text {
     line-height: 24px;
     font-size: 20px;
-	  margin-top: 0;
+    margin-top: 0;
   }
 }
 
@@ -23,7 +27,7 @@
 }
 
 #viewport .x-layout-split-bottom {
-	display:none;
+  display:none;
 }
 
 body.bp {
@@ -34,6 +38,24 @@ body.bp {
 
 .list-ct {
   text-align: left;
+}
+
+.search {
+  .x-btn-default-medium-pressed {
+    @include border-radius(3px);
+    padding: 3px 3px 3px 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #D1D1D1;
+    background-image: none;
+    background-color: white;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(48%, #f9f9f9), color-stop(52%, #e2e2e2), color-stop(100%, #e7e7e7));
+    background-image: -webkit-linear-gradient(top, #ffffff,#f9f9f9 48%,#e2e2e2 52%,#e7e7e7);
+    background-image: -moz-linear-gradient(top, #ffffff,#f9f9f9 48%,#e2e2e2 52%,#e7e7e7);
+    background-image: -o-linear-gradient(top, #ffffff,#f9f9f9 48%,#e2e2e2 52%,#e7e7e7);
+    background-image: -ms-linear-gradient(top, #ffffff,#f9f9f9 48%,#e2e2e2 52%,#e7e7e7);
+    background-image: linear-gradient(top, #ffffff,#f9f9f9 48%,#e2e2e2 52%,#e7e7e7);
+  }
 }
 
 .dggs {
@@ -58,22 +80,7 @@ body.bp {
     font-size: 12px;
     text-align: left;
   }
-  
-  //.x-btn-default-toolbar-medium {
-  //    @include border-radius(3px);
-  //    padding: 3px 3px 3px 3px;
-  //    border-width: 1px;
-  //    border-style: solid;
-  //    border-color: #D1D1D1;
-  //    background-image: none;
-  //    background-color: white;
-  //    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(48%, #f9f9f9), color-stop(52%, #e2e2e2), color-stop(100%, #e7e7e7));
-  //    background-image: -webkit-linear-gradient(top, #ffffff,#f9f9f9 48%,#e2e2e2 52%,#e7e7e7);
-  //    background-image: -moz-linear-gradient(top, #ffffff,#f9f9f9 48%,#e2e2e2 52%,#e7e7e7);
-  //    background-image: -o-linear-gradient(top, #ffffff,#f9f9f9 48%,#e2e2e2 52%,#e7e7e7);
-  //    background-image: -ms-linear-gradient(top, #ffffff,#f9f9f9 48%,#e2e2e2 52%,#e7e7e7);
-  //    background-image: linear-gradient(top, #ffffff,#f9f9f9 48%,#e2e2e2 52%,#e7e7e7);
-  //  }
+
   //  
   //  .x-btn-default-toolbar-medium-over {
   //    border-color: #81A4D0;
