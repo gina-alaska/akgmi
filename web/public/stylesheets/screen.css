@@ -302,33 +302,44 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
 }
 
 /* line 6, ../../sass/partials/_results.scss */
+.selected-wrap {
+  text-align: left;
+  font-size: 1em;
+}
+/* line 10, ../../sass/partials/_results.scss */
+.selected-wrap .header {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* line 16, ../../sass/partials/_results.scss */
 .result-wrap {
   padding: 10px 0 10px 0;
-  font-size: 14px;
+  font-size: 1em;
   width: 940px;
   display: block;
 }
-/* line 12, ../../sass/partials/_results.scss */
+/* line 22, ../../sass/partials/_results.scss */
 .result-wrap .title {
-  font-size: 16px;
+  font-size: 1.2em;
   text-decoration: underline;
 }
-/* line 17, ../../sass/partials/_results.scss */
+/* line 27, ../../sass/partials/_results.scss */
 .result-wrap .keywordlist {
-  font-size: 10px;
+  font-size: 0.8em;
   font-style: italic;
 }
-/* line 22, ../../sass/partials/_results.scss */
+/* line 32, ../../sass/partials/_results.scss */
 .result-wrap .icons img {
   width: 35px;
   height: 35px;
   margin-left: 15px;
 }
-/* line 28, ../../sass/partials/_results.scss */
+/* line 38, ../../sass/partials/_results.scss */
 .result-wrap .body {
   clear: both;
 }
-/* line 32, ../../sass/partials/_results.scss */
+/* line 42, ../../sass/partials/_results.scss */
 .result-wrap .checkbox {
   padding: 5px;
   top: -55px;
@@ -337,26 +348,26 @@ body.two-col .x-btn-default-toolbar-large-icon-text-top .x-btn-inner {
   display: inline-block;
   margin: 0;
 }
-/* line 40, ../../sass/partials/_results.scss */
+/* line 50, ../../sass/partials/_results.scss */
 .result-wrap .checkbox input {
   vertical-align: middle;
 }
-/* line 46, ../../sass/partials/_results.scss */
+/* line 56, ../../sass/partials/_results.scss */
 .result-wrap .result-content {
   margin: 0;
   padding: 0;
   width: 910px;
   display: inline-block;
 }
-/* line 53, ../../sass/partials/_results.scss */
+/* line 63, ../../sass/partials/_results.scss */
 .result-wrap .notes {
   font-style: italic;
 }
-/* line 57, ../../sass/partials/_results.scss */
+/* line 67, ../../sass/partials/_results.scss */
 .result-wrap.x-item-over {
   background-color: rgba(0, 0, 0, 0.1);
 }
-/* line 61, ../../sass/partials/_results.scss */
+/* line 71, ../../sass/partials/_results.scss */
 .result-wrap.x-item-selected {
   background-color: rgba(255, 255, 0, 0.5);
 }
@@ -486,41 +497,41 @@ div.olControlAttribution {
   border: none;
   padding: 0;
 }
-/* line 9, ../../sass/partials/_extjs.scss */
+/* line 10, ../../sass/partials/_extjs.scss */
 .x-panel-header .x-panel-header-text {
   line-height: 24px;
   font-size: 20px;
   margin-top: 0;
 }
 
-/* line 17, ../../sass/partials/_extjs.scss */
+/* line 18, ../../sass/partials/_extjs.scss */
 .x-btn-default-large .x-btn-inner {
   font-size: 16px;
   font-weight: bold;
 }
 
-/* line 23, ../../sass/partials/_extjs.scss */
+/* line 24, ../../sass/partials/_extjs.scss */
 .x-tree-panel .x-grid-row .x-grid-cell-inner img.noicon {
   display: none;
   background-image: none;
 }
 
-/* line 28, ../../sass/partials/_extjs.scss */
+/* line 29, ../../sass/partials/_extjs.scss */
 #viewport .x-layout-split-bottom {
   display: none;
 }
 
-/* line 33, ../../sass/partials/_extjs.scss */
+/* line 34, ../../sass/partials/_extjs.scss */
 body.bp th, body.bp td {
   padding: 0;
 }
 
-/* line 38, ../../sass/partials/_extjs.scss */
+/* line 39, ../../sass/partials/_extjs.scss */
 .list-ct {
   text-align: left;
 }
 
-/* line 43, ../../sass/partials/_extjs.scss */
+/* line 44, ../../sass/partials/_extjs.scss */
 .search .x-btn-default-medium-pressed {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -541,29 +552,29 @@ body.bp th, body.bp td {
   background-image: linear-gradient(top, #ffffff, #f9f9f9 48%, #e2e2e2 52%, #e7e7e7);
 }
 
-/* line 60, ../../sass/partials/_extjs.scss */
+/* line 61, ../../sass/partials/_extjs.scss */
 .dggs {
   border: none;
   padding: 0;
   margin-bottom: 2px;
 }
-/* line 65, ../../sass/partials/_extjs.scss */
+/* line 66, ../../sass/partials/_extjs.scss */
 .dggs .x-toolbar-text {
   color: #000 !important;
   font-size: 12px;
 }
-/* line 69, ../../sass/partials/_extjs.scss */
+/* line 70, ../../sass/partials/_extjs.scss */
 .dggs .x-toolbar-text-title {
   font-size: 18px;
   font-weight: bold;
   color: black !important;
 }
-/* line 74, ../../sass/partials/_extjs.scss */
+/* line 75, ../../sass/partials/_extjs.scss */
 .dggs .x-btn-inner {
   color: black;
   font-size: 12px;
 }
-/* line 78, ../../sass/partials/_extjs.scss */
+/* line 79, ../../sass/partials/_extjs.scss */
 .dggs input.x-form-field {
   font-size: 12px;
   text-align: left;

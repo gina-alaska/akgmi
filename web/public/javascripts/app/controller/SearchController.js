@@ -2,6 +2,8 @@ Ext.define('AKGMI.controller.SearchController', {
   extend: 'Ext.app.Controller',
 
   init: function() {
+    this.selectedWindow = Ext.create('AKGMI.view.results.SelectedWindow');
+    
     this.getStore('Publications').on('datachanged', this.searchLoaded, this);
     
     this.control({
@@ -76,6 +78,9 @@ Ext.define('AKGMI.controller.SearchController', {
     var sm = App.results.down('dataview').getSelectionModel();    
     var feature_record = this.findRecordFromFeatureId(feature.data.citation_id);
     
+    this.selectedWindow.addItems(feature_record);
+    this.selectedWindow.show();
+    
     dv.select(feature_record, true, true);
     Ext.fly(dv.getNode(feature_record)).down('input[type=checkbox]').dom.checked = true;
     
@@ -86,6 +91,9 @@ Ext.define('AKGMI.controller.SearchController', {
     var dv = App.results.down('dataview');
     var sm = App.results.down('dataview').getSelectionModel();
     var feature_record = this.findRecordFromFeatureId(feature.data.citation_id);
+    
+    this.selectedWindow.removeItems(feature_record);
+    this.selectedWindow.show();
     
     dv.deselect(feature_record, true, true);
     Ext.fly(dv.getNode(feature_record)).down('input[type=checkbox]').dom.checked = false;
