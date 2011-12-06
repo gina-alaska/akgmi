@@ -1,7 +1,7 @@
 CONFIG = {
-  restUrl: 'http://akgmi-rest.zap.gina.alaska.edu',
+  // restUrl: 'http://akgmi-rest.zap.gina.alaska.edu',
   searchResource: 'publications',
-  // restUrl: 'http://dggsmaps.dnr.state.ak.us',
+  restUrl: 'http://dggsmaps.dnr.state.ak.us',
 	defaultLang: 'EN',
 	EN: {
 		search_form: {
