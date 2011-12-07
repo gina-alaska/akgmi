@@ -2,7 +2,12 @@ Ext.define('AKGMI.controller.SearchController', {
   extend: 'Ext.app.Controller',
 
   init: function() {
-    this.selectedWindow = Ext.create('AKGMI.view.results.SelectedWindow');
+    this.activeSearchId = 0;
+    this.searchHistory = new Ext.util.MixedCollection(false);
+    
+    this.infoWindow = Ext.create('AKGMI.view.results.InfoWindow');
+    this.infoWindow.on('contentupdated', this.handleInfoUpdate, this);
+    this.infoWindow.on('beforehide', function() { App.map.infoControl.unselectAll(); return true; }, this)
     
     this.getStore('Publications').on('datachanged', this.searchLoaded, this);
     
@@ -56,7 +61,23 @@ Ext.define('AKGMI.controller.SearchController', {
     var maxPage = Math.ceil(store.getTotalCount() / store.pageSize); 
     if(store.currentPage < maxPage && q) { store.nextPage({ params: q }); }
   },  
-  
+  handleInfoUpdate: function(window, current, previous, index){
+    var activeId = current.get('citation_id');
+    if(previous) { var prevId = previous.get('citation_id'); }
+    
+    App.map.infoControl.activate();
+    Ext.each(App.map.outlines.features, function(feature) {
+      switch(feature.data.citation_id) {
+        case activeId:
+          App.map.infoControl.tempHighlight(feature);          
+          break;
+        case prevId:
+          App.map.infoControl.tempUnhighlight(feature);          
+          break;
+      }
+    }, this);
+    App.map.infoControl.deactivate();
+  },
   toggleOnAdvancedButton: function(form){
     App.search_toolbar.down('button[action=toggleAdvanced]').toggle(true);
   },
@@ -73,13 +94,22 @@ Ext.define('AKGMI.controller.SearchController', {
     this.doSearch();
   },
   
+  onShowFeatureInfo: function(map, feature) {
+    var feature_record = this.findRecordFromFeatureId(feature.data.citation_id);
+    this.infoWindow.addItems(feature_record);
+    this.infoWindow.open();    
+  },
+  
+  onHideFeatureInfo: function(map, feature) {
+    var feature_record = this.findRecordFromFeatureId(feature.data.citation_id);
+    this.infoWindow.removeItems(feature_record);
+    this.infoWindow.open();
+  },
+  
   onFeatureSelect: function(map, feature) {
     var dv = App.results.down('dataview');
     var sm = App.results.down('dataview').getSelectionModel();    
     var feature_record = this.findRecordFromFeatureId(feature.data.citation_id);
-    
-    this.selectedWindow.addItems(feature_record);
-    this.selectedWindow.open();
     
     dv.select(feature_record, true, true);
     Ext.fly(dv.getNode(feature_record)).down('input[type=checkbox]').dom.checked = true;
@@ -92,11 +122,9 @@ Ext.define('AKGMI.controller.SearchController', {
     var sm = App.results.down('dataview').getSelectionModel();
     var feature_record = this.findRecordFromFeatureId(feature.data.citation_id);
     
-    this.selectedWindow.removeItems(feature_record);
-    this.selectedWindow.open();
-    
     dv.deselect(feature_record, true, true);
     Ext.fly(dv.getNode(feature_record)).down('input[type=checkbox]').dom.checked = false;
+    
     App.results.fireEvent('selectionchange', sm, sm.getSelection());
   },
   
