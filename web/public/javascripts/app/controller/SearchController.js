@@ -194,15 +194,43 @@ Ext.define('AKGMI.controller.SearchController', {
   },
 
   doSearch: function() {
+    var q;
+    
     this.getStore('Publications').removeAll();
     
     App.results.show();
     
-    var q = this.getSearchParams();
-    if(q) {
-      this.getStore('Publications').pageSize = App.results.limitSelector.getValue();
-      this.getStore('Publications').loadPage(1, { params: q });      
+    if(q = this.getSearchParams()) {
+      var id = this.addSearch(q);
+      Ext.History.add(id);
+      // this.dispatchSearch(id, null, true);      
     }
+	},
+	
+	addSearch: function(params) {
+	  var index = this.searchHistory.getCount();
+    this.searchHistory.add(index, params);	  
+    return index;
+	},
+	
+	dispatchSearch: function(id, opts){
+	  if(id && this.searchHistory.getAt(id)) {
+  	  this.activeSearchId = id;
+  	  
+  	  var params = this.searchHistory.getAt(this.activeSearchId);
+  	  var formpanel = Ext.ComponentQuery.query('search_form')[0];
+      var tree = formpanel.down('treepanel');
+      var tb = Ext.ComponentQuery.query('search_toolbar')[0];
+      var keyword = tb.down('textfield');
+      
+      keyword.setValue(params.keyword);
+      formpanel.getForm().setValues(params);
+  	  
+  	  this.getStore('Publications').pageSize = App.results.limitSelector.getValue();
+      this.getStore('Publications').loadPage(1, { params: params });      	    
+	  } else {
+	    Ext.History.add('');
+	  }
 	},
 
   searchLoaded: function(store) {

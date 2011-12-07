@@ -33,6 +33,12 @@ Ext.application({
   models: ['Publication'],
   store: ['Themes', 'Quadrangles', 'Publications'],
   launch: function() {
+    Ext.History.init(function() {
+      var token = document.location.hash.replace('#', '');
+      this.getController('SearchController').dispatchSearch(token, null, true); 
+    }.bind(this));
+    Ext.History.on('change', this.getController('SearchController').dispatchSearch, this.getController('SearchController'));
+    
     App.map = Ext.create('AKGMI.view.search.Map', {
       region: 'center',
       border: true,
