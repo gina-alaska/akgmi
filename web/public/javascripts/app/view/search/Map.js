@@ -11,9 +11,15 @@ Ext.define('AKGMI.view.search.Map', {
     restrictedExtent: new OpenLayers.Bounds(-3500000, 0, 3500000, 3000000)
   },
   initComponent: function() {
-    this.addEvents('featureselect', 'featureunselect', 'aoiadded');
+    this.addEvents('showfeatureinfo', 'hidefeatureinfo', 'featureselect', 'featureunselect', 'aoiadded');
     
     this.callParent(arguments);
+  },
+  onShowFeatureInfo: function(feature) {
+    this.fireEvent('showfeatureinfo', this, feature);
+  },
+  onHideFeatureInfo: function(feature) {
+    this.fireEvent('hidefeatureinfo', this, feature);
   },
   onFeatureUnselect: function(feature) {
     this.fireEvent('featureunselect', this, feature);
@@ -55,6 +61,14 @@ Ext.define('AKGMI.view.search.Map', {
           strokeWidth: 2,
           strokeOpacity: 0.8,
           graphicZIndex: 0
+        }),
+        "temporary": new OpenLayers.Style({
+          fillColor: "#00FF00",
+          fillOpacity: 0.2,
+          strokeColor: "#00FF00",
+          strokeWidth: 2,
+          strokeOpacity: 1,
+          graphicZIndex: 10000          
         }),
         "select": new OpenLayers.Style({
           fillColor: "#FFFF00",
@@ -113,12 +127,26 @@ Ext.define('AKGMI.view.search.Map', {
         }
       });
     
+    
+      this.infoControl = new OpenLayers.Control.InfoSelector(map.outlines, {
+        title: 'Select Publications: Click an outline to select or click and drag to select multiple outlines',
+        type: OpenLayers.Control.TYPE_TOGGLE,
+        
+        box: true,
+        
+        eventListeners: {
+          activate: Ext.bind(this.onToolActivate, this)
+        },
+        onSelect: Ext.bind(this.onShowFeatureInfo, this),
+        onUnselect: Ext.bind(this.onHideFeatureInfo, this)
+      });
+      
       // this.navtoolbar.addControls([this.aoiSelector]);
       this.featureSelector = new OpenLayers.Control.SelectFeature(map.outlines, {
         title: 'Select Publications: Click an outline to select or click and drag to select multiple outlines',
         type: OpenLayers.Control.TYPE_TOGGLE,
         multiple: false,
-        hover: false,
+        
         toggle: true,
         clickout: false,
         box: true,
@@ -130,7 +158,7 @@ Ext.define('AKGMI.view.search.Map', {
         onUnselect: Ext.bind(this.onFeatureUnselect, this)
       });
       
-      this.navtoolbar.addControls([this.featureSelector, this.aoiSelector]);
+      this.navtoolbar.addControls([this.featureSelector, this.infoControl, this.aoiSelector]);
       // 
       // this.featureClickSelector = new OpenLayers.Control.SelectFeature(map.outlines, {
       //   title: 'Select Publications: Click an outline to select or click and drag to select multiple outlines',
