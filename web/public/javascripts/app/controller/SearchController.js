@@ -22,6 +22,8 @@ Ext.define('AKGMI.controller.SearchController', {
       'search_map': {
         featureselect: this.onFeatureSelect,
         featureunselect: this.onFeatureUnselect,
+        showfeatureinfo: this.onShowFeatureInfo,
+        hidefeatureinfo: this.onHideFeatureInfo,
         aoiadded: this.onAOIAdded
       },
 			'search_toolbar button[action=toggleAdvanced]': {

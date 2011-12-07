@@ -40,6 +40,7 @@ $inactive-tool-border-color: white;
 }
 
 .olControlPanel {
-  @include mapToolIcons('olControlSelectFeatureItem', '../images/geo/pointer-info.png');
+  @include mapToolIcons('olControlSelectFeatureItem', '../images/geo/select.png');
+  @include mapToolIcons('olControlInfoSelectorItem', '../images/geo/pointer-info.png');
   @include mapToolIcons('olControlDrawFeatureItem', '../images/geo/shape_square_red.png', '5px 5px');
 }
