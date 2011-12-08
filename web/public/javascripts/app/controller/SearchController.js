@@ -223,8 +223,26 @@ Ext.define('AKGMI.controller.SearchController', {
       var tb = Ext.ComponentQuery.query('search_toolbar')[0];
       var keyword = tb.down('textfield');
       
+      params.statewide = (params.statewide == 'on' ? 'on' : 'off')
+      
       keyword.setValue(params.keyword);
       formpanel.getForm().setValues(params);
+      
+      App.map.aoi.removeAllFeatures();
+      if(params.aoi) {
+        var aoiGeom = OpenLayers.Geometry.fromWKT(params.aoi);
+        App.map.aoi.addFeatures(new OpenLayers.Feature.Vector(aoiGeom));        
+      }
+      
+  	  tree.reset();
+  	  if(params['themes[]'].length > 0) {
+  	    Ext.each(params['themes[]'], function(item) {
+  	      var c = tree.getRootNode().findChildBy(function(node) {
+  	        return node.get('text') == item; 
+  	      }, this, true);
+  	      c.set('checked', true);
+  	    }, this);
+  	  }
   	  
   	  this.getStore('Publications').pageSize = App.results.limitSelector.getValue();
       this.getStore('Publications').loadPage(1, { params: params });      	    
