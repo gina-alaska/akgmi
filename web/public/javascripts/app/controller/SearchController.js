@@ -71,10 +71,10 @@ Ext.define('AKGMI.controller.SearchController', {
     Ext.each(App.map.outlines.features, function(feature) {
       switch(feature.data.citation_id) {
         case activeId:
-          App.map.infoControl.tempHighlight(feature);          
+          App.map.infoControl.focus(feature);          
           break;
         case prevId:
-          App.map.infoControl.tempUnhighlight(feature);          
+          App.map.infoControl.unfocus(feature);          
           break;
       }
     }, this);

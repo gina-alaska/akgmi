@@ -39,13 +39,13 @@ OpenLayers.Control.InfoSelector = OpenLayers.Class(OpenLayers.Control.SelectFeat
   },
   
   /**
-   * Method: tempHighlight
+   * Method: focus
    * re-render the feature with a temporary intent
    *
    * Parameters:
    * feature - {<OpenLayers.Feature.Vector>} 
    */
-  tempHighlight: function(feature) {
+  focus: function(feature) {
     var layer = feature.layer;
     
     this._prevRenderIntent = this.renderIntent;
@@ -55,13 +55,13 @@ OpenLayers.Control.InfoSelector = OpenLayers.Class(OpenLayers.Control.SelectFeat
   },
 
   /**
-   * Method: tempUnhighlight
+   * Method: unfocus
    * returns back to previous highlight rendering
    *
    * Parameters:
    * feature - {<OpenLayers.Feature.Vector>} 
    */
-  tempUnhighlight: function(feature) {
+  unfocus: function(feature) {
     this.highlight(feature);
   },
   
