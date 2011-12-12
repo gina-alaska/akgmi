@@ -116,7 +116,7 @@ Ext.define('AKGMI.view.search.Map', {
       this.navtoolbar = new OpenLayers.Control.Panel();
     
       this.aoiSelector = new OpenLayers.Control.DrawFeature(map.aoi, OpenLayers.Handler.RegularPolygon, {
-        title: 'AOI Selection: Click and drag the mouse to define your area of interest',
+        title: 'AOI Tool: Click and drag the mouse to define your area of interest',
         type: OpenLayers.Control.TYPE_TOGGLE,
         eventListeners: {
           activate: Ext.bind(this.onToolActivate, this),
@@ -129,7 +129,7 @@ Ext.define('AKGMI.view.search.Map', {
     
     
       this.infoControl = new OpenLayers.Control.InfoSelector(map.outlines, {
-        title: 'Select Publications: Click an outline to select or click and drag to select multiple outlines',
+        title: 'Identification Tool: Click or drag the mouse to identify all records in the selected region.',
         type: OpenLayers.Control.TYPE_TOGGLE,
         
         box: true,
@@ -143,7 +143,7 @@ Ext.define('AKGMI.view.search.Map', {
       
       // this.navtoolbar.addControls([this.aoiSelector]);
       this.featureSelector = new OpenLayers.Control.SelectFeature(map.outlines, {
-        title: 'Select Publications: Click an outline to select or click and drag to select multiple outlines',
+        title: 'Selection Tool: Select publications by mouse click or drag the mouse to select multiple publications.',
         type: OpenLayers.Control.TYPE_TOGGLE,
         multiple: false,
         
