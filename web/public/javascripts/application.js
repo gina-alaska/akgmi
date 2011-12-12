@@ -53,6 +53,7 @@ Ext.application({
 			height: 42,
 			border: false
 		});
+		
     App.sidebar = Ext.create('AKGMI.view.search.Form', {
       border: true,
 			width: 350,

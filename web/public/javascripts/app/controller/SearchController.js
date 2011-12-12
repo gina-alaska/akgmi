@@ -7,7 +7,8 @@ Ext.define('AKGMI.controller.SearchController', {
     
     this.infoWindow = Ext.create('AKGMI.view.results.InfoWindow');
     this.infoWindow.on('contentupdated', this.handleInfoUpdate, this);
-    this.infoWindow.on('beforehide', function() { App.map.infoControl.unselectAll(); return true; }, this)
+    this.infoWindow.on('beforehide', function() { App.map.infoControl.unselectAll(); return true; }, this);
+    this.infoWindow.on('show', this.infoWindow.reposition, this.infoWindow, { single: true });
     
     this.getStore('Publications').on('datachanged', this.searchLoaded, this);
     
@@ -99,13 +100,13 @@ Ext.define('AKGMI.controller.SearchController', {
   onShowFeatureInfo: function(map, feature) {
     var feature_record = this.findRecordFromFeatureId(feature.data.citation_id);
     this.infoWindow.addItems(feature_record);
-    this.infoWindow.open();    
+    this.infoWindow.show();    
   },
   
   onHideFeatureInfo: function(map, feature) {
     var feature_record = this.findRecordFromFeatureId(feature.data.citation_id);
     this.infoWindow.removeItems(feature_record);
-    this.infoWindow.open();
+    this.infoWindow.show();
   },
   
   onFeatureSelect: function(map, feature) {

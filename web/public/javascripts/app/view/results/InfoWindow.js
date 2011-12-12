@@ -134,7 +134,7 @@ Ext.define('AKGMI.view.results.InfoWindow', {
     this.index -=1;
     this.updateContent();
   },
-  open: function() {
+  reposition: function() {
     var pos = App.map.getPosition(),
         mapWidth = App.map.getWidth(),
         mapHeight = App.map.getHeight();
@@ -143,6 +143,6 @@ Ext.define('AKGMI.view.results.InfoWindow', {
       x: pos[0] + mapWidth - this.width,
       y: pos[1] + mapHeight - this.height
     }
-    this.showAt(loc.x, loc.y);
+    this.showAt(loc.x, loc.y);    
   }
 });
