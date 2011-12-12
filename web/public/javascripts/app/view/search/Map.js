@@ -11,7 +11,7 @@ Ext.define('AKGMI.view.search.Map', {
     restrictedExtent: new OpenLayers.Bounds(-3500000, 0, 3500000, 3000000)
   },
   initComponent: function() {
-    this.addEvents('showfeatureinfo', 'hidefeatureinfo', 'featureselect', 'featureunselect', 'aoiadded');
+    this.addEvents('toolactivate', 'showfeatureinfo', 'hidefeatureinfo', 'featureselect', 'featureunselect', 'aoiadded');
     
     this.callParent(arguments);
   },
@@ -35,6 +35,8 @@ Ext.define('AKGMI.view.search.Map', {
         control.deactivate();
       }
     }, this);
+    
+    this.fireEvent('toolactivate', this, e.object)
   },
   onAOIAdded: function(e) {
     this.aoiSelector.deactivate();

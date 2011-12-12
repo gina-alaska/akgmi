@@ -25,7 +25,8 @@ Ext.define('AKGMI.controller.SearchController', {
         featureunselect: this.onFeatureUnselect,
         showfeatureinfo: this.onShowFeatureInfo,
         hidefeatureinfo: this.onHideFeatureInfo,
-        aoiadded: this.onAOIAdded
+        aoiadded: this.onAOIAdded,
+        toolactivate: this.onToolActivate
       },
 			'search_toolbar button[action=toggleAdvanced]': {
 				click: this.toggleAdvanced
@@ -50,12 +51,19 @@ Ext.define('AKGMI.controller.SearchController', {
       }
     });
   },
+  
+  onToolActivate: function(map, tool) {
+    if(tool != map.infoControl) {
+      this.infoWindow.close();
+    }
+  },
   prevPage: function() {
     var dv = App.results.down('dataview'),
         store = dv.getStore();
     var q = this.getSearchParams();
     
     if(store.currentPage > 1 && q) { store.previousPage({ params: q }); }
+    this.infoWindow.close();
   },
   nextPage: function() {
     var dv = App.results.down('dataview'),
@@ -63,12 +71,13 @@ Ext.define('AKGMI.controller.SearchController', {
     var q = this.getSearchParams();
     var maxPage = Math.ceil(store.getTotalCount() / store.pageSize); 
     if(store.currentPage < maxPage && q) { store.nextPage({ params: q }); }
+    this.infoWindow.close();
   },  
   handleInfoUpdate: function(window, current, previous, index){
     var activeId = current.get('citation_id');
     if(previous) { var prevId = previous.get('citation_id'); }
     
-    App.map.infoControl.activate();
+    // App.map.infoControl.activate();
     Ext.each(App.map.outlines.features, function(feature) {
       switch(feature.data.citation_id) {
         case activeId:
@@ -79,7 +88,7 @@ Ext.define('AKGMI.controller.SearchController', {
           break;
       }
     }, this);
-    App.map.infoControl.deactivate();
+    // App.map.infoControl.deactivate();
   },
   toggleOnAdvancedButton: function(form){
     App.search_toolbar.down('button[action=toggleAdvanced]').toggle(true);
@@ -159,6 +168,7 @@ Ext.define('AKGMI.controller.SearchController', {
     
     App.map.reset();
     App.results.hide();
+    this.infoWindow.close();
   },
   
   doSearchOnEnter: function(field, e) {
