@@ -57,7 +57,7 @@ Ext.define('Ext.OpenLayers.Layers', {
       }
     },
     bdl_3338: {
-      name: 'Best Data Layer',
+      name: 'Satellite',
       type: 'tiles',
       baseUrl: 'http://swmha.gina.alaska.edu/tilesrv/bdl_esri_test/tile/',
       // numZoomLevels: 16,
@@ -88,7 +88,7 @@ Ext.define('Ext.OpenLayers.Layers', {
       }
     },
     osm_base_3338: {
-      name: 'Open Street Maps - Base',
+      name: 'Map',
       type: 'tiles',
       baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/osm/tile/',
       options: {
@@ -98,7 +98,7 @@ Ext.define('Ext.OpenLayers.Layers', {
       }
     },
     osm_google_overlay_3338: {
-      name: 'Open Street Maps',
+      name: 'Street Map',
       type: 'tiles',
       baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/osm-google-ol/tile/',
       options: {
@@ -109,7 +109,7 @@ Ext.define('Ext.OpenLayers.Layers', {
       }
     },
     osm_overlay_3338: {
-      name: 'Open Street Maps',
+      name: 'Street Map',
       type: 'tiles',
       baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/osm-ol/tile/',
       options: {
