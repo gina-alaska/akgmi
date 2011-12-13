@@ -436,3 +436,80 @@ body.bp th, body.bp td {
   font-size: 12px;
   text-align: left;
 }
+
+/* line 1, ../../sass/partials/_dggs_css_fixes.scss */
+.x-body {
+  font-size: 14px;
+}
+
+/* line 5, ../../sass/partials/_dggs_css_fixes.scss */
+#top_bar {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+/* line 9, ../../sass/partials/_dggs_css_fixes.scss */
+#top_bar #soa {
+  font-size: 16px;
+}
+/* line 13, ../../sass/partials/_dggs_css_fixes.scss */
+#top_bar ul {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+/* line 19, ../../sass/partials/_dggs_css_fixes.scss */
+#top_bar ul li {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+/* line 24, ../../sass/partials/_dggs_css_fixes.scss */
+#top_bar ul li a {
+  font-size: 11px;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/* line 31, ../../sass/partials/_dggs_css_fixes.scss */
+#header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+/* line 37, ../../sass/partials/_dggs_css_fixes.scss */
+#header .triangle {
+  height: 28px;
+}
+/* line 41, ../../sass/partials/_dggs_css_fixes.scss */
+#header fieldset {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+/* line 46, ../../sass/partials/_dggs_css_fixes.scss */
+#header form {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+/* line 51, ../../sass/partials/_dggs_css_fixes.scss */
+#header form input {
+  padding: 1px 1px 1px 20px;
+  height: 24px;
+}
+/* line 56, ../../sass/partials/_dggs_css_fixes.scss */
+#header ul {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+/* line 62, ../../sass/partials/_dggs_css_fixes.scss */
+#header ul li {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+/* line 67, ../../sass/partials/_dggs_css_fixes.scss */
+#header ul li a {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}

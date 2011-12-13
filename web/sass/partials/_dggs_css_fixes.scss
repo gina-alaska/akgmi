@@ -1,0 +1,74 @@
+.x-body { 
+  font-size: 14px;
+}
+
+#top_bar {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  
+  #soa {
+    font-size: 16px;
+  }
+  
+  ul {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+  ul li {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+
+  ul li a {
+    font-size: 11px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;  
+  }
+}
+
+#header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;  
+  
+  .triangle {
+    height: 28px;
+  }
+  
+  fieldset {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+  
+  form {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+  
+  form input {
+    padding: 1px 1px 1px 20px;
+    height: 24px;
+  }
+  
+  ul {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+  ul li {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+
+  ul li a {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;  
+  }
+}
+
+
+
