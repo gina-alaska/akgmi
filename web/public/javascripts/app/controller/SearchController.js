@@ -200,7 +200,7 @@ Ext.define('AKGMI.controller.SearchController', {
     /* TODO: Find a way to get this list automatically, otherwise this has to be updated everytime a new field is added */
     var empty = true, 
         valid_keys = [
-          'keyword', 'aoi', 'quadrangles[]', 'themes[]', 'year_from', 'year_to', 'statewide', 'agency'', scale_from', 'scale_to'
+          'keyword', 'aoi', 'quadrangles[]', 'themes[]', 'year_from', 'year_to', 'statewide', 'agency', 'scale_from', 'scale_to'
         ];
         
     for(var key in values) {
