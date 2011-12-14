@@ -53,6 +53,11 @@ Ext.define('AKGMI.view.search.Map', {
   
   listeners: {
     'ready': function(map) {
+      var mouse = new OpenLayers.Control.Navigation(
+        {mouseWheelOptions: {interval: 400}}
+      );
+      map.getMap().addControl(mouse);
+      
       map.getMap().addControl(new OpenLayers.Control.LayerSwitcher());
 
       var outline_styles = new OpenLayers.StyleMap({
