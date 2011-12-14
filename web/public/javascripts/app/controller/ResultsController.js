@@ -89,10 +89,10 @@ Ext.define('AKGMI.controller.ResultsController', {
     App.map.featureSelector.unselectAll();
   },  
   
-  exportSelected:  function(){ this.export(true); },
-  exportAll: function(){ this.export(); },
+  exportSelected: function(){ this.exportPubs(true); },
+  exportAll: function(){ this.exportPubs(); },
   
-  export: function(selectedOnly) {
+  exportPubs: function(selectedOnly) {
     var params,
         url = CONFIG.restUrl + '/' + CONFIG.searchResource + '.pdf',
         values = this.getSearchParams();
