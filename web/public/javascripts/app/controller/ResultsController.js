@@ -64,8 +64,8 @@ Ext.define('AKGMI.controller.ResultsController', {
   
   sortHandler: function(field){
     /* Sort all fields asc except for publication year */
-    var dir = (field.getValue() == 'publication_year' ? 'DESC' : 'ASC');
-    this.getStore('Publications').sort(field.getValue(), dir);
+    // var dir = (field.getValue() == 'publication_year' ? 'DESC' : 'ASC');
+    // this.getStore('Publications').sort(field.getValue(), dir);
   },
 	
   onSelectionChange: function(sm, selection) {

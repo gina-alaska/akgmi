@@ -48,7 +48,10 @@ Ext.define('AKGMI.controller.SearchController', {
       },
       'result_list button[action=prev]': {
         click: this.prevPage
-      }
+      },
+      'result_list sortselector': {
+        change: this.doSearch
+      },
     });
   },
   
@@ -181,6 +184,11 @@ Ext.define('AKGMI.controller.SearchController', {
     var values = form.getValues();
     var tb = Ext.ComponentQuery.query('search_toolbar')[0];
     var keyword = tb.down('textfield').getValue();
+
+    /* Sort all fields asc except for publication year */
+    var sortfield = Ext.ComponentQuery.query('result_list sortselector')[0];
+    values.sort = sortfield.getValue();
+    values.dir = (values.sort == 'publication_year' ? 'DESC' : 'ASC');
 
     values.keyword = keyword;			
     values['themes[]'] = [];

@@ -77,6 +77,10 @@ class PublicationsController < ApplicationController
     if @selected and params[:selected_only]
       @publications = @publications.where(:citation_id => @selected)
     end
+    
+    unless params[:sort].blank?
+      @publications = @publications.order("#{params[:sort]} #{params[:dir]}")
+    end
 
     respond_to do |format|
       format.pdf do
