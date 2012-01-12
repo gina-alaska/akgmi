@@ -70,9 +70,9 @@ Ext.define('AKGMI.view.search.Map', {
           graphicZIndex: 0
         }),
         "temporary": new OpenLayers.Style({
-          fillColor: "#00FF00",
+          fillColor: "#FF00FF",
           fillOpacity: 0.2,
-          strokeColor: "#00FF00",
+          strokeColor: "#FF00FF",
           strokeWidth: 2,
           strokeOpacity: 1,
           graphicZIndex: 10000          
