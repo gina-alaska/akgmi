@@ -35,6 +35,25 @@ Gina.Layers.define('TILE.EPSG:3338.TOWNSHIP', {
 });
 
 /**
+ * Name: TILE.EPSG:3338.LANDOWNERSHIP
+ * Projection: EPSG:3338 Alaskan Albers
+ * Landownership layer
+ */
+Gina.Layers.define('TILE.EPSG:3338.LANDOWNERSHIP', {
+  name: 'Landownership',
+  type: Gina.Layers.Types.TILE,
+  url: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/glo/tile/${x}/${y}/${z}',
+  layerOptions: {
+    type: 'jpeg',
+    transitionEffect: 'resize',
+    wrapDateLine: false,
+    visibility: false,
+    isBaseLayer: false,
+    attribution: 'Landownership data is for general orientation use only'
+  }
+});
+
+/**
  * Name: TILE.EPSG:3338.QUADS
  * Projection: EPSG:3338 Alaskan Albers
  * Quandrangles from DGGS
