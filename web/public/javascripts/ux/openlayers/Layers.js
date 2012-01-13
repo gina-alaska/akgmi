@@ -38,6 +38,15 @@ Ext.define('Ext.OpenLayers.Layers', {
         isBaseLayer: true
       }
     },
+    topo_3338: {
+      name: 'Topographic DRG',
+      type: 'tiles',
+      baseUrl: 'http://tiles.proto.gina.alaska.edu/tilesrv/drg_shaded_aa/tile/',
+      options: {
+        wrapDateLine: true,
+        isBaseLayer: true
+      }
+    },
     shaded_relief: {
       name: 'Shaded Relief',
       type: 'tiles',
@@ -57,7 +66,7 @@ Ext.define('Ext.OpenLayers.Layers', {
       }
     },
     bdl_3338: {
-      name: 'Satellite',
+      name: 'Best Data Layer',
       type: 'tiles',
       baseUrl: 'http://swmha.gina.alaska.edu/tilesrv/bdl_esri_test/tile/',
       // numZoomLevels: 16,
@@ -88,7 +97,7 @@ Ext.define('Ext.OpenLayers.Layers', {
       }
     },
     osm_base_3338: {
-      name: 'Map',
+      name: 'Open Street Maps - Base',
       type: 'tiles',
       baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/osm/tile/',
       options: {
@@ -98,7 +107,7 @@ Ext.define('Ext.OpenLayers.Layers', {
       }
     },
     osm_google_overlay_3338: {
-      name: 'Street Map',
+      name: 'Open Street Maps',
       type: 'tiles',
       baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/osm-google-ol/tile/',
       options: {
@@ -109,7 +118,7 @@ Ext.define('Ext.OpenLayers.Layers', {
       }
     },
     osm_overlay_3338: {
-      name: 'Street Map',
+      name: 'Open Street Maps',
       type: 'tiles',
       baseUrl: 'http://tiles.proto.gina.alaska.edu/test/tilesrv/osm-ol/tile/',
       options: {
@@ -138,6 +147,17 @@ Ext.define('Ext.OpenLayers.Layers', {
        visibility: false
      }
     },
+    
+    bathy_3338: {
+      name: 'Shaded Relief + Bathymetry',
+      type: 'tiles',
+      baseUrl: 'http://tiles.proto.gina.alaska.edu/tiles/aea_gina_bathymetry_aa/tile/',
+      options: {
+        isBaseLayer: true,
+        visibility: false
+      }
+    },
+   
     osm_hydro_3338: {
       name: 'Hydrography',
       type: 'tiles',

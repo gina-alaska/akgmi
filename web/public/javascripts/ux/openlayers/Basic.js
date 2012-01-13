@@ -23,7 +23,7 @@ Ext.define('Ext.OpenLayers.Basic', {
   * Alaska centric polar projection
   */
   'EPSG:3572': {
-      defaultLayers: ['bdl_3572'],
+      defaultLayers: ['TILE.EPSG:3572.BDL', 'TILE.EPSG:3572.OSM', 'TILE.EPSG:3572.OSM_OVERLAY'],
       maxExtent: new OpenLayers.Bounds(-6010000, -6010000, 6010000, 6010000),
       minZoomLevel: 2,
       maxResolution: (6010000 * 2.0 / 256.0),
@@ -35,7 +35,7 @@ Ext.define('Ext.OpenLayers.Basic', {
     * Alaskan Albers Equal Area
     */
     'EPSG:3338': {
-      defaultLayers: ['bdl_3338', 'osm_base_3338', 'osm_google_overlay_3338'],
+      defaultLayers: ['TILE.EPSG:3338.BDL', 'TILE.EPSG:3338.OSM', 'TILE.EPSG:3338.OSM_OVERLAY'],
       maxExtent: new OpenLayers.Bounds(-3500000, -3500000, 3500000, 3500000),
       //restrictedExtent: new OpenLayers.Bounds(-3500000, 0, 3500000, 3000000),
       // numZoomLevels: 18,
@@ -49,7 +49,7 @@ Ext.define('Ext.OpenLayers.Basic', {
 			TODO find the espg code for the google projections
 		*/
     'google': {
-      defaultLayers: ['bdl', 'charts', 'topo', 'shaded_relief', 'landsat_pan'],
+      defaultLayers: ['TILE.EPSG:3857.BDL', 'TILE.EPSG:3857.OSM', 'TILE.EPSG:3857.TOPO', 'TILE.EPSG:3857.CHARTS', 'TILE.EPSG:3857.OSM_OVERLAY'],
       projection: "EPSG:900913",
       units: 'm',
       maxResolution: 156543.0339,
@@ -68,9 +68,17 @@ Ext.define('Ext.OpenLayers.Basic', {
     
     Ext.applyIf(this.mapConfig, this.projections[this.projection]);
 
-    if(this.layers !== null) {
+    if(this.layers) { 
       this.mapConfig.defaultLayers = this.layers;
     }
+    
+    this.layers = new Ext.util.MixedCollection(true);
+    this.layers.on('add', function(index, obj, key, opts) {
+      this.getMap().addLayer(obj);
+    }, this);
+    this.layers.on('remove', function(obj, key) {
+      this.getMap().removeLayer(obj);
+    }, this);
 
     this.callParent(arguments);
     
@@ -80,6 +88,7 @@ Ext.define('Ext.OpenLayers.Basic', {
 
   initMap: function() {
     this.map = new OpenLayers.Map(this.body.dom, this.mapConfig);
+
     this.initLayers();
 
     var center = this.getDefaultCenter().clone();
@@ -94,12 +103,7 @@ Ext.define('Ext.OpenLayers.Basic', {
   },
 
   initLayers: function() {
-    this._layers = Ext.create('Ext.OpenLayers.Layers');
-    this._layers.init(this.getMap());
-
-    Ext.each(this.mapConfig.defaultLayers, function(name) {
-      this.getMap().addLayer(this._layers.getLayer(name));
-    }, this);
+    Gina.Layers.inject(this.getMap(), this.mapConfig.defaultLayers);
   },
 
   resizeMap: function() {

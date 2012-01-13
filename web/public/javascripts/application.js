@@ -44,7 +44,10 @@ Ext.application({
       border: true,
       margin: '0 0 0 0',
       projection: 'EPSG:3338',
-      layers: ['bdl_3338', 'osm_base_3338', 'osm_hydro_3338', 'osm_google_overlay_3338', 'townships_3338', 'quads_3338']
+      layers: [
+        'TILE.EPSG:3338.BDL', 'TILE.EPSG:3338.TOPO', 'TILE.EPSG:3338.SHADED_RELIEF', 'TILE.EPSG:3338.OSM', 
+        'TILE.EPSG:3338.HYDRO', 'TILE.EPSG:3338.OSM_OVERLAY','TILE.EPSG:3338.TOWNSHIP','TILE.EPSG:3338.QUADS'
+      ]
     });
 
 		App.search_toolbar = Ext.create('AKGMI.view.search.Toolbar', {
