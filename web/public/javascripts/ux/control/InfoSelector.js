@@ -22,7 +22,7 @@ OpenLayers.Control.InfoSelector = OpenLayers.Class(OpenLayers.Control.SelectFeat
     var layers = this.layers || [this.layer];
     
     //This tool assumes multiple is true for clicks
-    var prevMultiple = true;
+    var prevMultiple = this.multiple;
     this.multiple = true;
     
     for(var layerIndex = 0; layerIndex < layers.length; layerIndex++) {

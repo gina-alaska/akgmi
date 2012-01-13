@@ -149,8 +149,9 @@ Ext.define('AKGMI.view.search.Map', {
       });
       
       // this.navtoolbar.addControls([this.aoiSelector]);
-      this.featureSelector = new OpenLayers.Control.SelectFeature(map.outlines, {
+      this.featureSelector = new OpenLayers.Control.InfoSelector(map.outlines, {
         title: 'Selection Tool: Select publications by mouse click or drag the mouse to select multiple publications.',
+        displayClass: 'olControlSelectFeature',
         type: OpenLayers.Control.TYPE_TOGGLE,
         multiple: false,
         
