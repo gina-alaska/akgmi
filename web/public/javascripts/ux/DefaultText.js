@@ -6,29 +6,36 @@ Ext.define('Ext.ux.DefaultText', {
     this.callParent();
   },
 
+  isDefaultValue: function(v) {
+    return v === null ||
+           v == this.emptyValue ||
+           (Ext.isArray(v) && v.indexOf(this.emptyValue) >= 0)
+  },
+
   setToDefault: function(input) {
     var v = input.getValue();
-    if(v === null || v == this.emptyValue || (Ext.isArray(v) && v.indexOf(this.emptyValue) >= 0)) { 
+    
+
+    if(this.isDefaultValue(v)) { 
       input.setValue('');
       input.addCls('default');
-      return false;
-		}
+    }
   },
 
   init: function(field) {
-		var me = this;
+    var me = this;
 		
     this.emptyValue =  (this.emptyValue ? this.emptyValue : null);
-		field.emptyText = this.text;
-		field.submitEmptyText = false;
+    field.emptyText = this.text;
+    field.submitEmptyText = false;
 
     field.addCls('default');
 
     field.on('render', this.setToDefault, this, { delay: 100 });
 
     field.on('focus', function(input) {
-			input.removeCls('default');
-			if(input.getValue() === null || input.getValue() == this.emptyValue) { input.setValue(''); }
+      input.removeCls('default');
+      if(input.getValue() === null || input.getValue() == this.emptyValue) { input.setValue(''); }
     }, this);
 
     field.on('blur', this.setToDefault, this);
