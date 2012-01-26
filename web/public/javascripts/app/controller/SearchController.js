@@ -217,7 +217,8 @@ Ext.define('AKGMI.controller.SearchController', {
   doSearch: function() {
     var q;
     
-    this.getStore('Publications').removeAll();
+    App.map.reset();
+    this.getStore('Publications').removeAll();    
     
     App.results.show();
     
