@@ -25,17 +25,18 @@ body.bp {
 /* line 9, ../../sass/partials/_form.scss */
 .search input.x-form-text {
   height: 32px;
+  line-height: 32px;
 }
-/* line 12, ../../sass/partials/_form.scss */
+/* line 13, ../../sass/partials/_form.scss */
 .search input {
   font-size: 20px;
   line-height: 20px;
 }
-/* line 16, ../../sass/partials/_form.scss */
+/* line 17, ../../sass/partials/_form.scss */
 .search .x-field-default {
   margin-bottom: 0px;
 }
-/* line 19, ../../sass/partials/_form.scss */
+/* line 20, ../../sass/partials/_form.scss */
 .search .x-btn-inner {
   font-size: 14px;
 }
