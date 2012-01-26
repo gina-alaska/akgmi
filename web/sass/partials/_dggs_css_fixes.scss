@@ -2,7 +2,7 @@
   font-size: 14px;
 }
 
-#top_bar {
+#top_bar,#breadcrumb {
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
   
@@ -25,6 +25,15 @@
     font-size: 11px;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;  
+  }  
+}
+
+#breadcrumb {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  
+  li {
+    font-size: 11px;
   }
 }
 
