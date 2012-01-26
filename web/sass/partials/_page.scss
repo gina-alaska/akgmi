@@ -17,9 +17,17 @@ body.bp {
 }
 
 #content {
+  background: white url('../images/beta-background.gif') repeat top left;
+  
   h1 {
-    font-size: 1.8em;
+    font-size: 1.5em;
     border-bottom: none;
-    margin-bottom: 3px;
+    margin-bottom: 6px;
+    white-space:nowrap;
+    display: inline-block;
+  }
+  #webmaps {
+    display: inline-block;
+    float:right;
   }
 }
