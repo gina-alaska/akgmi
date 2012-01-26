@@ -22,7 +22,7 @@ Gina.Layers.define('TILE.EPSG:3338.HYDRO', {
  * Township Grid from DGGS
  */
 Gina.Layers.define('TILE.EPSG:3338.TOWNSHIP', {
-  name: 'Townships',
+  name: 'Township & Range',
   type: Gina.Layers.Types.TILE,
   url: 'http://tiles.proto.gina.alaska.edu/tilesrv/pls_aa/tile/${x}/${y}/${z}',
   layerOptions: {
@@ -76,6 +76,43 @@ Gina.Layers.define('TILE.EPSG:3338.BDL', {
   name: 'Satellite',
   type: Gina.Layers.Types.TILE, 
   url: 'http://swmha.gina.alaska.edu/tilesrv/bdl_esri_test/tile/${x}/${y}/${z}',
+  layerOptions: {
+    type: 'jpeg',
+    transitionEffect: 'resize',
+    wrapDateLine: false,
+    visibility: true,
+    isBaseLayer: true
+  }
+});
+
+/**
+ * Name: TILE.EPSG:3338.OSM_OVERLAY
+ * Projection: EPSG:3338 Alaskan Albers
+ * OpenStreetMap road and city overlay in Alaskan Albers projection
+ */
+Gina.Layers.define('TILE.EPSG:3338.OSM_OVERLAY', {
+  name: 'Street Map',
+  type: Gina.Layers.Types.TILE,
+  url: 'http://tiles.gina.alaska.edu/test/tilesrv/osm-google-ol/tile/${x}/${y}/${z}',
+  layerOptions: {
+    type: 'jpeg',
+    transitionEffect: 'resize',
+    wrapDateLine: false,
+    visibility: true,
+    isBaseLayer: false,
+    attribution: '(c) <a href="http://www.openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+  }
+});
+
+/**
+ * Name: TILE.EPSG:3338.SHADEDRELIEF
+ * Projection: EPSG:3338 Alaskan Albers
+ * Gray scale shaded relief, based on ned and bathymetric data
+ */
+Gina.Layers.define('TILE.EPSG:3338.SHADED_RELIEF', {
+  name: 'Shaded Relief',
+  type: Gina.Layers.Types.TILE,
+  url: 'http://tiles.gina.alaska.edu/tiles/aea_gina_bathymetry_aa/tile/${x}/${y}/${z}',
   layerOptions: {
     type: 'jpeg',
     transitionEffect: 'resize',
