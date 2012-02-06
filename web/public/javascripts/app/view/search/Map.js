@@ -59,6 +59,38 @@ Ext.define('AKGMI.view.search.Map', {
       map.getMap().addControl(mouse);
       
       map.getMap().addControl(new OpenLayers.Control.LayerSwitcher());
+      
+      // Loop over the controls adding tooltips for certain items
+      for(var i in map.getMap().controls){
+        if(map.getMap().controls[i] instanceof OpenLayers.Control.PanZoom){
+          var buttons = map.getMap().controls[i].buttons;
+          for(var x in buttons){
+            switch(buttons[x].action){
+              case 'panleft':
+                buttons[x].title = 'Pan map left';
+              break;
+              case 'panright':
+                buttons[x].title = 'Pan map right';
+              break;
+              case 'panup':
+                buttons[x].title = 'Pan map up';
+              break;
+              case 'pandown':
+                buttons[x].title = 'Pan map down';
+              break;
+              case 'zoomworld':
+                buttons[x].title = 'Zoom map out to maximum';
+              break;
+              case 'zoomout':
+                buttons[x].title = 'Zoom map out';
+              break;
+              case 'zoomin':
+                buttons[x].title = 'Zoom map in';
+              break;
+            }
+          }
+        }
+      }      
 
       var outline_styles = new OpenLayers.StyleMap({
         "default": new OpenLayers.Style({
