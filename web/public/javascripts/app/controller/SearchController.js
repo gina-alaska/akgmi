@@ -84,10 +84,14 @@ Ext.define('AKGMI.controller.SearchController', {
     Ext.each(App.map.outlines.features, function(feature) {
       switch(feature.data.citation_id) {
         case activeId:
-          App.map.infoControl.focus(feature);          
+          if (App.map.infoControl.layer.selectedFeatures.indexOf(feature) >= 0) {
+            App.map.infoControl.focus(feature);            
+          } 
           break;
         case prevId:
-          App.map.infoControl.unfocus(feature);          
+          if (App.map.infoControl.layer.selectedFeatures.indexOf(feature) >= 0) {
+            App.map.infoControl.unfocus(feature);
+          }
           break;
       }
     }, this);
@@ -215,14 +219,14 @@ Ext.define('AKGMI.controller.SearchController', {
   },
 
   doSearch: function() {
-    var q;
     
     App.map.reset();
     this.getStore('Publications').removeAll();    
     
     App.results.show();
     
-    if(q = this.getSearchParams()) {
+    var q = this.getSearchParams();
+    if(q) {
       var id = this.addSearch(q);
       Ext.History.add(id);
       // this.dispatchSearch(id, null, true);      
@@ -230,22 +234,22 @@ Ext.define('AKGMI.controller.SearchController', {
 	},
 	
 	addSearch: function(params) {
-	  var index = this.searchHistory.getCount();
-    this.searchHistory.add(index, params);	  
+    var index = this.searchHistory.getCount();
+    this.searchHistory.add(index, params);
     return index;
 	},
 	
 	dispatchSearch: function(id, opts){
-	  if(id && this.searchHistory.getAt(id)) {
-  	  this.activeSearchId = id;
-  	  
-  	  var params = this.searchHistory.getAt(this.activeSearchId);
-  	  var formpanel = Ext.ComponentQuery.query('search_form')[0];
+    if(id && this.searchHistory.getAt(id)) {
+      this.activeSearchId = id;
+      
+      var params = this.searchHistory.getAt(this.activeSearchId);
+      var formpanel = Ext.ComponentQuery.query('search_form')[0];
       var tree = formpanel.down('treepanel');
       var tb = Ext.ComponentQuery.query('search_toolbar')[0];
       var keyword = tb.down('textfield');
       
-      params.statewide = (params.statewide == 'on' ? 'on' : 'off')
+      params.statewide = (params.statewide == 'on' ? 'on' : 'off');
       
       keyword.setValue(params.keyword);
       formpanel.getForm().setValues(params);
@@ -256,21 +260,21 @@ Ext.define('AKGMI.controller.SearchController', {
         App.map.aoi.addFeatures(new OpenLayers.Feature.Vector(aoiGeom));        
       }
       
-  	  tree.reset();
-  	  if(params['themes[]'].length > 0) {
-  	    Ext.each(params['themes[]'], function(item) {
-  	      var c = tree.getRootNode().findChildBy(function(node) {
-  	        return node.get('text') == item; 
-  	      }, this, true);
-  	      c.set('checked', true);
-  	    }, this);
-  	  }
-  	  
-  	  this.getStore('Publications').pageSize = App.results.limitSelector.getValue();
-      this.getStore('Publications').loadPage(1, { params: params });      	    
-	  } else {
-	    Ext.History.add('');
-	  }
+      tree.reset();
+      if(params['themes[]'].length > 0) {
+        Ext.each(params['themes[]'], function(item) {
+          var c = tree.getRootNode().findChildBy(function(node) {
+            return node.get('text') == item; 
+          }, this, true);
+          c.set('checked', true);
+        }, this);
+      }
+
+      this.getStore('Publications').pageSize = App.results.limitSelector.getValue();
+      this.getStore('Publications').loadPage(1, { params: params });
+    } else {
+      Ext.History.add('');
+    }
 	},
 
   searchLoaded: function(store) {
