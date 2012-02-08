@@ -19,7 +19,7 @@ class PublicationsController < ApplicationController
 ##{Publication.table_name}.citation_id IN (#{sql}) 
       params[:keyword].split(/\s+/).each do |word|
         @publications = @publications.where(
-          "lower(keywords) like ? OR lower(biblio_ref_long) LIKE ?", "%#{word.downcase}%", "%#{word.downcase}%")
+          "lower(keywords) like ? OR lower(authors) LIKE ? OR lower(title) LIKE ?", "%#{word.downcase}%", "%#{word.downcase}%", "%#{word.downcase}%")
       end
     end
 
