@@ -38,7 +38,10 @@ Log into the webdev account on the machine with the running application and run 
 
     $ cd ~/repos/akgmi
     $ git pull
+    $ git submodule init
     $ git submodule update
-    $ touch rest/tmp/restart.txt
+    $ cd rest
+    $ bundle install
+    $ touch tmp/restart.txt
 
 That's it, now open the application in a browser and make sure it starts up  
