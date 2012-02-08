@@ -27,3 +27,18 @@ Installation instructions can be found in:
 
 * rest/README.md
 * web/README.md
+
+General Update Instructions
+---------------------------
+
+In order to pull the latest code from github you will need to make sure that ssh agent forwarding enabled
+with access to the ssh key that was added to your github.com account (https://github.com/account/ssh)
+
+Log into the webdev account on the machine with the running application and run the following commands:
+
+    $ cd ~/repos/akgmi
+    $ git pull
+    $ git submodule update
+    $ touch rest/tmp/restart.txt
+
+That's it, now open the application in a browser and make sure it starts up  
