@@ -25,8 +25,8 @@ The code can be viewed online at http://github.com/gina-alaska/akgmi or checked 
     
 Installation instructions can be found in:
 
-* rest/README.md
-* web/README.md
+* [rest/README.md](https://github.com/gina-alaska/akgmi/blob/master/rest/README.md)
+* [web/README.md](https://github.com/gina-alaska/akgmi/blob/master/web/README.md)
 
 General Update Instructions
 ---------------------------
