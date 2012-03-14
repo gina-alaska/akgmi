@@ -21,7 +21,7 @@ This is restricted to users authorized as collaborators in the project.
 The code can be viewed online at http://github.com/gina-alaska/akgmi or checked out from Github by doing
 
     $ cd ~/gits # or any directory you with to install this application
-    $ git clone git@github.com:gina-alaska/akgmi
+    $ git clone git@github.com:gina-alaska/akgmi.git
     
 Installation instructions can be found in:
 
