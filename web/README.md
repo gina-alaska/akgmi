@@ -4,7 +4,7 @@ Geologic Map Index of Alaska Web Application
 Requirements
 ------------
 
-* Applictaion requirements
+* Application requirements
   * Webserver (ex. Apache)
   * Browser
 * Development requirements 
