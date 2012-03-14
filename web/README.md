@@ -14,10 +14,21 @@ Requirements
 Installation
 ------------
 
-* Checkout the repository code, [see the parent directory README on how to do this](https://github.com/gina-alaska/akgmi/blob/master/README.md)
-* Copy or link the public directory to a web accessible directory.
-* Modify the web/public/javascript/config.js file to point at the correct URL (restUrl) for the rest application.
-* Configure the webserver to point at the public directory as the document root.
+Checkout the repository code, you may have already done this as part of the REST application setup.
+
+```
+$ git clone git@github.com:gina-alaska/akgmi.git
+$ cd akgmi
+$ git submodule init
+$ git submodule update
+$ cd web
+```
+
+Copy or link the public directory to a web accessible directory.
+
+Modify the web/public/javascript/config.js file to point at the correct URL (restUrl) for the rest application.
+
+Configure the webserver to point at the public directory as the document root.
 
 Development Information
 -----------------------
