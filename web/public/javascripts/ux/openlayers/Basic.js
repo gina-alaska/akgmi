@@ -48,7 +48,7 @@ Ext.define('Ext.OpenLayers.Basic', {
 		/*
 			TODO find the espg code for the google projections
 		*/
-    'google': {
+    'EPSG:3857': {
       defaultLayers: ['TILE.EPSG:3857.BDL', 'TILE.EPSG:3857.OSM', 'TILE.EPSG:3857.TOPO', 'TILE.EPSG:3857.CHARTS', 'TILE.EPSG:3857.OSM_OVERLAY'],
       projection: "EPSG:900913",
       units: 'm',

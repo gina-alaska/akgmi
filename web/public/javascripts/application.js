@@ -67,10 +67,10 @@ Ext.application({
       region: 'center',
       border: true,
       margin: '0 0 0 0',
-      projection: 'EPSG:3338',
+      projection: 'EPSG:3857',
       layers: [
-        'TILE.EPSG:3338.BDL', 'TILE.EPSG:3338.TOPO', 'TILE.EPSG:3338.SHADED_RELIEF', 'TILE.EPSG:3338.OSM', 
-        'TILE.EPSG:3338.HYDRO', 'TILE.EPSG:3338.OSM_OVERLAY','TILE.EPSG:3338.TOWNSHIP','TILE.EPSG:3338.QUADS'
+        'TILE.EPSG:3857.BDL', 'TILE.EPSG:3857.TOPO', 'TILE.EPSG:3857.SHADED_RELIEF', 'TILE.EPSG:3857.OSM', 
+        'TILE.EPSG:3857.HYDRO', 'TILE.EPSG:3857.OSM_OVERLAY','TILE.EPSG:3857.TOWNSHIP','TILE.EPSG:3857.QUADS'
       ]
     });
 
